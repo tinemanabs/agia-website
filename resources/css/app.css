@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* COLOR SCHEME
+PRIMARY COLOR: #2a2f89; 
+SECONDARY COLOR: #0A30AD;
+*/
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    overflow-x: hidden;
+    color: #484848;
+}
+
+#navbar-container {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* TOP NAVBAR */
+.navbar-toggler i {
+    color: #2a2f89;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
+}
+
+.search-btn {
+    border: none;
+    background-color: #2a2f89;
+}
+
+.search-btn:hover {
+    border: 1px solid #2a2f89;
+    color: #2a2f89;
+    background-color: #fff;
+}
+
+.top-nav-icons {
+    color: #2a2f89;
+}
+
+.top-nav-icons:hover {
+    color: #0A30AD;
+}
+
+/* SECOND NAV */
+.second-nav-tabs .nav-link {
+    color: #2a2f89;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.sub-menu-list .list-group-item {
+    border: none;
+    margin-left: 1rem;
+}
+
+.sub-menu-list .list-group-item a {
+    text-decoration: none;
+    color: #2a2f89;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.second-nav-tabs a:hover,
+.sub-menu-list .list-group-item a:hover {
+    color: #0A30AD;
+}
+
+
+/* INDEX PAGE */
+.homepage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/doj-bg.jpg');
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vh;
+}
+
+/* BREADCRUMB CONTAINER */
+.breadcrumb-custom {
+    padding: 3rem;
+    background-color: #2a2f89;
+}
+
+.breadcrumb-custom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.breadcrumb-custom-container h1 {
+    font-weight: 700;
+}
+
+.breadcrumb-custom-list li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.breadcrumb-custom-list .active {
+    color: #fff;
+    font-weight: 700;
+}
+
+
+/*Contact Us Section */
+
+.card-contact-us {
+    border: 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    text-align: center;
+}
+
+.card-contact-us .card-body h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #2a2f89;
+}
+
+.card-contact-us .card-body .link a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #484848 !important;
+}
+
+.btn-contact-us {
+    background-color: #2a2f89;
+    color: #fff;
+}
+
+
+/* Small devices (below 576px) */
+@media (max-width: 576px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar-menu li {
+        position: relative;
+    }
+
+    .navbar-menu .sub-menu ul {
+        display: block;
+        position: absolute;
+        z-index: 99;
+        visibility: hidden;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+        border-top: 4px solid #2a2f89;
+        background: #fff;
+    }
+
+    .navbar-menu .sub-menu ul li {
+        min-width: 200px;
+    }
+
+    .navbar-menu .sub-menu:hover>ul {
+        visibility: visible;
+    }
+
+    .sub-menu-list .list-group-item {
+        margin-left: 0rem;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}
