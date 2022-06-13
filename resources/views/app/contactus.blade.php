@@ -57,22 +57,23 @@
             <div class="row mt-5">
                 <div class="col-md-6">
                     <h3>Send us a Message</h3>
-                    <form action="" method="post">
+                    <form action="{{ route('send.contact') }}" method="post">
+                        @csrf
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
+                            <textarea class="form-control" name="message" id="message" rows="3" placeholder="Message"></textarea>
                         </div>
 
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-contact-us text-white" type="submit">Send Message</button>
+                            <button class="btn btn-contact-us text-white" type="submit" id="contactus-btn">Send Message</button>
                         </div>
 
                     </form>

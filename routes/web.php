@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,14 @@ Route::get('/', function () {
 });
 
 Route::get('/contactus', [PagesController::class, 'contactUspage'])->name('contactus');
+
+Route::get('/member-login', [MemberController::class, 'index'])->name('member-login');
+Route::post('/checklogin', [MemberController::class, 'checkLogin']);
+Route::get('/successlogin', [MemberController::class, 'successLogin']);
+Route::get('/logout', [MemberController::class, 'logout']);
+
+Route::post('/send-contact', [MailController::class, 'sendContact'])->name('send.contact');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
