@@ -102,6 +102,64 @@ body {
     font-weight: 700;
 }
 
+/*Login Section */
+
+.login-page-container {
+    min-height: 70vh;
+}
+
+.input-form {
+    position: relative;
+    display: inline-block;
+}
+
+
+.input-form input {
+    border: 0;
+    border-bottom: 1px solid #dedede;
+    background-color: transparent;
+    box-shadow: none !important;
+}
+
+.input-form i {
+    position: absolute;
+    font-size: 20px;
+    color: #dedede;
+    margin: 7px 0px 7px 20px;
+}
+
+.input-form input:focus {
+    border-color: #2a2f89;
+    border-width: 2px;
+    box-shadow: none !important;
+}
+
+.input-form input:focus+i {
+    color: #2a2f89;
+}
+
+.box-input-form {
+    padding-left: 50px !important;
+}
+
+.pw-link {
+    text-align: end;
+    color: #2a2f89;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-page-bg {
+
+    background-image: linear-gradient(rgba(10, 48, 173, 0.5), rgba(42, 47, 137, 0.5)), url('/img/login-page-bg.jpg');
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+
+
 
 /*Contact Us Section */
 
