@@ -93,8 +93,8 @@
                             </li>
                             {{-- ABOUT US NAV --}}
                             <li class="nav-item sub-menu second-nav-tabs" id="sub-menu">
-                                <a class="nav-link sub-menu-parent" data-bs-toggle="collapse"
-                                    href="#submenu-about">About Us <span class="caret"><i
+                                <a class="nav-link sub-menu-parent" href="{{ route('aboutus') }}">About Us <span
+                                        class="caret" data-bs-toggle="collapse" href="#submenu-about"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-about">
                                     <li class="list-group-item"><a href="">What is AGIA </a></li>

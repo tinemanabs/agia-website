@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/about-us', [PagesController::class, 'aboutUspage'])->name('aboutus');
 Route::get('/contactus', [PagesController::class, 'contactUspage'])->name('contactus');
 
 Route::get('/member-login', [MemberController::class, 'index'])->name('member-login');
