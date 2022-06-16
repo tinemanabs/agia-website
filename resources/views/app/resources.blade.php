@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <section id="about-us-section">
+    <section id="resources-section">
         <div class="container-fluid breadcrumb-custom" id="breadcrumb-img"
-            style=" background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/banner/about-us-img.jpg');">
+            style=" background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/banner/resources-img.jpg');">
             <div class="container">
                 <h1>@yield('main-title')</h1>
-                <p>What We Do</p>
+                <p>Have what you need</p>
             </div>
         </div>
 
@@ -15,22 +15,14 @@
                 <div class=" bg-white" id="sidebar-wrapper">
                     <div class="sidebar-heading border-0">@yield('main-title')</div>
                     <div class="list-group list-group-flush">
-                        <a class="list-group-item p-3 {{ Route::is('aboutus.what-is-agia') ? 'active' : '' }}"
-                            href="{{ route('aboutus.what-is-agia') }}">What is AGIA?</a>
-                        <a class="list-group-item p-3 {{ Route::is('aboutus.vision-mission') ? 'active' : '' }}"
-                            href="{{ route('aboutus.vision-mission') }}">Vision &
-                            Mission</a>
-                        <a class="list-group-item p-3 {{ Route::is('aboutus.strategy-map') ? 'active' : '' }}"
-                            href="{{ route('aboutus.strategy-map') }}">Strategy Map</a>
-                        <a class="list-group-item p-3 {{ Route::is('aboutus.board-directors') ? 'active' : '' }}"
-                            href="{{ route('aboutus.board-directors') }}">Board of
-                            Directors</a>
-                        <a class="list-group-item p-3 {{ Route::is('aboutus.advisory-council') ? 'active' : '' }}"
-                            href="{{ route('aboutus.advisory-council') }}">Advisory
-                            Council</a>
-                        <a class="list-group-item p-3 {{ Route::is('aboutus.secretariat') ? 'active' : '' }}"
-                            href="{{ route('aboutus.secretariat') }}">The
-                            Secretariat</a>
+                        <a class="list-group-item p-3" href="{{ route('resouces.gallery-single') }}">2020<span
+                                class="badge bg-secondary ms-2">4</span></a>
+                        <a class="list-group-item p-3" href="">2018 <span
+                                class="badge bg-secondary ms-2">4</span></a>
+                        <a class="list-group-item p-3" href="">2016 <span
+                                class="badge bg-secondary ms-2">4</span></a>
+                        <a class="list-group-item p-3" href="">2014 <span
+                                class="badge bg-secondary ms-2">4</span></a>
                     </div>
                 </div>
                 <!-- Page content wrapper-->

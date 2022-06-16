@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap);/* COLOR SCHEME
 PRIMARY COLOR: #2a2f89; 
-SECONDARY COLOR: #0A30AD;
+SECONDARY COLOR: #0056AB;
 */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -38,7 +38,7 @@ body {
 }
 
 .top-nav-icons:hover {
-    color: #0A30AD;
+    color: #0056AB;
 }
 
 /* SECOND NAV */
@@ -62,7 +62,7 @@ body {
 
 .second-nav-tabs a:hover,
 .sub-menu-list .list-group-item a:hover {
-    color: #0A30AD;
+    color: #0056AB;
 }
 
 @media (min-width: 992px) {
@@ -97,7 +97,7 @@ body {
 
 /* INDEX PAGE */
 .homepage {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/landing-page-img.jpg');
+    background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/landing-page-img.jpg');
     background-attachment: static;
     background-position: center;
     background-repeat: no-repeat;
@@ -141,7 +141,7 @@ body {
 }
 
 .landing-page-content a:hover {
-    background-color: #0A30AD;
+    background-color: #0056AB;
     color: #fff;
 }
 
@@ -174,6 +174,72 @@ body {
     font-weight: 600;
 }
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .feature-section {
+        margin-top: -5rem;
+    }
+}
+
+@media (max-width:992px) and (min-width: 768px) {
+    .feature-section-body {
+        flex-direction: column;
+    }
+
+    .feature-section-content {
+        margin-top: 1rem;
+    }
+
+}
+
+
+/* BREADCRUMB CONTAINER */
+.breadcrumb-custom {
+    height: 25vh;
+}
+
+.breadcrumb-custom .container {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.breadcrumb-custom .container h1 {
+    font-weight: 500;
+    color: #fff;
+}
+
+.breadcrumb-custom .container h1 span {
+    font-weight: 700;
+    color: #0077BC;
+}
+
+.breadcrumb-custom .container p {
+    color: #fff;
+    font-size: 1.5rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+.breadcrumb-custom-list li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.breadcrumb-custom-list .active {
+    color: #fff;
+    font-weight: 700;
+}
+
+#breadcrumb-img {
+    background-attachment: static;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #wrapper {
     overflow-x: hidden;
 }
@@ -186,7 +252,7 @@ body {
 
 .sidebar-heading {
     color: #fff;
-    background-color: #2a2f89 !important;
+    background-color: #0056AB !important;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -198,9 +264,37 @@ body {
     width: 15rem;
 }
 
-#page-content-wrapper {
-    min-width: 100vw;
+#sidebar-wrapper .list-group a:hover {
+    color: #0056AB;
 }
+
+#sidebar-wrapper .list-group .active {
+    color: #484848;
+    background-color: transparent;
+    border-left: 4px solid #0056AB;
+    border-bottom-color: rgba(0, 0, 0, .125) !important;
+    border-top-color: rgba(0, 0, 0, .125) !important;
+}
+
+#sidebarToggle i {
+    color: #0056AB;
+}
+
+#sidebarToggle:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.custom-breadcrumb .breadcrumb .breadcrumb-item a {
+    text-decoration: none;
+    color: #2a2f89;
+}
+
+.custom-breadcrumb .breadcrumb .breadcrumb-item a:hover {
+    color: #0056AB;
+}
+
+
 
 body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     margin-left: 0;
@@ -221,60 +315,169 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     }
 }
 
+/* WHAT IS AGIA */
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    .feature-section {
-        margin-top: -5rem;
+.about-us-content {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: justify;
+}
+
+/* The actual timeline (the vertical ruler) */
+.main-timeline {
+    position: relative;
+}
+
+/* The actual timeline (the vertical ruler) */
+.main-timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #0077BC;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.timeline {
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -13px;
+    background-color: #0077BC;
+    border: 5px solid #0056AB;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    padding: 0px 40px 20px 0px;
+    left: 0;
+}
+
+/* Place the container to the right */
+.right {
+    padding: 0px 0px 20px 40px;
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -12px;
+}
+
+.timeline .card .card-body {
+    text-align: justify;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+
+    /* Place the timelime to the left */
+    .main-timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .timeline {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .timeline::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after,
+    .right::after {
+        left: 18px;
+    }
+
+    .left::before {
+        right: auto;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
     }
 }
 
-@media (max-width:992px) and (min-width: 768px) {
-    .feature-section-body {
-        flex-direction: column;
-    }
-
-    .feature-section-content {
-        margin-top: 1rem;
-    }
-
+/* Vision and Mission */
+.vision-mission-card {
+    text-align: center;
 }
 
-
-
-/* BREADCRUMB CONTAINER */
-.breadcrumb-custom {
-    padding: 3rem;
-    background-color: #2a2f89;
+.vision-mission-card .fa-stack .fa-circle {
+    color: #2a2f89;
 }
 
-.breadcrumb-custom-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.vision-mission-card .fa-stack {
+    margin-bottom: 1rem;
 }
 
-.breadcrumb-custom-container h1 {
+.strategy-map-card .card-text span {
+    font-size: 0.8rem;
+}
+
+.officers-card .card-body h5 {
+    color: #2a2f89;
     font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
-.breadcrumb-custom-list li a {
-    color: #fff;
-    text-decoration: none;
+.officers-card .card-body .job-position {
+    color: #0056AB;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.breadcrumb-custom-list .active {
-    color: #fff;
-    font-weight: 700;
-}
-
-#breadcrumb-about-us-img {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/landing-page-img.jpg');
-    background-attachment: static;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 28vh;
+.officers-card .card-body .personal-details {
+    font-size: 0.8rem;
 }
 
 /*Login Section */

@@ -81,58 +81,18 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/css/main.css":
-/*!********************************!*\
-  !*** ./resources/css/main.css ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*require('./bootstrap'); */
-
-/* ICONS FOR MOBILE NAVBAR TOGGLER */
-$(document).ready(function () {
-  $('.fa-times').hide();
-  var toggle = false;
-  $('.navbar-toggler').on('click', function () {
-    toggle = !toggle;
-
-    if (toggle == true) {
-      $('.fa-times').show();
-      $('.fa-bars').hide();
-    } else {
-      $('.fa-times').hide();
-      $('.fa-bars').show();
-    }
-  });
-});
 window.addEventListener('DOMContentLoaded', function (event) {
   // Toggle the side navigation
   var sidebarToggle = document.body.querySelector('#sidebarToggle');
@@ -145,44 +105,17 @@ window.addEventListener('DOMContentLoaded', function (event) {
     });
   }
 });
-$('#contactus-btn').on('click', function () {
-  var name = $('#name').val();
-  var email = $('#email').val();
-  var subject = $('#subject').val();
-  var message = $('#message').val();
-  var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-  if (name == '' || email == '' || subject == '' || message == '') {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'Please fill up the fields!',
-      confirmButtonColor: '#2a2f89'
-    });
-    return false;
-  } else if (!email.match(mail_format)) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'Please enter a valid email',
-      confirmButtonColor: '#2a2f89'
-    });
-    return false;
-  }
-});
 
 /***/ }),
 
-/***/ 0:
-/*!************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/app.css ./resources/css/main.css ***!
-  \************************************************************************************/
+/***/ 1:
+/*!************************************!*\
+  !*** multi ./resources/js/main.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Christine Manabat\OneDrive\Documents\COLLEGE\4th Year\3rd Term\Cobra iTech\Projects\agia-website\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\Christine Manabat\OneDrive\Documents\COLLEGE\4th Year\3rd Term\Cobra iTech\Projects\agia-website\resources\css\app.css */"./resources/css/app.css");
-module.exports = __webpack_require__(/*! C:\Users\Christine Manabat\OneDrive\Documents\COLLEGE\4th Year\3rd Term\Cobra iTech\Projects\agia-website\resources\css\main.css */"./resources/css/main.css");
+module.exports = __webpack_require__(/*! C:\Users\Christine Manabat\OneDrive\Documents\COLLEGE\4th Year\3rd Term\Cobra iTech\Projects\agia-website\resources\js\main.js */"./resources/js/main.js");
 
 
 /***/ })

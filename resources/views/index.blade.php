@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Home')
 @section('content')
     <section id="jumbotron-section">
         <div class="jumbotron homepage">

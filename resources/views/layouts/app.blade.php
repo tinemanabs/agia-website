@@ -26,7 +26,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Association of Government Internal Auditors, Inc.</title>
+    <title>@yield('title') | Association of Government Internal Auditors, Inc.</title>
 
 </head>
 
@@ -40,7 +40,8 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('/img/agia-logo-2020.png') }}" alt="" class="img-fluid" width="90">
+                        <img src="{{ asset('/img/agia-logo-2020.png') }}" alt="" class="img-fluid"
+                            width="90">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -93,16 +94,22 @@
                             </li>
                             {{-- ABOUT US NAV --}}
                             <li class="nav-item sub-menu second-nav-tabs" id="sub-menu">
-                                <a class="nav-link sub-menu-parent" href="{{ route('aboutus') }}">About Us <span
-                                        class="caret" data-bs-toggle="collapse" href="#submenu-about"><i
+                                <a class="nav-link sub-menu-parent" href="{{ route('aboutus.what-is-agia') }}">About
+                                    Us <span class="caret" data-bs-toggle="collapse" href="#submenu-about"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-about">
-                                    <li class="list-group-item"><a href="">What is AGIA </a></li>
-                                    <li class="list-group-item"><a href="">Vision & Mission</a></li>
-                                    <li class="list-group-item"><a href="">Strategy Map</a></li>
-                                    <li class="list-group-item"><a href="">Board of Directors</a></li>
-                                    <li class="list-group-item"><a href="">Advisory Council</a></li>
-                                    <li class="list-group-item"><a href="">The Secretariat</a></li>
+                                    <li class="list-group-item"><a href="{{ route('aboutus.what-is-agia') }}">What is
+                                            AGIA </a></li>
+                                    <li class="list-group-item"><a href="{{ route('aboutus.vision-mission') }}">Vision
+                                            & Mission</a></li>
+                                    <li class="list-group-item"><a href="{{ route('aboutus.strategy-map') }}">Strategy
+                                            Map</a></li>
+                                    <li class="list-group-item"><a href="{{ route('aboutus.board-directors') }}">Board
+                                            of Directors</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('aboutus.advisory-council') }}">Advisory Council</a></li>
+                                    <li class="list-group-item"><a href="{{ route('aboutus.secretariat') }}">The
+                                            Secretariat</a></li>
                                 </ul>
                             </li>
 
@@ -113,7 +120,8 @@
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-membership">
                                     <li class="list-group-item"><a href="">Classification of Members</a></li>
-                                    <li class="list-group-item"><a href="">Update My Membership Profile</a></li>
+                                    <li class="list-group-item"><a href="">Update My Membership Profile</a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -148,7 +156,8 @@
 
                             {{-- LAWS & ISSUANCES NAV --}}
                             <li class="nav-item sub-menu second-nav-tabs" id="sub-menu">
-                                <a class="nav-link sub-menu-parent" data-bs-toggle="collapse" href="#submenu-laws">Laws
+                                <a class="nav-link sub-menu-parent" data-bs-toggle="collapse"
+                                    href="#submenu-laws">Laws
                                     & Issuances <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-laws">
@@ -159,6 +168,18 @@
                                     <li class="list-group-item"><a href="">DBM Circulars</a></li>
                                     <li class="list-group-item"><a href="">Memorandum Circulars</a></li>
 
+                                </ul>
+                            </li>
+                            {{-- LAWS & ISSUANCES NAV --}}
+                            <li class="nav-item sub-menu second-nav-tabs" id="sub-menu">
+                                <a class="nav-link sub-menu-parent" data-bs-toggle="collapse"
+                                    href="#submenu-laws">Resources <span class="caret"><i
+                                            class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
+                                <ul class="sub-menu-list list-group collapse" id="submenu-laws">
+                                    <li class="list-group-item"><a href="">IAS/IAU Statistics</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('resources.gallery') }}">Gallery</a></li>
+                                    <li class="list-group-item"><a href="">Downloads</a></li>
                                 </ul>
                             </li>
 

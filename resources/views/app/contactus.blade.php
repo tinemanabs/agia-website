@@ -1,15 +1,12 @@
 @extends('layouts.app')
+@section('title', 'Contact Us')
 @section('content')
     <section id="contactus" class="contactus mb-5">
-        <div class="container-fluid breadcrumb-custom">
+        <div class="container-fluid breadcrumb-custom" id="breadcrumb-img"
+            style=" background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/banner/contact-us-img.jpg');">
             <div class="container">
-                <h1 class="text-white">Contact Us</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-custom-list">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-                    </ol>
-                </nav>
+                <h1>Contact Us</h1>
+                <p>Get in Touch</p>
             </div>
         </div>
 
@@ -73,7 +70,8 @@
                         </div>
 
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-contact-us text-white" type="submit" id="contactus-btn">Send Message</button>
+                            <button class="btn btn-contact-us text-white" type="submit" id="contactus-btn">Send
+                                Message</button>
                         </div>
 
                     </form>
