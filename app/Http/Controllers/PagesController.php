@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
+use App\Models\Gallery;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,12 +39,21 @@ class PagesController extends Controller
     /* RESOURCES NAVIGATION */
     public function newsPage()
     {
-        return view('app.resources.news');
+        $news = DB::table('news')
+            ->latest()
+            ->get();
+
+        return view('app.resources.news', [
+            'news' => $news
+        ]);
     }
 
-    public function singleNewsPage()
+    public function singleNewsPage($id)
     {
-        return view('app.resources.news-single');
+        $news = News::find($id);
+        return view('app.resources.news-single', [
+            'news' => $news,
+        ]);
     }
 
     public function galleryPage()
@@ -55,9 +67,12 @@ class PagesController extends Controller
         ]);
     }
 
-    public function singleGalleryPage()
+    public function singleGalleryPage($id)
     {
-        return view('app.resources.gallery-single');
+        $galleries = Gallery::find($id);
+        return view('app.resources.gallery-single', [
+            'galleries' => $galleries,
+        ]);
     }
 
     /*CONTACT US NAVIGATION */

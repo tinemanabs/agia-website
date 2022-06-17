@@ -5,8 +5,8 @@
 @section('page-content')
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title text-center">CONVENTION SOUVENIR PROGRAM</h3>
-            <p class="card-text">Captions</p>
+            <h3 class="card-title text-center">{{ $galleries->title }}</h3>
+            <p class="card-text">{{ $galleries->caption }}</p>
             <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach(File::glob('uploads/galleries/' . request()->segment(count(request()->segments())).'/*') as $path)
                 <div class="col">

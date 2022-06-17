@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-body">
             <h3 class="mb-3">Create a News</h3>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{{ route('add.news') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Title</label>

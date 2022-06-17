@@ -21,15 +21,18 @@
                     <tbody>
                     @forelse ($galleries as $gallery)
                         <tr>
-                            <th>1</th>
+                            <th>{{ $gallery->id }}</th>
                             <td>{{ \Carbon\Carbon::parse($gallery->created_at)->format('m/d/Y') }}</td>
                             <td>{{ $gallery->title }}</td>
                             <td><button class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#id{{ $gallery->id }}" role="button"><i
                                         class="fa-solid fa-search"></i></button>
-
-                                <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
-                                        class="fa-solid fa-trash"></i></a>
+                                <form action="{{ route('delete.gallery') }}" method="post" style="display: inline;">
+                                    @csrf
+                                    <input type="hidden" name="id" id="id" value="{{ $gallery->id }}">
+                                    <button class="btn btn-circle btn-sm btn-danger" role="button"><i
+                                        class="fa-solid fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
 

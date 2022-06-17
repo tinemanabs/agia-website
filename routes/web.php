@@ -31,7 +31,7 @@ Route::get('/about-us/secretariat', [PagesController::class, 'secretariatpage'])
 
 /* RESOURCES NAVIGATION */
 Route::get('/resources/news', [PagesController::class, 'newsPage'])->name('resources.news');
-Route::get('/resouces/news/id', [PagesController::class, 'singleNewsPage'])->name('resources.news-single');
+Route::get('/resouces/news/{id}', [PagesController::class, 'singleNewsPage'])->name('resources.news-single');
 Route::get('/resources/gallery', [PagesController::class, 'galleryPage'])->name('resources.gallery');
 Route::get('/resouces/gallery/{id}', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
 
@@ -50,10 +50,13 @@ Route::get('/admin-gallery', [AdminController::class, 'viewAllGallery'])->name('
 Route::get('/admin-create-gallery', [AdminController::class, 'createGallery'])->name('admin.create-gallery');
 Route::post('/add-gallery', [AdminController::class, 'addGallery'])->name('add.gallery');
 Route::post('/add-images', [AdminController::class, 'addImages'])->name('add.images');
+Route::post('/delete-gallery', [AdminController::class, 'deleteGallery'])->name('delete.gallery');
 
 /* ADMIN-NEWS NAVIGATION */
 Route::get('/admin-news', [AdminController::class, 'viewAllnews'])->name('admin.view-all-news');
 Route::get('/admin-create-news', [AdminController::class, 'createNews'])->name('admin.create-news');
+Route::post('/add-news', [AdminController::class, 'addNews'])->name('add.news');
+Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delete.news');
 
 Auth::routes();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use File;
 use App\Models\Gallery;
+use App\Models\News;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -81,15 +82,61 @@ class AdminController extends Controller
 
     public function viewAllnews()
     {
-        $galleries = DB::table('galleries')
+        $news = DB::table('news')
             ->latest()
             ->get();
 
-        return view('main.admin-news');
+        return view('main.admin-news', [
+            'news' => $news
+        ]);
     }
 
     public function createNews()
     {
         return view('main.admin-news-create');
+    }
+
+    public function addNews(Request $req)
+    {
+        $data = [
+            'title' => $req->title,
+            'message' => $req->body,
+            'image' => $req->image
+        ];
+
+        $path = public_path('uploads');
+        $attachment = $req->file('image');
+
+        $fileName = Str::slug($data['title']) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+        // create folder
+        if (!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        $attachment->move($path, $fileName);
+
+        $data['title'] = $path . '/' . $fileName;
+
+        $news = new News();
+        $news->title = $req->title;
+        $news->message = $data['message'];
+        $news->image = $fileName;
+
+        $news->save();
+        return redirect('admin-news');
+    }
+
+    public function deleteNews(Request $req)
+    {
+        $data = News::find($req->id);
+        $data->delete();
+        return redirect('admin-news');
+    }
+
+    public function deleteGallery(Request $req)
+    {
+        $data = Gallery::find($req->id);
+        $data->delete();
+        return redirect('admin-gallery');
     }
 }
