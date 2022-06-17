@@ -176,6 +176,8 @@
                                     href="#submenu-laws">Resources <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-laws">
+                                    <li class="list-group-item"><a href="{{ route('resources.news') }}">AGIA
+                                            News</a></li>
                                     <li class="list-group-item"><a href="">IAS/IAU Statistics</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('resources.gallery') }}">Gallery</a></li>

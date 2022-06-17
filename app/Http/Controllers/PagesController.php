@@ -34,6 +34,16 @@ class PagesController extends Controller
     }
 
     /* RESOURCES NAVIGATION */
+    public function newsPage()
+    {
+        return view('app.resources.news');
+    }
+
+    public function singleNewsPage()
+    {
+        return view('app.resources.news-single');
+    }
+
     public function galleryPage()
     {
         $galleries = DB::table('galleries')

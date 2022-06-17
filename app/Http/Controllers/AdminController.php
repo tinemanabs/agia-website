@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function viewAllGallery()
     {
         $galleries = DB::table('galleries')
@@ -47,7 +52,7 @@ class AdminController extends Controller
         $attachment->move($path, $fileName);
 
         $data['title'] = $path . '/' . $fileName;
-        
+
         $galleries = new Gallery();
         $galleries->title = $req->title;
         $galleries->caption = $data['caption'];
@@ -66,11 +71,25 @@ class AdminController extends Controller
         }
 
         $attachments = $req->file('images');
-        foreach($attachments as $attachment) {
+        foreach ($attachments as $attachment) {
             $name = $attachment->getClientOriginalName();
             $attachment->move($path, $name);
         }
 
         return redirect('admin-gallery');
+    }
+
+    public function viewAllnews()
+    {
+        $galleries = DB::table('galleries')
+            ->latest()
+            ->get();
+
+        return view('main.admin-news');
+    }
+
+    public function createNews()
+    {
+        return view('main.admin-news-create');
     }
 }

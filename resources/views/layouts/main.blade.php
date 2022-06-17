@@ -41,7 +41,9 @@
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
                     href="{{ route('admin.view-all-gallery') }}">Gallery</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="{{ route('admin.view-all-news') }}">News
+                    Updates</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -51,7 +53,7 @@
                 <div class="container-fluid">
                     <button class="btn" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
                     <div class="dropdown-toggle " id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Admin</div>
+                        aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a href="" class="dropdown-item"><i class="fas fa-user me-2"
                                 style="color: #949494;"></i>Profile</a>
