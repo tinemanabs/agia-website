@@ -35,7 +35,7 @@ Route::get('/about-us/secretariat', [PagesController::class, 'secretariatpage'])
 Route::get('/contactus', [PagesController::class, 'contactUspage'])->name('contactus');
 
 Route::get('/resources/gallery', [PagesController::class, 'galleryPage'])->name('resources.gallery');
-Route::get('/resouces/gallery/id', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
+Route::get('/resouces/gallery/{id}', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
 
 Route::get('/member-login', [MemberController::class, 'index'])->name('member-login');
 Route::post('/checklogin', [MemberController::class, 'checkLogin']);
@@ -48,6 +48,9 @@ Route::get('/admin-create-gallery', [AdminController::class, 'createGallery'])->
 Route::get('/admin-edit-gallery', [AdminController::class, 'editGallery'])->name('admin.edit-gallery');
 
 Route::post('/send-contact', [MailController::class, 'sendContact'])->name('send.contact');
+
+Route::post('/add-gallery', [AdminController::class, 'addGallery'])->name('add.gallery');
+Route::post('/add-images', [AdminController::class, 'addImages'])->name('add.images');
 
 Auth::routes();
 

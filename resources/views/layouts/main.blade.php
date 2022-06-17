@@ -64,7 +64,7 @@
                             <i class="fas fa-sign-out-alt me-1" style="color: #949494;"></i> {{ __('Logout') }}
                         </a>
 
-                        <form id="logout-form" action="" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     </div>

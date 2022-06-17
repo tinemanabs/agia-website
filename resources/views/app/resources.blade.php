@@ -15,7 +15,7 @@
                 <div class=" bg-white" id="sidebar-wrapper">
                     <div class="sidebar-heading border-0">@yield('main-title')</div>
                     <div class="list-group list-group-flush">
-                        <a class="list-group-item p-3" href="{{ route('resouces.gallery-single') }}">2020<span
+                        <a class="list-group-item p-3" href="">2020<span
                                 class="badge bg-secondary ms-2">4</span></a>
                         <a class="list-group-item p-3" href="">2018 <span
                                 class="badge bg-secondary ms-2">4</span></a>
