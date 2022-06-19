@@ -16,7 +16,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label">File Upload</label>
-                    <input class="form-control form-control-sm" name="image" id="image" type="file">
+                    <input class="form-control form-control" name="image" id="image" type="file">
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn btn-primary me-md-2" href="{{ route('admin.view-all-gallery') }}"

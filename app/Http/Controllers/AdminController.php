@@ -139,4 +139,14 @@ class AdminController extends Controller
         $data->delete();
         return redirect('admin-gallery');
     }
+
+    public function viewAlltraining()
+    {
+        return view('main.admin-trainings');
+    }
+
+    public function createTraining()
+    {
+        return view('main.admin-trainings-create');
+    }
 }

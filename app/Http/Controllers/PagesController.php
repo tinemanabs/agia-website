@@ -36,6 +36,63 @@ class PagesController extends Controller
         return view('app.aboutus.thesecretariat');
     }
 
+    /* TRAININGS AND SEMINARS NAVIGATION */
+    public function trainingCalendar()
+    {
+        return view('app.trainings.trainingcalendar');
+    }
+    public function trainingCDPunit()
+    {
+        return view('app.trainings.trainingwithcdp');
+    }
+    public function inHousetraining()
+    {
+        return view('app.trainings.inhousetraining');
+    }
+    public function mobileTraining()
+    {
+        return view('app.trainings.mobiletraining');
+    }
+    public function listTraining()
+    {
+        return view('app.trainings.trainingevents');
+    }
+    public function singleTrainingEvent()
+    {
+        return view('app.trainings.trainingevents-single');
+    }
+
+    /*LAWS AND ISSUANCES NAVIGATION */
+    public function republicActpage()
+    {
+        return view('app.laws.republicact');
+    }
+
+    public function presidentialDecreepage()
+    {
+        return view('app.laws.presidentialdecree');
+    }
+
+    public function executiveOrderpage()
+    {
+        return view('app.laws.executiveorder');
+    }
+
+    public function administrativeOrderpage()
+    {
+        return view('app.laws.administrativeorders');
+    }
+
+    public function dbmCircularspage()
+    {
+        return view('app.laws.dbmcirculars');
+    }
+
+    public function memorandumCircularspage()
+    {
+        return view('app.laws.memorandumcirculars');
+    }
+
     /* RESOURCES NAVIGATION */
     public function newsPage()
     {

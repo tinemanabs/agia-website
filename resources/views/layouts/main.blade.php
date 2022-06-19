@@ -44,6 +44,8 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
                     href="{{ route('admin.view-all-news') }}">News
                     Updates</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="{{ route('admin.view-all-training') }}">Training Event</a>
             </div>
         </div>
         <!-- Page content wrapper-->

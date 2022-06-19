@@ -29,6 +29,22 @@ Route::get('/about-us/board-directors', [PagesController::class, 'boardOfdirecto
 Route::get('/about-us/advisory-council', [PagesController::class, 'advisoryCouncilpage'])->name('aboutus.advisory-council');
 Route::get('/about-us/secretariat', [PagesController::class, 'secretariatpage'])->name('aboutus.secretariat');
 
+/* TRAINING & SEMINARS */
+Route::get('/trainings-seminars/training-calendar', [PagesController::class, 'trainingCalendar'])->name('training.calendar');
+Route::get('/trainings-seminars/training-events', [PagesController::class, 'listTraining'])->name('training.training-events');
+Route::get('/trainings-seminars/training-events/id', [PagesController::class, 'singleTrainingEvent'])->name('training.training-events-single');
+Route::get('/trainings-seminars/training-cpd-units', [PagesController::class, 'trainingCDPunit'])->name('training.training-cpd-units');
+Route::get('/trainings-seminars/in-house-trainings', [PagesController::class, 'inHousetraining'])->name('training.in-house-trainings');
+Route::get('/trainings-seminars/mobile-training', [PagesController::class, 'mobileTraining'])->name('training.mobile-training');
+
+/* LAWS & ISSUANCES */
+Route::get('/laws-issuances/republic-act', [PagesController::class, 'republicActpage'])->name('laws.republic-act');
+Route::get('/laws-issuances/presidential-decree', [PagesController::class, 'presidentialDecreepage'])->name('laws.presidential-decree');
+Route::get('/laws-issuances/executive-order', [PagesController::class, 'executiveOrderpage'])->name('laws.executive-order');
+Route::get('/laws-issuances/administrative-orders', [PagesController::class, 'administrativeOrderpage'])->name('laws.administrative-orders');
+Route::get('/laws-issuances/dbm-circulars', [PagesController::class, 'dbmCircularspage'])->name('laws.dbm-circulars');
+Route::get('/laws-issuances/memorandum-circulars', [PagesController::class, 'memorandumCircularspage'])->name('laws.memorandum-circulars');
+
 /* RESOURCES NAVIGATION */
 Route::get('/resources/news', [PagesController::class, 'newsPage'])->name('resources.news');
 Route::get('/resouces/news/{id}', [PagesController::class, 'singleNewsPage'])->name('resources.news-single');
@@ -57,6 +73,10 @@ Route::get('/admin-news', [AdminController::class, 'viewAllnews'])->name('admin.
 Route::get('/admin-create-news', [AdminController::class, 'createNews'])->name('admin.create-news');
 Route::post('/add-news', [AdminController::class, 'addNews'])->name('add.news');
 Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delete.news');
+
+/* ADMIN-TRAININGS NAVIGATION */
+Route::get('/admin-trainings', [AdminController::class, 'viewAlltraining'])->name('admin.view-all-training');
+Route::get('/admin-create-training', [AdminController::class, 'createTraining'])->name('admin-create-training');
 
 Auth::routes();
 

@@ -194,6 +194,43 @@ body {
 
 }
 
+.about-us-quick-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+
+.about-us-quick-card i {
+    color: #0077BC;
+    padding-right: 20px;
+    font-size: 2rem;
+}
+
+.about-us-quick-left h2 {
+    color: #2a2f89;
+    font-weight: 600;
+}
+
+.about-us-quick-left p {
+    text-align: justify;
+}
+
+.about-us-quick-card-content h5 {
+    font-weight: 600;
+    color: #2a2f89
+}
+
+.about-us-quick-card-content h5,
+.about-us-quick-card-content p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
 
 /* BREADCRUMB CONTAINER */
 .breadcrumb-custom {
@@ -481,6 +518,34 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 .officers-card .card-body .personal-details {
     font-size: 0.8rem;
 }
+
+
+/* Laws and Issuance Section */
+.laws-issuances-container {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.laws-issuances-card {
+    display: flex;
+    align-items: center;
+}
+
+.laws-issuances-card .laws-issuances-file a {
+    text-decoration: none !important;
+    color: #484848;
+}
+
+
+.laws-issuances-subject {
+    text-align: justify;
+    font-weight: 500;
+}
+
+.laws-issuances-subject span {
+    text-align: justify;
+    font-weight: 400;
+}
+
 
 /*Login Section */
 

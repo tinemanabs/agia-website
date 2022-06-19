@@ -19,29 +19,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @forelse ($news as $n)
-                        <tr>
-                            <th>{{ $n->id }}</th>
-                            <td>{{ \Carbon\Carbon::parse($n->created_at)->format('m/d/Y') }}</td>
-                            <td>{{ $n->title }}</td>
-                            <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
-                                        class="fa-solid fa-search"></i></a>
+                        @forelse ($news as $n)
+                            <tr>
+                                <th>{{ $n->id }}</th>
+                                <td>{{ \Carbon\Carbon::parse($n->created_at)->format('F d, Y') }}</td>
+                                <td>{{ $n->title }}</td>
+                                <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
+                                            class="fa-solid fa-search"></i></a>
 
-                                <form action="{{ route('delete.news') }}" method="post" style="display: inline;">
-                                    @csrf
-                                    <input type="hidden" name="id" id="id" value="{{ $n->id }}">
-                                    <button class="btn btn-circle btn-sm btn-danger" role="button"><i
-                                        class="fa-solid fa-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="8">
-                                <div class="card-header border-0 text-center">No data available in table</div>
-                            </td>
-                        </tr>
-                    @endforelse
+                                    <form action="{{ route('delete.news') }}" method="post" style="display: inline;">
+                                        @csrf
+                                        <input type="hidden" name="id" id="id" value="{{ $n->id }}">
+                                        <button class="btn btn-circle btn-sm btn-danger" role="button"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8">
+                                    <div class="card-header border-0 text-center">No data available in table</div>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

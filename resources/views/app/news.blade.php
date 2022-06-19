@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section id="resources-section">
+    <section id="news-section">
         <div class="container-fluid breadcrumb-custom" id="breadcrumb-img"
             style=" background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/banner/resources-img.jpg');">
             <div class="container">

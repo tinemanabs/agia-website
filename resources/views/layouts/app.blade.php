@@ -94,8 +94,8 @@
                             </li>
                             {{-- ABOUT US NAV --}}
                             <li class="nav-item sub-menu second-nav-tabs" id="sub-menu">
-                                <a class="nav-link sub-menu-parent" href="{{ route('aboutus.what-is-agia') }}">About
-                                    Us <span class="caret" data-bs-toggle="collapse" href="#submenu-about"><i
+                                <a class="nav-link sub-menu-parent" data-bs-toggle="collapse"
+                                    href="#submenu-about">About Us <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-about">
                                     <li class="list-group-item"><a href="{{ route('aboutus.what-is-agia') }}">What is
@@ -132,10 +132,19 @@
                                     href="#submenu-training">Training & Seminars <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-training">
-                                    <li class="list-group-item"><a href="">Training Calendar</a></li>
-                                    <li class="list-group-item"><a href="">Training with CPD Units</a></li>
-                                    <li class="list-group-item"><a href="">In-house Trainings</a></li>
-                                    <li class="list-group-item"><a href="">Mobile Training</a></li>
+                                    <li class="list-group-item"><a href="{{ route('training.calendar') }}">Training
+                                            Calendar</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('training.training-events') }}">List of Training
+                                            Events</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('training.training-cpd-units') }}">Training with CPD
+                                            Units</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('training.in-house-trainings') }}">In-house Trainings</a>
+                                    </li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('training.mobile-training') }}">Mobile Training</a></li>
 
                                 </ul>
                             </li>
@@ -161,12 +170,21 @@
                                     & Issuances <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-laws">
-                                    <li class="list-group-item"><a href="">Republic Act</a></li>
-                                    <li class="list-group-item"><a href="">Presidential Decree</a></li>
-                                    <li class="list-group-item"><a href="">Executive Order</a></li>
-                                    <li class="list-group-item"><a href="">Administrative Orders</a></li>
-                                    <li class="list-group-item"><a href="">DBM Circulars</a></li>
-                                    <li class="list-group-item"><a href="">Memorandum Circulars</a></li>
+                                    <li class="list-group-item"><a href="{{ route('laws.republic-act') }}">Republic
+                                            Act</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('laws.presidential-decree') }}">Presidential Decree</a>
+                                    </li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('laws.executive-order') }}">Executive Order</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('laws.administrative-orders') }}">Administrative
+                                            Orders</a></li>
+                                    <li class="list-group-item"><a href="{{ route('laws.dbm-circulars') }}">DBM
+                                            Circulars</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('laws.memorandum-circulars') }}">Memorandum Circulars</a>
+                                    </li>
 
                                 </ul>
                             </li>

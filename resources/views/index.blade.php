@@ -24,7 +24,7 @@
                             <div class="feature-section-icon">
                                 <span class="fa-stack fa-2x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
-                                    <i class="fa-regular fa-lightbulb fa-stack-1x fa-inverse"></i>
+                                    <i class="fa-solid fa-arrow-trend-up fa-stack-1x fa-inverse"></i>
                                 </span>
                             </div>
                             <div class="feature-section-content">
@@ -42,7 +42,7 @@
                             <div class="feature-section-icon">
                                 <span class="fa-stack fa-2x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
-                                    <i class="fa-regular fa-lightbulb fa-stack-1x fa-inverse"></i>
+                                    <i class="fa-solid fa-coins fa-stack-1x fa-inverse"></i>
                                 </span>
                             </div>
                             <div class="feature-section-content">
@@ -60,7 +60,7 @@
                             <div class="feature-section-icon">
                                 <span class="fa-stack fa-2x">
                                     <i class="fa-solid fa-circle fa-stack-2x"></i>
-                                    <i class="fa-regular fa-lightbulb fa-stack-1x fa-inverse"></i>
+                                    <i class="fa-solid fa-landmark fa-stack-1x fa-inverse"></i>
                                 </span>
                             </div>
                             <div class="feature-section-content">
@@ -72,6 +72,56 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us-quick-section">
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-start align-items-start">
+                <div class="col-md-6 order-lg-last">
+                    <img src="{{ asset('img/banner/about-us-img.jpg') }}" alt="" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6 about-us-quick-left">
+                    <h2 class="mt-3 mt-lg-0">About Us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nobis impedit culpa obcaecati,
+                        corporis omnis, nostrum rerum accusamus distinctio accusantium id voluptate, sunt veritatis
+                        temporibus iste ducimus unde deserunt animi?</p>
+                    <div class="card border-0 mb-3 mt-5">
+                        <div class="card-body p-0 about-us-quick-card">
+                            <div class="about-us-quick-card-icon">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </div>
+                            <div class="about-us-quick-card-content">
+                                <h5>Ullamco laboris nisi ut aliquip consequat</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quideme</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-3">
+                        <div class="card-body p-0 about-us-quick-card">
+                            <div class="about-us-quick-card-icon">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <div class="about-us-quick-card-content">
+                                <h5>Magnam soluta odio exercitationem reprehenderi</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quideme</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-3">
+                        <div class="card-body p-0 about-us-quick-card">
+                            <div class="about-us-quick-card-icon">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div class="about-us-quick-card-content">
+                                <h5 class="p-0 m-0">Voluptatem et qui exercitationem</h5>
+                                <p class="p-0 m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quideme</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
