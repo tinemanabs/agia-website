@@ -22,7 +22,7 @@
                         @forelse ($news as $n)
                             <tr>
                                 <th>{{ $n->id }}</th>
-                                <td>{{ \Carbon\Carbon::parse($n->created_at)->format('F d, Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($n->date)->format('F d, Y') }}</td>
                                 <td>{{ $n->title }}</td>
                                 <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>

@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
     <div id="app">
         <!-- NAVBAR -->
 
@@ -194,11 +193,11 @@
                                     href="#submenu-laws">Resources <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-laws">
-                                    <li class="list-group-item"><a href="{{ route('resources.news') }}">AGIA
+                                    <li class="list-group-item"><a href="{{ route('resources.news', 2022) }}">AGIA
                                             News</a></li>
                                     <li class="list-group-item"><a href="">IAS/IAU Statistics</a></li>
                                     <li class="list-group-item"><a
-                                            href="{{ route('resources.gallery') }}">Gallery</a></li>
+                                            href="{{ route('resources.gallery', 2020) }}">Gallery</a></li>
                                     <li class="list-group-item"><a href="">Downloads</a></li>
                                 </ul>
                             </li>

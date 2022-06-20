@@ -22,7 +22,7 @@
                         @forelse ($galleries as $gallery)
                             <tr>
                                 <th>{{ $gallery->id }}</th>
-                                <td>{{ \Carbon\Carbon::parse($gallery->created_at)->format('F d, Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($gallery->date)->format('F d, Y') }}</td>
                                 <td>{{ $gallery->title }}</td>
                                 <td><button class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#id{{ $gallery->id }}" role="button"><i

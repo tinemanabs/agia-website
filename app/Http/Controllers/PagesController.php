@@ -94,10 +94,21 @@ class PagesController extends Controller
     }
 
     /* RESOURCES NAVIGATION */
-    public function newsPage()
+    /*public function newsPage()
     {
         $news = DB::table('news')
             ->latest()
+            ->get();
+
+        return view('app.resources.news', [
+            'news' => $news
+        ]);
+    }*/
+
+    public function newsPage($year)
+    {
+        $news = DB::table('news')
+            ->where('date', 'like', '%'. $year . '%')
             ->get();
 
         return view('app.resources.news', [
@@ -113,10 +124,10 @@ class PagesController extends Controller
         ]);
     }
 
-    public function galleryPage()
+    public function galleryPage($year)
     {
         $galleries = DB::table('galleries')
-            ->latest()
+            ->where('date', 'like', '%'. $year . '%')
             ->get();
 
         return view('app.resources.gallery', [

@@ -15,6 +15,10 @@
                     <textarea class="form-control" name="body" id="body" rows="15"></textarea>
                 </div>
                 <div class="mb-3">
+                    <label for="formGroupExampleInput3" class="form-label">Date</label>
+                    <input type="date" class="form-control" name="date" id="date"></input>
+                </div>
+                <div class="mb-3">
                     <label for="formFileSm" class="form-label">File Upload</label>
                     <input class="form-control form-control" name="image" id="image" type="file">
                 </div>

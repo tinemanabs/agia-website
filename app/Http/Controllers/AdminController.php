@@ -6,6 +6,8 @@ use File;
 use App\Models\Gallery;
 use App\Models\News;
 
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -38,10 +40,13 @@ class AdminController extends Controller
         $data = [
             'title' => $req->title,
             'caption' => $req->caption,
+            'date' => $req->date,
             'image' => $req->image
         ];
 
-        $path = public_path('uploads');
+        $yearFolder = Carbon::createFromFormat('Y-m-d', $data['date'])->format('Y');
+
+        $path = public_path('uploads/galleries/' . $yearFolder . '/');
         $attachment = $req->file('image');
 
         $fileName = Str::slug($data['title']) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
@@ -57,6 +62,7 @@ class AdminController extends Controller
         $galleries = new Gallery();
         $galleries->title = $req->title;
         $galleries->caption = $data['caption'];
+        $galleries->date = $data['date'];
         $galleries->image = $fileName;
 
         $galleries->save();
@@ -65,7 +71,11 @@ class AdminController extends Controller
 
     public function addImages(Request $req)
     {
-        $path = public_path('uploads/galleries/' . $req->id);
+        $galleries = Gallery::find($req->id);
+
+        $yearFolder = Carbon::createFromFormat('Y-m-d', $galleries->date)->format('Y');
+
+        $path = public_path('uploads/galleries/' . $yearFolder . '/' . $req->id);
 
         if (!File::exists($path)) {
             File::makeDirectory($path, $mode = 0777, true, true);
@@ -101,10 +111,14 @@ class AdminController extends Controller
         $data = [
             'title' => $req->title,
             'message' => $req->body,
+            'date' => $req->date,
             'image' => $req->image
         ];
 
-        $path = public_path('uploads');
+        $yearFolder = Carbon::createFromFormat('Y-m-d', $data['date'])->format('Y');
+        $titleFolder = Str::slug($data['title'], '-');
+
+        $path = public_path('uploads/news/' . $yearFolder . '/' . $titleFolder);
         $attachment = $req->file('image');
 
         $fileName = Str::slug($data['title']) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
@@ -120,6 +134,7 @@ class AdminController extends Controller
         $news = new News();
         $news->title = $req->title;
         $news->message = $data['message'];
+        $news->date = $data['date'];
         $news->image = $fileName;
 
         $news->save();

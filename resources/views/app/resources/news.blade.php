@@ -8,7 +8,7 @@
         @foreach ($news as $n)
             <div class="col">
                 <div class="card h-100">
-                    <img src="{{ asset('uploads/' . $n->image) }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('uploads/news/' . request()->segment(count(request()->segments())) . '/' . \Illuminate\Support\Str::slug($n->title, '-') . '/' .  $n->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $n->title }}</h5>
                         <p class="card-text">{{ \Illuminate\Support\Str::limit($n->message, 150, $end = '...') }}</p>

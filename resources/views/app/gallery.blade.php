@@ -15,13 +15,15 @@
                 <div class=" bg-white" id="sidebar-wrapper">
                     <div class="sidebar-heading border-0">Gallery</div>
                     <div class="list-group list-group-flush">
-                        <a class="list-group-item p-3" href="">2020<span class="badge bg-secondary ms-2">4</span></a>
-                        <a class="list-group-item p-3" href="">2018 <span
+                    @foreach (array_reverse(File::glob('uploads/galleries/*', GLOB_ONLYDIR)) as $path)
+                        <a class="list-group-item p-3" href="{{ route('resources.gallery', basename($path)) }}">{{ basename($path) }}<span class="badge bg-secondary ms-2">{{ count(File::glob('uploads/galleries/' . basename($path) . '/*', GLOB_ONLYDIR)) }}</span></a>
+                        <!-- <a class="list-group-item p-3" href="">2018 <span
                                 class="badge bg-secondary ms-2">4</span></a>
                         <a class="list-group-item p-3" href="">2016 <span
                                 class="badge bg-secondary ms-2">4</span></a>
                         <a class="list-group-item p-3" href="">2014 <span
-                                class="badge bg-secondary ms-2">4</span></a>
+                                class="badge bg-secondary ms-2">4</span></a> -->
+                    @endforeach
                     </div>
                 </div>
                 <!-- Page content wrapper-->

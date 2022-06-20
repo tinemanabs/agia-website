@@ -10,7 +10,7 @@
                 <small class="card-subtitle  text-muted">Date Posted:
                     {{ \Carbon\Carbon::parse($news->created_at)->format('M d Y h:i a') }}</small>
             </div>
-            <img src="{{ asset('uploads/' . $news->image) }}" class="card-img-top" alt="...">
+            <img src="{{ asset('uploads/news/' . Carbon\Carbon::createFromFormat('Y-m-d', $news->date)->format('Y') . '/' . \Illuminate\Support\Str::slug($news->title, '-')  . '/' . $news->image) }}" class="card-img-top" alt="...">
             <div class="card-body p-0 mt-3">
 
                 <p class="card-text">{{ $news->message }}</p>

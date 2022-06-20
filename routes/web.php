@@ -46,10 +46,11 @@ Route::get('/laws-issuances/dbm-circulars', [PagesController::class, 'dbmCircula
 Route::get('/laws-issuances/memorandum-circulars', [PagesController::class, 'memorandumCircularspage'])->name('laws.memorandum-circulars');
 
 /* RESOURCES NAVIGATION */
-Route::get('/resources/news', [PagesController::class, 'newsPage'])->name('resources.news');
-Route::get('/resouces/news/{id}', [PagesController::class, 'singleNewsPage'])->name('resources.news-single');
-Route::get('/resources/gallery', [PagesController::class, 'galleryPage'])->name('resources.gallery');
-Route::get('/resouces/gallery/{id}', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
+//Route::get('/resources/news', [PagesController::class, 'newsPage'])->name('resources.news');
+Route::get('/resources/news/{year}', [PagesController::class, 'newsPage'])->name('resources.news');
+Route::get('/resources/news/archive/{id}', [PagesController::class, 'singleNewsPage'])->name('resources.news-single');
+Route::get('/resources/gallery/{year}', [PagesController::class, 'galleryPage'])->name('resources.gallery');
+Route::get('/resouces/gallery/images/{id}', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
 
 /* CONTACT US NAVIGATION */
 Route::get('/contactus', [PagesController::class, 'contactUspage'])->name('contactus');

@@ -145,6 +145,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     });
   }
 });
+
 $('#contactus-btn').on('click', function () {
   var name = $('#name').val();
   var email = $('#email').val();

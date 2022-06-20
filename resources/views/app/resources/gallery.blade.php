@@ -7,7 +7,7 @@
         @foreach ($galleries as $gallery)
             <div class="col">
                 <div class="card h-100">
-                    <img src="{{ asset('uploads/' . $gallery->image) }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('uploads/galleries/' . request()->segment(count(request()->segments())) . '/' . $gallery->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $gallery->title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">
