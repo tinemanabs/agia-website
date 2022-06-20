@@ -164,4 +164,19 @@ class AdminController extends Controller
     {
         return view('main.admin-trainings-create');
     }
+
+    public function viewAllmembers()
+    {
+        return view('main.admin-manage-members');
+    }
+
+    public function registerMember()
+    {
+        return view('main.admin-manage-members-register');
+    }
+
+    public function viewAllmemberapplication()
+    {
+        return view('main.admin-member-application');
+    }
 }

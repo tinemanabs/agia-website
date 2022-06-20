@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Member Login')
 @section('content')
     <section class="login-section" id="login-section">
         <div class="login-page-container">
@@ -35,7 +36,8 @@
                                 <div class="form-group input-form d-flex justify-content-start flex-column">
 
                                     <input id="password" type="password" class="form-control box-input-form "
-                                        name="password" required="" autocomplete="current-password" placeholder="Password">
+                                        name="password" required="" autocomplete="current-password"
+                                        placeholder="Password">
                                     <i class="fas fa-lock"></i>
                                     <div id="emailHelp" class="form-text">Enter the password that accompanies your
                                         username.</div>

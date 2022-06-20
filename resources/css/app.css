@@ -35,11 +35,13 @@ body {
     background-color: #fff;
 }
 
-.top-nav-icons {
+.top-nav-icons,
+.member-login i {
     color: #2a2f89;
 }
 
-.top-nav-icons:hover {
+.top-nav-icons:hover,
+.member-login i:hover {
     color: #0056AB;
 }
 
@@ -519,6 +521,21 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     font-size: 0.8rem;
 }
 
+/* Membership Section */
+.btn-membership {
+    background-color: #2a2f89;
+    color: white;
+}
+
+.btn-membership:hover {
+    background-color: #0056AB;
+    color: white;
+}
+
+.btn-membership:focus {
+    box-shadow: none;
+}
+
 
 /* Laws and Issuance Section */
 .laws-issuances-container {
@@ -596,7 +613,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 .login-page-bg {
 
-    background-image: linear-gradient(rgba(10, 48, 173, 0.5), rgba(42, 47, 137, 0.5)), url('/img/login-page-bg.jpg');
+    background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/login-page-img.jpg');
     background-attachment: static;
     background-position: center;
     background-repeat: no-repeat;

@@ -4,7 +4,7 @@
 @section('breadcrumb', 'Memorandum Circulars')
 @section('page-content')
 
-    <h1 class="page-heading mb-4">Executive Order</h1>
+    <h1 class="page-heading mb-4">Memorandum Circulars</h1>
     <div class="card mb-3 laws-issuances-container border-0">
         <div class="card-body">
             <div class="row laws-issuances-card">
@@ -18,7 +18,7 @@
                     <a href="">
                         <div class="d-flex align-items-center">
                             <!-- <img src="{{ asset('img/pdf.png') }}" alt="" class="img-fluid" width="40">
-                                <span class="filename" style="padding: 30px 10px"></span> -->
+                                    <span class="filename" style="padding: 30px 10px"></span> -->
                         </div>
                     </a>
                 </div>

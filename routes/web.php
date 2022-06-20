@@ -29,6 +29,12 @@ Route::get('/about-us/board-directors', [PagesController::class, 'boardOfdirecto
 Route::get('/about-us/advisory-council', [PagesController::class, 'advisoryCouncilpage'])->name('aboutus.advisory-council');
 Route::get('/about-us/secretariat', [PagesController::class, 'secretariatpage'])->name('aboutus.secretariat');
 
+/* MEMBERSHIP NAVIGATION */
+
+Route::get('/membership/classification-members', [PagesController::class, 'classificationMember'])->name('membership.classification-membership');
+Route::get('/membership/membership-application', [PagesController::class, 'membershipApplication'])->name('membership.membership-application');
+Route::get('/membership/update-membership-profile', [PagesController::class, 'updateMembership'])->name('membership.update-membership-profile');
+
 /* TRAINING & SEMINARS */
 Route::get('/trainings-seminars/training-calendar', [PagesController::class, 'trainingCalendar'])->name('training.calendar');
 Route::get('/trainings-seminars/training-events', [PagesController::class, 'listTraining'])->name('training.training-events');
@@ -78,6 +84,13 @@ Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delet
 /* ADMIN-TRAININGS NAVIGATION */
 Route::get('/admin-trainings', [AdminController::class, 'viewAlltraining'])->name('admin.view-all-training');
 Route::get('/admin-create-training', [AdminController::class, 'createTraining'])->name('admin-create-training');
+
+/* ADMIN-MEMBERSHIP APPLICATIONS NAVIGATION */
+Route::get('/admin-membership-applications', [AdminController::class, 'viewAllmemberapplication'])->name('admin.view-all-applications');
+
+/* ADMIN-USERS MANAGEMENT NAVIGATION */
+Route::get('/admin-users-management', [AdminController::class, 'viewAllmembers'])->name('admin.view-all-members');
+Route::get('/admin-users-management/register', [AdminController::class, 'registerMember'])->name('admin.register-member');
 
 Auth::routes();
 

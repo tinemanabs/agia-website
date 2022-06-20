@@ -36,6 +36,23 @@ class PagesController extends Controller
         return view('app.aboutus.thesecretariat');
     }
 
+    /* MEMBERSHIP NAVIGATION */
+
+    public function classificationMember()
+    {
+        return view('app.membership.classificationofmembers');
+    }
+
+    public function membershipApplication()
+    {
+        return view('app.membership.membershipapplication');
+    }
+
+    public function updateMembership()
+    {
+        return view('app.membership.updatemymembership');
+    }
+
     /* TRAININGS AND SEMINARS NAVIGATION */
     public function trainingCalendar()
     {
@@ -108,7 +125,7 @@ class PagesController extends Controller
     public function newsPage($year)
     {
         $news = DB::table('news')
-            ->where('date', 'like', '%'. $year . '%')
+            ->where('date', 'like', '%' . $year . '%')
             ->get();
 
         return view('app.resources.news', [
@@ -127,7 +144,7 @@ class PagesController extends Controller
     public function galleryPage($year)
     {
         $galleries = DB::table('galleries')
-            ->where('date', 'like', '%'. $year . '%')
+            ->where('date', 'like', '%' . $year . '%')
             ->get();
 
         return view('app.resources.gallery', [

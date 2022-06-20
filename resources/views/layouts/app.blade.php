@@ -79,7 +79,11 @@
                             </div>
                         </div>
 
-
+                        <span class="navbar-text ms-3 member-login d-none d-lg-block">
+                            <a href="{{ route('member-login') }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Member Login">
+                                <i class="fa-solid fa-user fa-2x"></i></a>
+                        </span>
                     </div>
                 </div>
             </nav>
@@ -118,8 +122,15 @@
                                     href="#submenu-membership">Membership <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-membership">
-                                    <li class="list-group-item"><a href="">Classification of Members</a></li>
-                                    <li class="list-group-item"><a href="">Update My Membership Profile</a>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('membership.classification-membership') }}">Classification
+                                            of Members</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('membership.membership-application') }}">Membership
+                                            Application</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('membership.update-membership-profile') }}">Update My
+                                            Membership Profile</a>
                                     </li>
 
                                 </ul>
@@ -205,6 +216,10 @@
                             {{-- CONTACT US NAV --}}
                             <li class="nav-item second-nav-tabs">
                                 <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
+                            </li>
+
+                            <li class="nav-item second-nav-tabs d-block d-lg-none">
+                                <a class="nav-link" href="{{ route('member-login') }}">Member Login</a>
                             </li>
 
                         </ul>

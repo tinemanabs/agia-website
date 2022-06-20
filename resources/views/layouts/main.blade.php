@@ -46,6 +46,12 @@
                     Updates</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
                     href="{{ route('admin.view-all-training') }}">Training Event</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="{{ route('admin.view-all-applications') }}">Membership
+                    Applications</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="{{ route('admin.view-all-members') }}">Members
+                    Management</a>
             </div>
         </div>
         <!-- Page content wrapper-->
