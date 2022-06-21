@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $gallery->title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">
-                            {{ \Carbon\Carbon::parse($gallery->created_at)->toFormattedDateString() }}</h6>
+                            {{ \Carbon\Carbon::parse($gallery->date)->toFormattedDateString() }}</h6>
                         <div class="d-flex justify-content-end">
                             <a href="{{ route('resouces.gallery-single', $gallery->id) }}"
                                 class="btn btn-primary stretched-link">View</a>
