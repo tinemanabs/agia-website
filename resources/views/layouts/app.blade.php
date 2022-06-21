@@ -210,6 +210,9 @@
                                     <li class="list-group-item"><a
                                             href="{{ route('resources.gallery', 2020) }}">Gallery</a></li>
                                     <li class="list-group-item"><a href="">Downloads</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('resources.president-message') }}">President's
+                                            Message</a></li>
                                 </ul>
                             </li>
 

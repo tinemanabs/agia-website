@@ -170,6 +170,11 @@ class PagesController extends Controller
         ]);
     }
 
+    public function presidentMessagepage()
+    {
+        return view('app.resources.president-message');
+    }
+
     /*CONTACT US NAVIGATION */
     public function contactUspage()
     {

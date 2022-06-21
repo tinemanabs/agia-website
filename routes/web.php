@@ -5,6 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $news = DB::table('news')
+        ->orderBy('created_at', 'desc')
+        ->limit(4)
+        ->get();
+    $trainings = DB::table('trainings')
+        ->latest()
+        ->get();
+
+    return view('index')->with('news', $news)->with('trainings', $trainings);
 });
 
 /* ABOUT US NAVIGATION */
@@ -58,6 +67,7 @@ Route::get('/resources/news/{year}', [PagesController::class, 'newsPage'])->name
 Route::get('/resources/news/archive/{id}', [PagesController::class, 'singleNewsPage'])->name('resources.news-single');
 Route::get('/resources/gallery/{year}', [PagesController::class, 'galleryPage'])->name('resources.gallery');
 Route::get('/resouces/gallery/images/{id}', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
+Route::get('/resources/president-message', [PagesController::class, 'presidentMessagepage'])->name('resources.president-message');
 
 /* CONTACT US NAVIGATION */
 Route::get('/contactus', [PagesController::class, 'contactUspage'])->name('contactus');
