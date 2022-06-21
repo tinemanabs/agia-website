@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="mb-3">Create a Training Event</h3>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('add.training') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -17,11 +17,11 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Start Date</label>
-                            <input type="text" name="startDate" id="startDate" class="form-control">
+                            <input type="datetime-local" name="startDate" id="startDate" class="form-control">
                         </div>
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">End Date</label>
-                            <input type="text" name="endDate" id="endDate" class="form-control">
+                            <input type="datetime-local" name="endDate" id="endDate" class="form-control">
                         </div>
                     </div>
 

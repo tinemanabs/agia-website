@@ -5,18 +5,16 @@
 @section('page-content')
     <div class="card">
         <div class="card-header">
-            <h5>Training Title</h5>
+            <h5>{{ $trainings->title }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Date: </li>
-            <li class="list-group-item">Venue:</li>
-            <li class="list-group-item">Course Objective: </li>
+            <li class="list-group-item">Date: {{ $trainings->start_date }} to {{ $trainings->end_date }}</li>
+            <li class="list-group-item">Venue: {{ $trainings->venue }}</li>
+            <li class="list-group-item">Course Objective: {{ $trainings->objective }}</li>
         </ul>
-        <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi similique debitis molestiae
-            porro est iusto facilis, eligendi vitae mollitia distinctio corrupti. Facilis velit, culpa ducimus officia
-            corrupti accusantium doloribus pariatur.
+        <div class="card-body">{{ $trainings->message }}
             <div class="training-event-img mt-3">
-                <img src="{{ asset('img/banner/resources-img.jpg') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('uploads/training/' . $trainings->image) }}" class="img-fluid" alt="...">
             </div>
         </div>
     </div>

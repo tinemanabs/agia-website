@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@agia.com',
             'password' => Hash::make('admin'),
-            'user_role' => 0
+            'user_role' => "1",
+            'active' => 0
         ]);
 
         User::create([
@@ -29,7 +30,8 @@ class DatabaseSeeder extends Seeder
             'username' => 'member1',
             'email' => 'patrickjeromeauy@gmail.com',
             'password' => Hash::make('member'),
-            'user_role' => 0
+            'user_role' => "0",
+            'active' => 0
         ]);
     }
 }

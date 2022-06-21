@@ -34,11 +34,12 @@ Route::get('/about-us/secretariat', [PagesController::class, 'secretariatpage'])
 Route::get('/membership/classification-members', [PagesController::class, 'classificationMember'])->name('membership.classification-membership');
 Route::get('/membership/membership-application', [PagesController::class, 'membershipApplication'])->name('membership.membership-application');
 Route::get('/membership/update-membership-profile', [PagesController::class, 'updateMembership'])->name('membership.update-membership-profile');
+Route::post('/send-application', [MemberController::class, 'sendApplication'])->name('send.application');
 
 /* TRAINING & SEMINARS */
 Route::get('/trainings-seminars/training-calendar', [PagesController::class, 'trainingCalendar'])->name('training.calendar');
 Route::get('/trainings-seminars/training-events', [PagesController::class, 'listTraining'])->name('training.training-events');
-Route::get('/trainings-seminars/training-events/id', [PagesController::class, 'singleTrainingEvent'])->name('training.training-events-single');
+Route::get('/trainings-seminars/training-events/{id}', [PagesController::class, 'singleTrainingEvent'])->name('training.training-events-single');
 Route::get('/trainings-seminars/training-cpd-units', [PagesController::class, 'trainingCDPunit'])->name('training.training-cpd-units');
 Route::get('/trainings-seminars/in-house-trainings', [PagesController::class, 'inHousetraining'])->name('training.in-house-trainings');
 Route::get('/trainings-seminars/mobile-training', [PagesController::class, 'mobileTraining'])->name('training.mobile-training');
@@ -84,6 +85,7 @@ Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delet
 /* ADMIN-TRAININGS NAVIGATION */
 Route::get('/admin-trainings', [AdminController::class, 'viewAlltraining'])->name('admin.view-all-training');
 Route::get('/admin-create-training', [AdminController::class, 'createTraining'])->name('admin-create-training');
+Route::post('/add-training', [AdminController::class, 'addTraining'])->name('add.training');
 
 /* ADMIN-MEMBERSHIP APPLICATIONS NAVIGATION */
 Route::get('/admin-membership-applications', [AdminController::class, 'viewAllmemberapplication'])->name('admin.view-all-applications');

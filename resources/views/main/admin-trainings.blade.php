@@ -19,17 +19,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Training Title</td>
-                            <td>Otto</td>
-                            <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
-                                        class="fa-solid fa-search"></i></a>
+                        @forelse ($trainings as $training)
+                            <tr>
+                                <th>{{ $training->id }}</th>
+                                <td>{{ $training->start_date }} - {{ $training->end_date }}</td>
+                                <td>{{ $training->title }}</td>
+                                <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
+                                            class="fa-solid fa-search"></i></a>
 
-                                <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
-                                        class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
+                                    <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
+                                            class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8">
+                                    <div class="card-header border-0 text-center">No data available in table</div>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        @if (isset(Auth::user()->username))
-            <a href="{{ url('/logout') }}">Logout</a>
-        @else
-            <script>window.location = "/member-login";</script>
-        @endif
+        <?php $role = Auth::user()->user_role; ?>
+            @if (isset(Auth::user()->username) && $role === "0")
+                <a href="{{ url('/logout') }}">Logout</a>
+            @else
+                <?php Auth::logout(); ?>
+                <script>window.location = "/member-login";</script>
+            @endif
     </div>
 @endsection

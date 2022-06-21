@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Training;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,11 +73,20 @@ class PagesController extends Controller
     }
     public function listTraining()
     {
-        return view('app.trainings.trainingevents');
+        $trainings = DB::table('trainings')
+            ->latest()
+            ->get();
+
+        return view('app.trainings.trainingevents', [
+            'trainings' => $trainings
+        ]);
     }
-    public function singleTrainingEvent()
+    public function singleTrainingEvent($id)
     {
-        return view('app.trainings.trainingevents-single');
+        $trainings = Training::find($id);
+        return view('app.trainings.trainingevents-single', [
+            'trainings' => $trainings,
+        ]);
     }
 
     /*LAWS AND ISSUANCES NAVIGATION */

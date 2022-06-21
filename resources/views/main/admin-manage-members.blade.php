@@ -20,18 +20,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Jane Doe</td>
-                            <td>janedoe@gmail.com</td>
-                            <td>@janedoe</td>
-                            <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
-                                        class="fa-solid fa-search"></i></a>
+                        @forelse ($users as $user)
+                            <tr>
+                                <th>{{ $user->id }}</th>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>@{{ $user->username }}</td>
+                                <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
+                                            class="fa-solid fa-search"></i></a>
 
-                                <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
-                                        class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
+                                    <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
+                                            class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8">
+                                    <div class="card-header border-0 text-center">No data available in table</div>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

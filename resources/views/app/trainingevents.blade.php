@@ -15,7 +15,10 @@
                 <div class=" bg-white" id="sidebar-wrapper">
                     <div class="sidebar-heading border-0">Training Events</div>
                     <div class="list-group list-group-flush">
-                        <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
+                        @forelse ($trainings as $training)
+                        <a class="list-group-item p-3" href="{{ route('training.training-events-single', $training->id) }}">{{ $training->title }}<p class="mt-0 p-0"><small
+                                    class="text-muted">{{ $training->start_date }} to {{ $training->end_date }}</small></p></a>
+                        <!-- <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
                                     class="text-muted">Range Date of Seminar Event</small></p></a>
                         <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
                                     class="text-muted">Range Date of Seminar Event</small></p></a>
@@ -24,10 +27,10 @@
                         <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
                                     class="text-muted">Range Date of Seminar Event</small></p></a>
                         <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
-                                    class="text-muted">Range Date of Seminar Event</small></p></a>
-                        <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
-                                    class="text-muted">Range Date of Seminar Event</small></p></a>
+                                    class="text-muted">Range Date of Seminar Event</small></p></a> -->
+                        @empty
 
+                        @endforelse
                     </div>
                 </div>
                 <!-- Page content wrapper-->

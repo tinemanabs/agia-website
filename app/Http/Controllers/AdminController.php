@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use File;
 use App\Models\Gallery;
 use App\Models\News;
+use App\Models\User;
+use App\Models\Training;
 
 use Carbon\Carbon;
 
@@ -157,7 +159,13 @@ class AdminController extends Controller
 
     public function viewAlltraining()
     {
-        return view('main.admin-trainings');
+        $trainings = DB::table('trainings')
+            ->latest()
+            ->get();
+
+        return view('main.admin-trainings', [
+            'trainings' => $trainings
+        ]);
     }
 
     public function createTraining()
@@ -165,9 +173,51 @@ class AdminController extends Controller
         return view('main.admin-trainings-create');
     }
 
+    public function addTraining(Request $req)
+    {
+        $data = [
+            'title' => $req->title,
+            'start_date' => $req->startDate,
+            'end_date' => $req->endDate,
+            'venue' => $req->venue,
+            'objective' => $req->courseObj,
+            'message' => $req->body,
+            'image' => $req->image
+        ];
+
+        $path = public_path('uploads/training'); //change to "/" when uploaded to web host
+        $attachment = $req->file('image');
+
+        $name = Str::slug($data['title']) . time() . '.' . $attachment->getClientOriginalExtension();
+
+        if (!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        $attachment->move($path, $name);
+
+        $trainings = new Training();
+        $trainings->title = $data['title'];
+        $trainings->start_date = $data['start_date'];
+        $trainings->end_date = $data['end_date'];
+        $trainings->venue = $data['venue'];
+        $trainings->objective = $data['objective'];
+        $trainings->message = $data['message'];
+        $trainings->image = $name;
+
+        $trainings->save();
+
+        return redirect('admin-trainings');
+    }
+
     public function viewAllmembers()
     {
-        return view('main.admin-manage-members');
+        $users = DB::table('users')
+            ->where('active', 1)
+            ->get();
+
+        return view('main.admin-manage-members', [
+            'users' => $users
+        ]);
     }
 
     public function registerMember()
@@ -177,6 +227,13 @@ class AdminController extends Controller
 
     public function viewAllmemberapplication()
     {
-        return view('main.admin-member-application');
+        $users = DB::table('users')
+            ->where('user_role', '0')
+            ->where('active', 0)
+            ->get();
+
+        return view('main.admin-member-application', [
+            'users' => $users
+        ]);
     }
 }

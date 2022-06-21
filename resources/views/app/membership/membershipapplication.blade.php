@@ -10,24 +10,38 @@
     <div class="container px-0 px-lg-5">
         <div class="card mt-4">
             <div class="card-body">
-                <form action="" method="post">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+                <form action="{{ route('send.application') }}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label"> <strong> Name</strong></label>
-                            <input type="text" class="form-control" name="name" id="">
+                            <input type="text" class="form-control" name="name" id="name">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label"> <strong>Email</strong> </label>
-                            <input type="email" class="form-control" name="email" id="">
+                            <input type="email" class="form-control" name="email" id="email">
                         </div>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label"> <strong> Username</strong></label>
+                        <input type="text" class="form-control" name="username" id="username"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"> <strong> Password</strong></label>
+                        <input type="password" class="form-control" name="password" id="password"></input>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label"> <strong> Cover Letter</strong></label>
-                        <textarea class="form-control" rows="3" name="cv"></textarea>
+                        <textarea class="form-control" rows="3" name="cover" id="cover"></textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"> <strong>Resume</strong></label>
-                        <input class="form-control" type="file" id="formFile" name="resumeFile">
+                        <input class="form-control" type="file" id="cv" name="cv">
                         <small class="text-muted">Only: doc / docx / pdf, less ?mb</small>
                     </div>
 

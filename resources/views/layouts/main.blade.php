@@ -31,6 +31,8 @@
 </head>
 
 <body>
+    <?php $role = Auth::user()->user_role;?>
+    @if ($role === "1")
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
@@ -88,6 +90,10 @@
             </main>
         </div>
     </div>
+    @else
+        <?php Auth::logout(); ?>
+        <script>window.location = "/login";</script>
+    @endif
 
 
 
