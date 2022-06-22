@@ -99,6 +99,7 @@ Route::post('/add-training', [AdminController::class, 'addTraining'])->name('add
 
 /* ADMIN-MEMBERSHIP APPLICATIONS NAVIGATION */
 Route::get('/admin-membership-applications', [AdminController::class, 'viewAllmemberapplication'])->name('admin.view-all-applications');
+Route::post('/accept-application', [AdminController::class, 'acceptApplication'])->name('accept.application');
 
 /* ADMIN-USERS MANAGEMENT NAVIGATION */
 Route::get('/admin-users-management', [AdminController::class, 'viewAllmembers'])->name('admin.view-all-members');

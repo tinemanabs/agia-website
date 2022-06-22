@@ -17,7 +17,7 @@
                     <div class="list-group list-group-flush">
                         @forelse ($trainings as $training)
                         <a class="list-group-item p-3" href="{{ route('training.training-events-single', $training->id) }}">{{ $training->title }}<p class="mt-0 p-0"><small
-                                    class="text-muted">{{ $training->start_date }} to {{ $training->end_date }}</small></p></a>
+                                    class="text-muted">{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</small></p></a>
                         <!-- <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small
                                     class="text-muted">Range Date of Seminar Event</small></p></a>
                         <a class="list-group-item p-3" href="">Training Event Title <p class="mt-0 p-0"><small

@@ -7,7 +7,7 @@
                 <h5>List of Membership Applications</h5>
             </div>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -24,8 +24,13 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td><a href="uploads/resume/{{ $user->cv }}" target="_blank">Link</a></td>
-                                <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
-                                            class="fa-solid fa-search"></i></a>
+                                <td>
+                                    <form action="{{ route('accept.application') }}" method="post" style="display: inline;">
+                                    @csrf
+                                        <input type="hidden" name="id" id="id" value="{{ $user->id }}">
+                                        <button class="btn btn-circle btn-sm btn-success" role="button"><i
+                                                    class="fa-solid fa-check"></i></button>
+                                    </form>
 
                                     <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
                                             class="fa-solid fa-trash"></i></a>

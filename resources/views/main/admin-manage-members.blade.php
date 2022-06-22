@@ -9,7 +9,7 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -25,7 +25,7 @@
                                 <th>{{ $user->id }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>@{{ $user->username }}</td>
+                                <td>{{ '@' .  $user->username }}</td>
                                 <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>
 

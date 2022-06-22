@@ -12,11 +12,12 @@ class Training extends Model
     protected $table = 'trainings';
     protected $fillable = [
         'title',
-        'start_date',
-        'end_date',
+        'start',
+        'end',
         'venue',
         'objective',
         'message',
         'image',
+        'url'
     ];
 }

@@ -138,6 +138,10 @@ $('#add-gallery-btn').on('click', function () {
   }
 });
 
+$(document).ready( function () {
+  $('#myTable').DataTable();
+})
+
 /***/ }),
 
 /***/ 1:

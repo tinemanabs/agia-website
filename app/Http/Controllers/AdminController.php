@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use File;
+use URL;
 use App\Models\Gallery;
 use App\Models\News;
 use App\Models\User;
@@ -197,14 +198,18 @@ class AdminController extends Controller
 
         $trainings = new Training();
         $trainings->title = $data['title'];
-        $trainings->start_date = $data['start_date'];
-        $trainings->end_date = $data['end_date'];
+        $trainings->start = $data['start_date'];
+        $trainings->end = $data['end_date'];
         $trainings->venue = $data['venue'];
         $trainings->objective = $data['objective'];
         $trainings->message = $data['message'];
         $trainings->image = $name;
 
         $trainings->save();
+
+        $updateTraining = Training::find($trainings->id);
+        $updateTraining->url = URL::to('/') . '/' . 'trainings-seminars/training-events/' . $trainings->id;
+        $updateTraining->update();
 
         return redirect('admin-trainings');
     }
@@ -235,5 +240,13 @@ class AdminController extends Controller
         return view('main.admin-member-application', [
             'users' => $users
         ]);
+    }
+
+    public function acceptApplication(Request $req)
+    {
+        $data = User::find($req->id);
+        $data->active = 1;
+        $data->update();
+        return redirect('admin-membership-applications');
     }
 }

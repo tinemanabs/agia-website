@@ -57,7 +57,14 @@ class PagesController extends Controller
     /* TRAININGS AND SEMINARS NAVIGATION */
     public function trainingCalendar()
     {
-        return view('app.trainings.trainingcalendar');
+        $trainings = DB::table('trainings')
+            ->latest()
+            ->get(['title', 'start', 'end', 'url']);
+
+        return view('app.trainings.trainingcalendar', [
+            'trainings' => $trainings
+        ]);
+
     }
     public function trainingCDPunit()
     {

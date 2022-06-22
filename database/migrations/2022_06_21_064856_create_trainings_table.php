@@ -16,12 +16,13 @@ class CreateTrainingsTable extends Migration
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('start_date');
-            $table->text('end_date');
+            $table->text('start');
+            $table->text('end');
             $table->string('venue');
             $table->text('objective');
             $table->text('message');
             $table->text('image');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

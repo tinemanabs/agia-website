@@ -8,7 +8,7 @@
             <h5>{{ $trainings->title }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Date: {{ $trainings->start_date }} to {{ $trainings->end_date }}</li>
+            <li class="list-group-item">Date: {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y')  }} to {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y') }}</li>
             <li class="list-group-item">Venue: {{ $trainings->venue }}</li>
             <li class="list-group-item">Course Objective: {{ $trainings->objective }}</li>
         </ul>

@@ -9,7 +9,7 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -22,7 +22,7 @@
                         @forelse ($trainings as $training)
                             <tr>
                                 <th>{{ $training->id }}</th>
-                                <td>{{ $training->start_date }} - {{ $training->end_date }}</td>
+                                <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</td>
                                 <td>{{ $training->title }}</td>
                                 <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>
