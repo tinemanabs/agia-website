@@ -178,7 +178,7 @@
                                                 <h5 class="card-title">{{ $n->title }}</h5>
 
                                                 <span class="date">
-                                                    <i class="fa-solid fa-calendar me-1"></i>
+                                                    <i class="fa-regular fa-calendar me-1"></i>
                                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $n->created_at)->format('F d, Y') }}
 
                                                     <i class="fa-solid fa-clock ms-3 me-1"></i>
@@ -200,82 +200,196 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-lg-1 col-12 d-flex justify-content-center align-items-center mt-3">
+                    @if (count($news) >= 4)
+                        {{-- show only if there are already 4 news --}}
+                        <div class="col-lg-1 col-12 d-flex justify-content-center align-items-center mt-3">
 
-                        <div class="d-lg-block d-none">
-                            <a href="{{ route('resources.news', 2022) }}">
-                                <span class="fa-stack fa-2x latest-view-all-icon">
-                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                                    <i class="fa-solid fa-arrow-right fa-stack-1x fa-inverse text-center"></i>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="d-block d-lg-none">
-                            <a href="{{ route('resources.news', 2022) }}" class="btn latest-view-all-btn">View
-                                All</a>
-                        </div>
+                            <div class="d-lg-block d-none">
+                                <a href="{{ route('resources.news', 2022) }}">
+                                    <span class="fa-stack fa-2x latest-view-all-icon">
+                                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                        <i class="fa-solid fa-arrow-right fa-stack-1x fa-inverse text-center"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="d-block d-lg-none">
+                                <a href="{{ route('resources.news', 2022) }}" class="btn latest-view-all-btn">View
+                                    All</a>
+                            </div>
 
-                    </div>
+                        </div>
+                    @endif
                 </div>
 
             </div>
         </section>
     @endif
 
-    <section id="latest-events-section">
-        <div class="container latest-events-section mt-5">
-            <h2>Scheduled Events</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    @if (count($trainings) > 0){{-- NO TRAINING SECTION WILL BE SHOWN IF THERE ARE NO RECORDS --}}
+        <section id="latest-events-section">
+            <div class="container latest-events-section mt-5">
+                <h2>Upcoming Events</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
 
-            <div class="row mt-3">
-                <div class="col-lg-11 col-12">
-                    <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
-                        @forelse ($trainings as $training)
-                            <div class="col">
-                                <a href="{{ route('training.training-events-single', $training->id) }}"
-                                    style="text-decoration: none">
-                                    <div class="card h-100 latest-events-card border-0">
-                                        <img src="{{ asset('uploads/training/' . $training->image) }}"
-                                            class="card-img-top" alt="...">
-                                        <div class="card-body latest-events-card-body">
-                                            <h5 class="card-title">{{ $training->title }}</h5>
-                                            <span class="date">
-                                                <i class="fa-solid fa-calendar me-1"></i>
-                                                {{ $training->start_date }} to {{ $training->end_date }}
-                                            </span>
+                <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                    @forelse ($trainings as $training)
+                        <div class="col">
+                            <a href="{{ route('training.training-events-single', $training->id) }}"
+                                style="text-decoration: none">
+                                <div class="card mb-3 latest-events-card">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 latest-events-card-img p-4"
+                                            style=" background-image: linear-gradient(rgba(27, 47, 69, 0.70), rgba(27, 47, 69, 0.70)), url('uploads/training/{{ $training->image }}');">
+                                            <h1>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('d') }}
+                                            </h1>
+                                            <p>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('M, Y') }}
+                                            </p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body latest-events-card-body h-100">
+                                                <h5 class="card-title mb-4">{{ $training->title }}</h5>
+                                                <p class="card-text">
+                                                    <i
+                                                        class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
+                                                    -
+                                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->end)->format('F d, Y') }}
+
+                                                </p>
+                                                <p class="card-text">
+                                                    <i class="fa-solid fa-location-arrow"></i> {{ $training->venue }}
+                                                </p>
+
+
+                                            </div>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
-                        @empty
-                            <div class="card">
-                                <div class="card-body">
-                                    There are no latest news.
                                 </div>
+                            </a>
+                        </div>
+
+                    @empty
+                        <div class="card">
+                            <div class="card-body">
+                                There are no latest news.
                             </div>
-                        @endforelse
-                    </div>
+                        </div>
+                    @endforelse
 
                 </div>
-                <div class="col-lg-1 col-12 d-flex justify-content-center align-items-center mt-3">
 
-                    <div class="d-lg-block d-none">
-                        <a href="{{ route('training.training-events') }}">
-                            <span class="fa-stack fa-2x latest-view-all-icon">
-                                <i class="fa-solid fa-circle fa-stack-2x"></i>
-                                <i class="fa-solid fa-arrow-right fa-stack-1x fa-inverse text-center"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="d-block d-lg-none">
+                {{-- @if (count($trainings) >= 4)
+                    <div class="d-flex justify-content-center align-items-center">
                         <a href="{{ route('training.training-events') }}" class="btn latest-view-all-btn">View
                             All</a>
                     </div>
+                @endif --}}
 
+            </div>
+        </section>
+    @endif
+
+
+    <section id="contact-us-section">
+        <div class="container mt-5 contact-us-section">
+            <div class="card contact-us-card border-0">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <iframe style="border:0; width: 100%; height: 100%;"
+                                src="https://maps.google.com/maps?q=association%of%government%internal Auditors&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <h1 class="text-center">Contact Us</h1>
+                            <h2 class="text-center mb-3">Send us a Message</h2>
+                            <form action="{{ route('send.contact') }}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" name="name" id="name"
+                                            placeholder="Name">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="subject" id="subject"
+                                        placeholder="Subject">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" name="message" id="message" rows="10" placeholder="Message"></textarea>
+                                </div>
+
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <button class="btn btn-contact-us text-white" type="submit" id="contactus-btn">Send
+                                        Message</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="card-body contact-us-card-body p-0">
+                                    <div class="contact-us-card-icon">
+                                        <span class="fa-stack fa-2x">
+                                            <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                            <i class="fa-solid fa-location-dot fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </div>
+                                    <div class="contact-us-card-content">
+                                        <h5 class="card-title">Office Address</h5>
+                                        <p class="card-text">Unit 402 Merchant Square Condominium,
+                                            1386 E. Rodriguez Sr. Avenue Cor. Mabolo St.
+                                            New Manila, Quezon City</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="card-body contact-us-card-body p-0">
+                                    <div class="contact-us-card-icon">
+                                        <span class="fa-stack fa-2x">
+                                            <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                            <i class="fa-solid fa-phone fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </div>
+                                    <div class="contact-us-card-content">
+                                        <h5 class="card-title">Contact</h5>
+                                        <p class="card-text">(02) 7 739-0045 </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="card-body contact-us-card-body p-0">
+                                    <div class="contact-us-card-icon">
+                                        <span class="fa-stack fa-2x">
+                                            <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                            <i class="fa-solid fa-envelope fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </div>
+                                    <div class="contact-us-card-content">
+                                        <h5 class="card-title">Email Addresses</h5>
+                                        <p class="card-text m-0">info@agiaph.org</p>
+                                        {{-- <p class="card-text m-0">membership@agiaph.org</p>
+                                        <p class="card-text m-0">trainings.agiainc@gmail.com</p>
+                                        <p class="card-text m-0">actg.agia@gmail.com</p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 @endsection

@@ -377,29 +377,120 @@ body {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .latest-events-card .card-img-top {
-        background-color: #f2f2f2;
+    .latest-events-card .card-img-left {
         width: 100%;
-        height: 30vh;
-        object-fit: cover;
+        height: 100%;
+        object-fit: contain;
     }
 }
 
-.latest-events-card-body .card-title {
-    font-weight: 700;
-    color: #0056AB;
+.latest-events-card-img {
+    text-align: center;
+    color: #fff;
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.latest-events-card-body span {
-    color: #a9a9a9;
-    font-size: 0.9rem;
+.latest-events-card-img h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.latest-events-card-img p {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.latest-events-card-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.latest-events-card-body h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0056AB;
+    margin-bottom: 1rem;
 }
 
 .latest-events-card-body .card-text {
-    margin-top: 1rem;
     text-decoration: none;
     color: #484848;
+    padding: 0;
+    margin: 0;
 }
+
+.latest-events-card-body .card-text i {
+    color: #0056AB;
+}
+
+.contact-us-section h2 {
+    color: #2a2f89;
+    font-weight: 600;
+}
+
+.contact-us-card {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.contact-us-card-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contact-us-card-icon .fa-stack .fa-circle {
+    color: #2a2f89;
+}
+
+
+.contact-us-card-content {
+    margin-left: 12px;
+}
+
+.contact-us-card-content h5 {
+    color: #2a2f89;
+    font-weight: 600;
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .feature-section {
+        margin-top: -5rem;
+    }
+}
+
+@media (max-width:992px) and (min-width: 768px) {
+    .feature-section-body {
+        flex-direction: column;
+    }
+
+    .feature-section-content {
+        margin-top: 1rem;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* BREADCRUMB CONTAINER */
 .breadcrumb-custom {
@@ -703,6 +794,37 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     box-shadow: none;
 }
 
+/* Trainings and Seminars Section */
+
+.training-event-card {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .training-event-card .card-img-top {
+        background-color: #f2f2f2;
+        width: 100%;
+        height: 30vh;
+        object-fit: cover;
+    }
+}
+
+.training-event-card-body .card-title {
+    font-weight: 700;
+    color: #0056AB;
+}
+
+.training-event-card-body .card-text {
+    text-decoration: none;
+    color: #a9a9a9;
+    padding: 0;
+    margin: 0;
+}
+
+.training-event-card-body .card-text i {
+    color: #a9a9a9;
+}
 
 /* Laws and Issuance Section */
 .laws-issuances-container {

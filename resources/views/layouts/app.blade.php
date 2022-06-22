@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -110,9 +110,11 @@
                                             AGIA </a></li>
                                     <li class="list-group-item"><a href="{{ route('aboutus.vision-mission') }}">Vision
                                             & Mission</a></li>
-                                    <li class="list-group-item"><a href="{{ route('aboutus.strategy-map') }}">Strategy
+                                    <li class="list-group-item"><a
+                                            href="{{ route('aboutus.strategy-map') }}">Strategy
                                             Map</a></li>
-                                    <li class="list-group-item"><a href="{{ route('aboutus.board-directors') }}">Board
+                                    <li class="list-group-item"><a
+                                            href="{{ route('aboutus.board-directors') }}">Board
                                             of Directors</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('aboutus.advisory-council') }}">Advisory Council</a></li>
@@ -240,6 +242,16 @@
         <main>
             @yield('content')
         </main>
+
+        <footer class="bg-dark text-center text-white mt-5">
+            <div class="container p-4 pb-0">
+            </div>
+
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                Copyright © 2022 Association of Government Internal Auditors, Inc. • All Rights Reserved.
+                <a class="text-white" href=""></a>
+            </div>
+        </footer>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>

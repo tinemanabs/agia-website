@@ -24,7 +24,8 @@ Route::get('/', function () {
         ->limit(4)
         ->get();
     $trainings = DB::table('trainings')
-        ->latest()
+        ->orderBy('start', 'asc')
+        ->limit(4)
         ->get();
 
     return view('index')->with('news', $news)->with('trainings', $trainings);
