@@ -15,7 +15,12 @@ body {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-/* TOP NAVBAR */
+/*
+################
+   TOP NAVBAR
+################
+*/
+
 .navbar-toggler i {
     color: #2a2f89;
 }
@@ -45,7 +50,11 @@ body {
     color: #0056AB;
 }
 
-/* SECOND NAV */
+/*
+################
+   SECOND NAV
+################
+*/
 .second-nav-tabs .nav-link {
     color: #2a2f89;
     font-size: 1rem;
@@ -98,8 +107,15 @@ body {
     }
 }
 
+/*
+################
+   INDEX PAGE
+################
+*/
 
-/* INDEX PAGE */
+/*
+* === HERO SECTION ===
+*/
 .homepage {
     background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/landing-page-img.jpg');
     background-attachment: static;
@@ -196,6 +212,10 @@ body {
 
 }
 
+/*
+* === QUICK ABOUT US SECTION ===
+*/
+
 .about-us-quick-card {
     display: flex;
     justify-content: flex-start;
@@ -229,6 +249,10 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/*
+* === PRESIDENT MESSAGE SNIPPET ===
+*/
 
 .divider-message {
     background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/divider-img.jpg');
@@ -299,11 +323,13 @@ body {
     margin: 0 auto;
 }
 
+/*
+* === LATEST NEWS SECTION ===
+*/
+
 .latest-news-section {
     margin-top: 6rem;
 }
-
-
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -365,6 +391,10 @@ body {
     background-color: #0077BC;
     color: #fff;
 }
+
+/*
+* === LATEST EVENTS SECTION ===
+*/
 
 .latest-events-section h2 {
     color: #2a2f89;
@@ -432,34 +462,9 @@ body {
     color: #0056AB;
 }
 
-.contact-us-section h2 {
-    color: #2a2f89;
-    font-weight: 600;
-}
-
-.contact-us-card {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.contact-us-card-body {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.contact-us-card-icon .fa-stack .fa-circle {
-    color: #2a2f89;
-}
-
-
-.contact-us-card-content {
-    margin-left: 12px;
-}
-
-.contact-us-card-content h5 {
-    color: #2a2f89;
-    font-weight: 600;
-}
+/*
+* === CONTACT US SECTION ===
+*/
 
 
 /* Medium devices (tablets, 768px and up) */
@@ -480,19 +485,11 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* BREADCRUMB CONTAINER */
+/*
+################
+   BREADCRUMB CONTAINER 
+################
+*/
 .breadcrumb-custom {
     height: 25vh;
 }
@@ -538,6 +535,12 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/*
+################
+   SIDE NAVBAR FOR EACH PAGE
+################
+*/
 
 #wrapper {
     overflow-x: hidden;
@@ -613,6 +616,12 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
         margin-left: -15rem;
     }
 }
+
+/*
+################
+   ABOUT US
+################
+*/
 
 /* WHAT IS AGIA */
 
@@ -779,7 +788,11 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     font-size: 0.8rem;
 }
 
-/* Membership Section */
+/*
+################
+   MEMBERSHIP SECTION
+################
+*/
 .btn-membership {
     background-color: #2a2f89;
     color: white;
@@ -794,7 +807,11 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     box-shadow: none;
 }
 
-/* Trainings and Seminars Section */
+/*
+################
+   TRAININGS AND SEMINARS SECTION
+################
+*/
 
 .training-event-card {
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -826,7 +843,38 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     color: #a9a9a9;
 }
 
-/* Laws and Issuance Section */
+.training-w-cdp-card h2 {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+}
+
+.training-w-cdp-card h2::after {
+    content: "";
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    background: #0077BC;
+    margin: 4px 10px
+}
+
+.training-w-cdp-card p {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2a2f89;
+}
+
+/*
+################
+   LAWS AND ISSUANCES SECTION
+################
+*/
 .laws-issuances-container {
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
@@ -852,11 +900,140 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     font-weight: 400;
 }
 
+/*
+################
+   RESOURCES SECTION
+################
+*/
 
-/*Login Section */
+.president-message {
+    background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/divider-img.jpg');
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.president-message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.president-message-box {
+    border-radius: 10px;
+    height: 85%;
+    width: 95%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    color: #fff;
+    margin: 5rem 0rem;
+}
+
+.president-message-left-content {
+    background-color: #2a2f89;
+    padding: 2.5rem 2rem 0rem;
+}
+
+.president-message-left-content h5 {
+    font-weight: 600;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.president-message-left-content p {
+    text-align: justify;
+}
+
+.president-message-left-content a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.president-message-left-content a:hover {
+    border-bottom: 2px solid #fff;
+    transition: 0.5ms;
+}
+
+.president-message-right-content h4,
+.president-message-right-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.president-message-right-content h4 {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.president-message-right-content img {
+    border-radius: 50%;
+    width: 45%;
+    margin: 0 auto;
+}
+
+
+/*
+################
+   MEMBER LOGIN PAGE
+################
+*/
+
+/*
 .login-page-container {
     min-height: 70vh;
+} */
+
+.auth-container {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    width: 100%;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .auth-card {
+        width: 60%;
+    }
+}
+
+.auth-card-body h5 {
+    font-size: 1.5rem;
+    color: #2a2f89;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+.auth-card-body p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.forgot-pw-link {
+    text-decoration: none;
+    color: #2a2f89;
+    font-weight: 500;
+}
+
+.forgot-pw-link:hover {
+    color: #0056AB;
+}
+
+.auth-btn {
+    background-color: #2a2f89;
+    color: #fff;
+}
+
+.auth-btn:hover {
+    background-color: #0056AB;
+    color: #fff;
 }
 
 .input-form {
@@ -912,21 +1089,25 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 
 
-/*Contact Us Section */
+/*
+################
+   CONTACT US SECTION
+################
+*/
 
-.card-contact-us {
+.card-email-contact {
     border: 0;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     text-align: center;
 }
 
-.card-contact-us .card-body h6 {
+.card-email-contact .card-body h6 {
     text-transform: uppercase;
     font-weight: 700;
     color: #2a2f89;
 }
 
-.card-contact-us .card-body .link a {
+.card-email-contact .card-body .link a {
     text-decoration: none;
     font-weight: 700;
     color: #484848 !important;
@@ -935,6 +1116,35 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 .btn-contact-us {
     background-color: #2a2f89;
     color: #fff;
+}
+
+.contact-us-section h1 {
+    color: #2a2f89;
+    font-weight: 600;
+}
+
+.contact-us-section h2 {
+    font-weight: 500;
+}
+
+.contact-us-card-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contact-us-card-icon .fa-stack .fa-circle {
+    color: #2a2f89;
+}
+
+
+.contact-us-card-content {
+    margin-left: 12px;
+}
+
+.contact-us-card-content h5 {
+    color: #2a2f89;
+    font-weight: 600;
 }
 
 

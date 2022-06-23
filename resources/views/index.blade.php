@@ -249,16 +249,16 @@
                                             <div class="card-body latest-events-card-body h-100">
                                                 <h5 class="card-title mb-4">{{ $training->title }}</h5>
                                                 <p class="card-text">
-                                                @if ($training->end != null)
-                                                    <i
-                                                        class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
-                                                    
-                                                    -
-                                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->end)->format('F d, Y') }}
-                                                @else
-                                                    <i
-                                                        class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
-                                                @endif
+                                                    @if ($training->end != null)
+                                                        <i
+                                                            class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
+
+                                                        -
+                                                        {{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->end)->format('F d, Y') }}
+                                                    @else
+                                                        <i
+                                                            class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
+                                                    @endif
 
                                                 </p>
                                                 <p class="card-text">
@@ -297,7 +297,7 @@
 
     <section id="contact-us-section">
         <div class="container mt-5 contact-us-section">
-            <div class="card contact-us-card border-0">
+            <div class="card contact-us-card border-0 shadow p-3 mb-5 bg-body rounded">
                 <div class="card-body p-4">
                     <div class="row">
                         <div class="col-md-6">
@@ -310,7 +310,7 @@
                             <h2 class="text-center mb-3">Send us a Message</h2>
                             <form action="{{ route('send.contact') }}" method="post">
                                 @csrf
-                                <div class="row">
+                                <div class="row mt-5">
                                     <div class="col-md-6 mb-3">
                                         <input type="text" class="form-control" name="name" id="name"
                                             placeholder="Name">

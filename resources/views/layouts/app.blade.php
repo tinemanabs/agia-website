@@ -110,7 +110,8 @@
                                 <ul class="sub-menu-list list-group collapse" id="submenu-about">
                                     <li class="list-group-item"><a href="{{ route('aboutus.what-is-agia') }}">What is
                                             AGIA </a></li>
-                                    <li class="list-group-item"><a href="{{ route('aboutus.vision-mission') }}">Vision
+                                    <li class="list-group-item"><a
+                                            href="{{ route('aboutus.vision-mission') }}">Vision
                                             & Mission</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('aboutus.strategy-map') }}">Strategy
