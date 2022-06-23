@@ -22,7 +22,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formFileSm" class="form-label">File Upload</label>
-                        <input class="form-control form-control" name="image" id="image" type="file">
+                        <input class="form-control form-control" name="image" id="image" type="file" onchange="fileImageValidation()">
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="btn btn-primary" type="submit" id="add-gallery-btn">Add to Gallery</button>

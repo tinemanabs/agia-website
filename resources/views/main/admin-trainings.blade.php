@@ -9,7 +9,7 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-                <table class="table" id="myTable">
+                <table class="stripe" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -22,7 +22,11 @@
                         @forelse ($trainings as $training)
                             <tr>
                                 <th>{{ $training->id }}</th>
+                                @if ($training->end != null)
                                 <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</td>
+                                @else
+                                <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}</td>
+                                @endif
                                 <td>{{ $training->title }}</td>
                                 <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>

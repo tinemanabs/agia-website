@@ -18,9 +18,16 @@
                         @forelse ($trainings as $training)
                             <a class="list-group-item p-3"
                                 href="{{ route('training.training-events-single', $training->id) }}">{{ $training->title }}
-                                <p class="m-0 p-0"><small
+                                <p class="m-0 p-0">
+                                @if ($training->end != null)    
+                                <small
                                         class="text-muted">{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}
-                                        to {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</small></p>
+                                        to {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</small>
+                                @else 
+                                <small
+                                        class="text-muted">{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}</small>
+                                @endif
+                                </p>
                             </a>
 
                         @empty

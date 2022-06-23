@@ -122,6 +122,76 @@ $('#add-news-btn').on('click', function () {
   }
 });
 
+window.fileImageValidation = function () {
+  var fileInput = document.getElementById('image');
+
+  var filePath = fileInput.value;
+
+  // Allowing file type
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+  // File Size validation
+  if (typeof (fileInput.files) != "undefined") {
+      var size = parseFloat(fileInput.files[0].size / (1024 * 1024)).toFixed(2);
+      if (size > 10) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Please select a file with less than 10 MB!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      } else if (!allowedExtensions.exec(filePath)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Only upload .jpg/.jpeg/.png files!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      }
+  } else {
+      alert("This browser does not support HTML5.");
+  }
+}
+
+window.multipleImageValidation = function () {
+  var fileInput = document.getElementById('images');
+
+  var filePath = fileInput.value;
+
+  // Allowing file type
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+  const maxAllowedSize = 10 * 1024 * 1024;
+
+  // File Size validation
+  Array.from(fileInput.files).forEach(file => {
+      //var size = parseFloat(fileInput.files[0].size / (1024 * 1024)).toFixed(2);
+      if (file.size > maxAllowedSize) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Please select a file with less than 10 MB!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      } else if (!allowedExtensions.exec(filePath)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Only upload .jpg/.jpeg/.png files!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      }
+  })
+}
+
 $('#add-gallery-btn').on('click', function () {
   var title = $('#title').val();
   var caption = $('#caption').val();

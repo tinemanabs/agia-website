@@ -172,6 +172,68 @@ $('#contactus-btn').on('click', function () {
   }
 });
 
+$('#membership-btn').on('click', function () {
+  var name = $('#name').val();
+  var email = $('#email').val();
+  var password = $('#password').val();
+  var cover = $('#cover').val();
+  let resume = $('#cv').val();
+  var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if (name == '' || email == '' || password == '' || cover == '' || resume == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  } else if (!email.match(mail_format)) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please enter a valid email',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+window.fileValidation = function () {
+  var fileInput = document.getElementById('cv');
+
+  var filePath = fileInput.value;
+
+  // Allowing file type
+  var allowedExtensions = /(\.doc|\.docx|\.pdf)$/i;
+
+  // File Size validation
+  if (typeof (fileInput.files) != "undefined") {
+      var size = parseFloat(fileInput.files[0].size / (1024 * 1024)).toFixed(2);
+      if (size > 10) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Please select a file with less than 10 MB!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      } else if (!allowedExtensions.exec(filePath)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Only upload .doc/.docx/.pdf files!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      }
+  } else {
+      alert("This browser does not support HTML5.");
+  }
+}
+
 /***/ }),
 
 /***/ 0:

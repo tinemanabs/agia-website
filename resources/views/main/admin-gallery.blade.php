@@ -9,7 +9,7 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-                <table class="table" id="myTable">
+                <table class="stripe" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -60,7 +60,7 @@
                                                     <div class="mb-3">
                                                         <label for="formFileSm" class="form-label">File Upload</label>
                                                         <input class="form-control form-control-sm" name="images[]"
-                                                            id="images" type="file" multiple>
+                                                            id="images" type="file" multiple onchange="multipleImageValidation()">
                                                     </div>
                                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                         <a class="btn btn-primary me-md-2"

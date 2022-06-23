@@ -9,7 +9,7 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-                <table class="table" id="myTable">
+                <table class="stripe" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

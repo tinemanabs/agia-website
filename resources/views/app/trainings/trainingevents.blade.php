@@ -12,10 +12,15 @@
                         <div class="card-body training-event-card-body">
                             <h5 class="card-title mb-4">{{ $training->title }}</h5>
                             <p class="card-text">
+                                @if ($training->end != null)
                                 <i
                                     class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
                                 -
                                 {{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->end)->format('F d, Y') }}
+                                @else
+                                <i
+                                    class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
+                                @endif
 
                             </p>
                             <p class="card-text">

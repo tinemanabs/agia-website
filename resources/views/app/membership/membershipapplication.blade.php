@@ -41,12 +41,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label"> <strong>Resume</strong></label>
-                        <input class="form-control" type="file" id="cv" name="cv">
-                        <small class="text-muted">Only: doc / docx / pdf, less ?mb</small>
+                        <input class="form-control" type="file" id="cv" name="cv" onchange="fileValidation();"></input>
+                        <small class="text-muted">Only: doc / docx / pdf, less 10mb</small>
                     </div>
 
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-membership" type="submit">Submit</button>
+                        <button class="btn btn-membership" type="submit" id="membership-btn">Submit</button>
                     </div>
                 </form>
             </div>
