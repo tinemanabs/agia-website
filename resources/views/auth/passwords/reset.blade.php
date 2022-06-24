@@ -18,7 +18,7 @@
 
                     <div class="form-group mb-3 input-form d-flex justify-content-start flex-column">
                         <input id="email" type="email" class="form-control box-input-form" name="email"
-                            autofocus="" placeholder="Email Address" value="{{ $email ?? old('email') }}">
+                            autofocus="" placeholder="Email Address" value="{{ $email ?? old('email') }}" readonly>
                         <i class="fas fa-envelope"></i>
 
                         @error('email')
@@ -34,9 +34,9 @@
                         <i class="fas fa-lock"></i>
 
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <div class="alert alert-danger alert-block">
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </div>
                         @enderror
                     </div>
 

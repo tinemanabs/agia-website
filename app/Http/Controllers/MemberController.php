@@ -29,7 +29,7 @@ class MemberController extends Controller
         /*$role = User::find($user_data['username']);
         dd($role);*/
         if (Auth::attempt(['username' => $user_data['username'], 'password' => $user_data['password'], 'user_role' => '0', 'active' => 1])) {
-            return redirect('/successlogin');
+            return redirect('/');
         } else {
             return back()->with('error', 'Wrong login details!');
         }

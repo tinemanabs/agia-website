@@ -16,7 +16,7 @@
                 headerToolbar: {
                     left: "prev,next today",
                     center: "title",
-                    right: "dayGridMonth,timeGridWeek"
+                    right: "dayGridMonth"
                 },
                 height: 680,
                 aspectRatio: 3,

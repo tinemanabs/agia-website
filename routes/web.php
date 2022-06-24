@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
+
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\CustomForgotPasswordController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -106,6 +112,15 @@ Route::post('/accept-application', [AdminController::class, 'acceptApplication']
 Route::get('/admin-users-management', [AdminController::class, 'viewAllmembers'])->name('admin.view-all-members');
 Route::get('/admin-users-management/register', [AdminController::class, 'registerMember'])->name('admin.register-member');
 
-Auth::routes();
+//Auth::routes();
+
+Route::get('admin-panel', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('admin-panel', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [CustomForgotPasswordController::class, 'submitForgetPasswordForm'])->name('password.email');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

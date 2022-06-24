@@ -17,12 +17,15 @@
                     <div class="list-group list-group-flush">
                         <a class="list-group-item p-3 {{ Route::is('membership.classification-membership') ? 'active' : '' }}"
                             href="{{ route('membership.classification-membership') }}">Classification of Members</a>
-                        <a class="list-group-item p-3 {{ Route::is('membership.membership-application') ? 'active' : '' }}"
-                            href="{{ route('membership.membership-application') }}">Membership
-                            Application</a>
+                        @if (isset(Auth::user()->username) && Auth::user()->user_role == "0")
                         <a class="list-group-item p-3 {{ Route::is('membership.update-membership-profile') ? 'active' : '' }}"
                             href="{{ route('membership.update-membership-profile') }}">Update
                             My Membership Profile</a>
+                        @else
+                        <a class="list-group-item p-3 {{ Route::is('membership.membership-application') ? 'active' : '' }}"
+                            href="{{ route('membership.membership-application') }}">Membership
+                            Application</a>
+                        @endif
                     </div>
                 </div>
                 <!-- Page content wrapper-->

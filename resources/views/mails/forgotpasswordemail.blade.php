@@ -1,0 +1,1 @@
+<a href="{{ URL::to('/') . '/password/reset/' .  $data['token'] . '?' . 'email=' . $data['email'] }}">Reset Password</a>

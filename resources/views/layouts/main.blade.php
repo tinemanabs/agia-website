@@ -94,7 +94,7 @@
     </div>
     @else
         <?php Auth::logout(); ?>
-        <script>window.location = "/login";</script>
+        <script>window.location = "/admin-panel";</script>
     @endif
 
 

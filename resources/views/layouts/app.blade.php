@@ -87,9 +87,14 @@
                         </div>
 
                         <span class="navbar-text ms-3 member-login d-none d-lg-block">
-                            <a href="{{ route('member-login') }}" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Member Login">
-                                <i class="fa-solid fa-user fa-2x"></i></a>
+                            @if (isset(Auth::user()->username) && Auth::user()->user_role == "0")
+                                Welcome, {{ Auth::user()->name }}!
+                                <a href="{{ url('/logout') }}">Logout</a>
+                            @else
+                                <a href="{{ route('member-login') }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Member Login">
+                                    <i class="fa-solid fa-user fa-2x"></i></a>
+                            @endif
                         </span>
                     </div>
                 </div>
@@ -135,13 +140,17 @@
                                     <li class="list-group-item"><a
                                             href="{{ route('membership.classification-membership') }}">Classification
                                             of Members</a></li>
-                                    <li class="list-group-item"><a
-                                            href="{{ route('membership.membership-application') }}">Membership
-                                            Application</a></li>
+                                    @if (isset(Auth::user()->username) && Auth::user()->user_role == "0")
                                     <li class="list-group-item"><a
                                             href="{{ route('membership.update-membership-profile') }}">Update My
                                             Membership Profile</a>
                                     </li>
+                                    @else
+                                    <li class="list-group-item"><a
+                                            href="{{ route('membership.membership-application') }}">Membership
+                                            Application</a>
+                                    </li>
+                                    @endif
 
                                 </ul>
                             </li>

@@ -11,9 +11,9 @@
                 <h5>Forgot your Password?</h5>
                 <p>Enter your email address</p>
 
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">	
+                        <strong>{{ $message }}</strong>
                     </div>
                 @endif
 
@@ -26,9 +26,9 @@
                         <i class="fas fa-envelope"></i>
 
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <div class="alert alert-danger alert-block">	
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </div>
                         @enderror
                     </div>
 
