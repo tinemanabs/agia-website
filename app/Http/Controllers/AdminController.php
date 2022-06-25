@@ -249,4 +249,14 @@ class AdminController extends Controller
         $data->update();
         return redirect('admin-membership-applications');
     }
+
+    public function viewAllDownloads()
+    {
+        return view('main.admin-download');
+    }
+
+    public function createDownloads()
+    {
+        return view('main.admin-download-create');
+    }
 }

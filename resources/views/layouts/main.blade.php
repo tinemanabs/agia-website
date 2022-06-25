@@ -33,68 +33,72 @@
 </head>
 
 <body>
-    <?php $role = Auth::user()->user_role;?>
-    @if ($role === "1")
-    <div class="d-flex" id="wrapper">
-        <!-- Sidebar-->
-        <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading shadow-sm border-bottom">
-                <img src="{{ asset('img/agia-logo-2020.png') }}" alt="" width="40">
-                AGIA Inc.
+    <?php $role = Auth::user()->user_role; ?>
+    @if ($role === '1')
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading shadow-sm border-bottom">
+                    <img src="{{ asset('img/agia-logo-2020.png') }}" alt="" width="40">
+                    AGIA Inc.
+                </div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-gallery') }}">Gallery</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-news') }}">News
+                        Updates</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-training') }}">Training Event</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-applications') }}">Membership
+                        Applications</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-members') }}">Members
+                        Management</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-downloads') }}">Downloads</a>
+                </div>
             </div>
-            <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    href="{{ route('admin.view-all-gallery') }}">Gallery</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    href="{{ route('admin.view-all-news') }}">News
-                    Updates</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    href="{{ route('admin.view-all-training') }}">Training Event</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    href="{{ route('admin.view-all-applications') }}">Membership
-                    Applications</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    href="{{ route('admin.view-all-members') }}">Members
-                    Management</a>
-            </div>
-        </div>
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
-            <!-- Top navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-3">
-                <div class="container-fluid">
-                    <button class="btn" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
-                    <div class="dropdown-toggle " id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="" class="dropdown-item"><i class="fas fa-user me-2"
-                                style="color: #949494;"></i>Profile</a>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-3">
+                    <div class="container-fluid">
+                        <button class="btn" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
+                        <div class="dropdown-toggle " id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a href="" class="dropdown-item"><i class="fas fa-user me-2"
+                                    style="color: #949494;"></i>Profile</a>
 
-                        <hr class="dropdown-divider">
+                            <hr class="dropdown-divider">
 
-                        <a class="dropdown-item" href=""
-                            onclick="event.preventDefault();
+                            <a class="dropdown-item" href=""
+                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                            <i class="fas fa-sign-out-alt me-1" style="color: #949494;"></i> {{ __('Logout') }}
-                        </a>
+                                <i class="fas fa-sign-out-alt me-1" style="color: #949494;"></i> {{ __('Logout') }}
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </nav>
-            <!-- Page content-->
-            <main>
-                <div class="container-fluid px-4 py-2 mt-3">
-                    @yield('content')
-                </div>
-            </main>
+                </nav>
+                <!-- Page content-->
+                <main>
+                    <div class="container-fluid px-4 py-2 mt-3">
+                        @yield('content')
+                    </div>
+                </main>
+            </div>
         </div>
-    </div>
     @else
         <?php Auth::logout(); ?>
-        <script>window.location = "/admin-panel";</script>
+        <script>
+            window.location = "/admin-panel";
+        </script>
     @endif
 
 

@@ -19,7 +19,8 @@
                 <div class="col-lg-3 laws-issuances-file">
                     <a href="">
                         <div class="d-flex align-items-center">
-                            <img src="{{ asset('img/pdf.png') }}" alt="" class="img-fluid" width="40">
+                            <img src="{{ asset('img/file-ext/pdf.png') }}" alt="" class="img-fluid"
+                                width="40">
                             <span class="filename" style="padding: 30px 10px">EO 292.pdf</span>
                         </div>
                     </a>

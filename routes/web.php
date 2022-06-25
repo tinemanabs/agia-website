@@ -75,6 +75,7 @@ Route::get('/resources/news/archive/{id}', [PagesController::class, 'singleNewsP
 Route::get('/resources/gallery/{year}', [PagesController::class, 'galleryPage'])->name('resources.gallery');
 Route::get('/resouces/gallery/images/{id}', [PagesController::class, 'singleGalleryPage'])->name('resouces.gallery-single');
 Route::get('/resources/president-message', [PagesController::class, 'presidentMessagepage'])->name('resources.president-message');
+Route::get('/resources/downloads/', [PagesController::class, 'downloadsPage'])->name('resources.downloads');
 
 /* CONTACT US NAVIGATION */
 Route::get('/contactus', [PagesController::class, 'contactUspage'])->name('contactus');
@@ -111,6 +112,10 @@ Route::post('/accept-application', [AdminController::class, 'acceptApplication']
 /* ADMIN-USERS MANAGEMENT NAVIGATION */
 Route::get('/admin-users-management', [AdminController::class, 'viewAllmembers'])->name('admin.view-all-members');
 Route::get('/admin-users-management/register', [AdminController::class, 'registerMember'])->name('admin.register-member');
+
+/* ADMIN-DOWNLOADS NAVIGATION */
+Route::get('/admin-downloads', [AdminController::class, 'viewAllDownloads'])->name('admin.view-all-downloads');
+Route::get('/admin-create-downloads', [AdminController::class, 'createDownloads'])->name('admin.create-downloads');
 
 //Auth::routes();
 

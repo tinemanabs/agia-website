@@ -387,7 +387,7 @@ body {
 }
 
 .latest-view-all-btn:hover {
-    background-color: #0077BC;
+    background-color: #0056AB;
     color: #fff;
 }
 
@@ -907,6 +907,35 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 ################
 */
 
+.downloads-category-card h2 {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+}
+
+.downloads-category-card h2::after {
+    content: "";
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    background: #0077BC;
+    margin: 4px 10px
+}
+
+.downloads-card {
+    border: 0;
+    border-left: 3px solid #2a2f89;
+}
+
+.downloads-filename {
+    font-size: 0.8rem;
+}
+
 .president-message {
     background-image: linear-gradient(rgba(27, 47, 69, 0.6), rgba(27, 47, 69, 0.6)), url('/img/divider-img.jpg');
     background-attachment: static;
@@ -926,7 +955,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     height: 85%;
     width: 95%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: flex-start;
     color: #fff;
     margin: 5rem 0rem;

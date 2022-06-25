@@ -87,7 +87,7 @@
                         </div>
 
                         <span class="navbar-text ms-3 member-login d-none d-lg-block">
-                            @if (isset(Auth::user()->username) && Auth::user()->user_role == "0")
+                            @if (isset(Auth::user()->username) && Auth::user()->user_role == '0')
                                 Welcome, {{ Auth::user()->name }}!
                                 <a href="{{ url('/logout') }}">Logout</a>
                             @else
@@ -139,17 +139,18 @@
                                 <ul class="sub-menu-list list-group collapse" id="submenu-membership">
                                     <li class="list-group-item"><a
                                             href="{{ route('membership.classification-membership') }}">Classification
-                                            of Members</a></li>
-                                    @if (isset(Auth::user()->username) && Auth::user()->user_role == "0")
-                                    <li class="list-group-item"><a
-                                            href="{{ route('membership.update-membership-profile') }}">Update My
-                                            Membership Profile</a>
+                                            of Members</a>
                                     </li>
+                                    @if (isset(Auth::user()->username) && Auth::user()->user_role == '0')
+                                        <li class="list-group-item"><a
+                                                href="{{ route('membership.update-membership-profile') }}">Update My
+                                                Membership Profile</a>
+                                        </li>
                                     @else
-                                    <li class="list-group-item"><a
-                                            href="{{ route('membership.membership-application') }}">Membership
-                                            Application</a>
-                                    </li>
+                                        <li class="list-group-item"><a
+                                                href="{{ route('membership.membership-application') }}">Membership
+                                                Application</a>
+                                        </li>
                                     @endif
 
                                 </ul>
@@ -228,7 +229,8 @@
                                     <li class="list-group-item"><a href="">IAS/IAU Statistics</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('resources.gallery', 2020) }}">Gallery</a></li>
-                                    <li class="list-group-item"><a href="">Downloads</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('resources.downloads') }}">Downloads</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('resources.president-message') }}">President's
                                             Message</a></li>

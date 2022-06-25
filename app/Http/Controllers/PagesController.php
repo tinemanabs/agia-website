@@ -64,7 +64,6 @@ class PagesController extends Controller
         return view('app.trainings.trainingcalendar', [
             'trainings' => $trainings
         ]);
-
     }
     public function trainingCDPunit()
     {
@@ -180,6 +179,11 @@ class PagesController extends Controller
     public function presidentMessagepage()
     {
         return view('app.resources.president-message');
+    }
+
+    public function downloadsPage()
+    {
+        return view('app.resources.downloads');
     }
 
     /*CONTACT US NAVIGATION */
