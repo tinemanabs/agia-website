@@ -1174,9 +1174,70 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 .contact-us-card-content h5 {
     color: #2a2f89;
+    font-weight: 700;
+}
+
+.footer-first-column {
+    max-width: 450px;
+}
+
+.footer-title,
+.footer-heading {
+    font-size: 1rem;
     font-weight: 600;
 }
 
+.footer-desc {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.footer-heading {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-links-container ul {
+    padding: 0rem 1rem;
+    list-style-type: square;
+}
+
+.footer-links {
+    padding: 3px 0px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-links a:hover {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-contact-us-container i {
+    margin-right: 0.8rem;
+}
+
+.footer-social-links a {
+    font-size: 15px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    line-height: 1;
+    padding: 10px 0;
+    margin-right: 4px;
+    border-radius: 50px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+.footer-social-links a:hover {
+    background: #2a2f89;
+    color: #fff;
+    text-decoration: none;
+}
 
 /* Small devices (below 576px) */
 @media (max-width: 576px) {}

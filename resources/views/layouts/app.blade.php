@@ -230,7 +230,8 @@
                                     <li class="list-group-item"><a
                                             href="{{ route('resources.gallery', 2020) }}">Gallery</a></li>
                                     <li class="list-group-item"><a
-                                            href="{{ route('resources.downloads') . '?category=forms' }}">Downloads</a></li>
+                                            href="{{ route('resources.downloads') . '?category=forms' }}">Downloads</a>
+                                    </li>
                                     <li class="list-group-item"><a
                                             href="{{ route('resources.president-message') }}">President's
                                             Message</a></li>
@@ -257,11 +258,59 @@
             @yield('content')
         </main>
 
-        <footer class="bg-dark text-center text-white mt-5">
-            <div class="container p-4 pb-0">
+        <footer class="bg-dark text-white mt-5" id="footer">
+            <div class="container p-4 pb-0 ">
+                <div class="row d-flex justify-content-start align-items-start">
+                    <div class="col-12 col-lg-5 mb-3">
+                        <div class="footer-first-column">
+                            <div class="footer-logo d-flex align-items-center mb-3">
+                                <a href="{{ url('/') }}"><img src="{{ asset('img/agia-logo-2020.png') }}"
+                                        alt="" width="90" class="img-fluid "></a>
+                                <h4 class="footer-title ms-3">Association of Government Internal Auditors, Inc.</h4>
+                            </div>
+
+                            <p class="footer-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est,
+                                deleniti! Quos commodi hic
+                                odio, accusamus soluta ab. Nulla sint consequatur.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 footer-links-container mb-3">
+                        <h4 class="footer-heading">Links</h4>
+                        <ul>
+                            <li class="footer-links"><a href="{{ url('/') }}">Home</a></li>
+                            <li class="footer-links"><a href="{{ route('aboutus.what-is-agia') }}">About Us</a>
+                            </li>
+                            <li class="footer-links"><a
+                                    href="{{ route('membership.classification-membership') }}">Membership</a></li>
+                            <li class="footer-links"><a href="{{ route('training.calendar') }}">Training &
+                                    Seminars</a></li>
+                            <li class="footer-links"><a href="">Events</a></li>
+                            <li class="footer-links"><a href="{{ route('laws.republic-act') }}">Laws and
+                                    Issuances</a></li>
+                            <li class="footer-links"><a href="{{ route('resources.news', 2022) }}">Resources</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-3 mb-3">
+                        <div class="footer-contact-us-container">
+                            <h4 class="footer-heading">Contact Us</h4>
+                            <p>Unit 402 Merchant Square Condominium, 1386 E. Rodriguez Sr. Avenue Cor. Mabolo St. New
+                                Manila, Quezon City</p>
+                            <p><i class="fa-solid fa-phone"></i>(02) 7 739-0045</p>
+                            <p><i class="fa-solid fa-envelope"></i> info@agiaph.org</p>
+                        </div>
+
+
+                        <div class="footer-social-links">
+                            <a href=""><i class="fa-brands fa-facebook-f circle-icon"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter circle-icon"></i></a>
+                            <a href=""><i class="fa-brands fa-youtube circle-icon"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <div class="text-center p-3 mt-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 Copyright © 2022 Association of Government Internal Auditors, Inc. • All Rights Reserved.
                 <a class="text-white" href=""></a>
             </div>

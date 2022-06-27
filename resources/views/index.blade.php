@@ -231,7 +231,7 @@
                 <h2>Upcoming Events</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
 
-                <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                <div class="row row-cols-1 row-cols-lg-2 g-4 mt-4">
                     @forelse ($trainings as $training)
                         <div class="col">
                             <a href="{{ route('training.training-events-single', $training->id) }}"
@@ -300,12 +300,12 @@
             <div class="card contact-us-card border-0 shadow p-3 mb-5 bg-body rounded">
                 <div class="card-body p-4">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-lg-6 mb-3">
                             <iframe style="border:0; width: 100%; height: 100%;"
                                 src="https://maps.google.com/maps?q=association%of%government%internal Auditors&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                 frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <div class="col-md-6 p-2">
+                        <div class="col-lg-6 p-2">
                             <h1 class="text-center">Contact Us</h1>
                             <h2 class="text-center mb-3">Send us a Message</h2>
                             <form action="{{ route('send.contact') }}" method="post">
@@ -338,7 +338,7 @@
                         </div>
                     </div>
 
-                    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                    <div class="row row-cols-1 row-cols-lg-3 g-4 mt-3">
                         <div class="col">
                             <div class="card h-100 border-0">
                                 <div class="card-body contact-us-card-body p-0">
