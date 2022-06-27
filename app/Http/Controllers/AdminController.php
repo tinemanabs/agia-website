@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Training;
+use App\Models\Download;
 
 use Carbon\Carbon;
 
@@ -252,11 +253,54 @@ class AdminController extends Controller
 
     public function viewAllDownloads()
     {
-        return view('main.admin-download');
+        $downloads = DB::table('downloads')
+            ->latest()
+            ->get();
+
+        return view('main.admin-download', [
+            'downloads' => $downloads
+        ]);
     }
 
     public function createDownloads()
     {
         return view('main.admin-download-create');
+    }
+
+    public function addDownloads(Request $req)
+    {
+        $data = [
+            'title' => $req->title,
+            'category' => $req->category,
+        ];
+
+        $path = public_path('uploads/downloads/' . $data['category'] . '/' . $data['title']);
+
+        // create folder
+        if (!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+
+        $attachments = $req->file('files');
+        foreach ($attachments as $attachment) {
+            $name = $attachment->getClientOriginalName();
+            $attachment->move($path, $name);
+        }
+
+        $downloads = new Download();
+        $downloads->title = $data['title'];
+        $downloads->category = $data['category'];
+
+        $downloads->save();
+
+        return redirect('admin-downloads');
+    }
+
+    public function deleteTrainingRecords(Request $req)
+    {
+        $ids = $req->ids;
+        DB::table('trainings')->whereIn('id', $ids)->delete();
+
+        return redirect('admin-trainings');
     }
 }

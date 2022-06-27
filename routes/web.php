@@ -105,6 +105,8 @@ Route::get('/admin-trainings', [AdminController::class, 'viewAlltraining'])->nam
 Route::get('/admin-create-training', [AdminController::class, 'createTraining'])->name('admin-create-training');
 Route::post('/add-training', [AdminController::class, 'addTraining'])->name('add.training');
 
+Route::post('/delete-multiple-trainings', [AdminController::class, 'deleteTrainingRecords'])->name('delete.trainings');
+
 /* ADMIN-MEMBERSHIP APPLICATIONS NAVIGATION */
 Route::get('/admin-membership-applications', [AdminController::class, 'viewAllmemberapplication'])->name('admin.view-all-applications');
 Route::post('/accept-application', [AdminController::class, 'acceptApplication'])->name('accept.application');
@@ -116,6 +118,7 @@ Route::get('/admin-users-management/register', [AdminController::class, 'registe
 /* ADMIN-DOWNLOADS NAVIGATION */
 Route::get('/admin-downloads', [AdminController::class, 'viewAllDownloads'])->name('admin.view-all-downloads');
 Route::get('/admin-create-downloads', [AdminController::class, 'createDownloads'])->name('admin.create-downloads');
+Route::post('/add-downloads', [AdminController::class, 'addDownloads'])->name('add.downloads');
 
 //Auth::routes();
 

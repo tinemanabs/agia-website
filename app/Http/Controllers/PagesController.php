@@ -183,7 +183,15 @@ class PagesController extends Controller
 
     public function downloadsPage()
     {
-        return view('app.resources.downloads');
+        if (isset($_GET['category'])) {
+            $downloads = DB::table('downloads')
+                ->where('category', $_GET['category'])
+                ->get();
+
+            return view('app.resources.downloads', [
+                'downloads' => $downloads
+            ]);
+        }
     }
 
     /*CONTACT US NAVIGATION */

@@ -9,7 +9,7 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-                <table class="table">
+                <table class="stripe" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -19,17 +19,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>dadas</td>
-                            <td>adas</td>
-                            <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
-                                        class="fa-solid fa-search"></i></a>
+                        @forelse ($downloads as $download)
+                            <tr>
+                                <th>{{ $download->id }}</th>
+                                <td>{{ $download->title }}</td>
+                                <td>{{ ucfirst($download->category) }}</td>
+                                <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
+                                            class="fa-solid fa-search"></i></a>
 
-                                <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
-                                        class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
+                                    <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
+                                            class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8">
+                                    <div class="card-header border-0 text-center">No data available in table</div>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

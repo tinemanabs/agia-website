@@ -134,7 +134,7 @@ $('#add-training-btn').on('click', function () {
     Swal.fire({
       icon: 'error',
       title: 'Error!',
-      text: 'Please fill up the required!',
+      text: 'Please fill up the required fields!',
       confirmButtonColor: '#2a2f89'
     });
     return false;
@@ -230,6 +230,12 @@ $('#add-gallery-btn').on('click', function () {
 $(document).ready( function () {
   $('#myTable').DataTable();
 })
+
+$(function() {
+  $("#checkAll").click(function() {
+    $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+  });
+});
 
 /***/ }),
 

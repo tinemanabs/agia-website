@@ -21,18 +21,35 @@ class MemberController extends Controller
 
     function checkLogin(Request $req)
     {
-        $user_data = array(
-            'username' => $req->get('username'),
-            'password' => $req->get('password')
-        );
+        $user = User::where('username', $req->username)->first();
 
-        /*$role = User::find($user_data['username']);
-        dd($role);*/
-        if (Auth::attempt(['username' => $user_data['username'], 'password' => $user_data['password'], 'user_role' => '0', 'active' => 1])) {
+        if ($user) {
+            $user_data = array(
+                'username' => $req->get('username'),
+                'password' => $req->get('password')
+            );
+
+            $auth = Auth::attempt($user_data);
+
+            if ($auth) {
+                $currentUser = Auth::user();
+                if ($currentUser->user_role == '0' && $currentUser->active == 0) {
+                    Auth::logout();
+                    return back()->with('error', 'Your account is not yet activated!');
+                } else if ($currentUser->user_role == '1') {
+                    Auth::logout();
+                    return back()->with('error', 'The entered credentials does not exist in our records. Please apply for a membership.');
+                }
+            } else {
+                return back()->with('error', 'Invalid login credentials!');
+            }
+
             return redirect('/');
+
         } else {
-            return back()->with('error', 'Wrong login details!');
+            return back()->with('error', 'The entered credentials does not exist in our records. Please apply for a membership.');
         }
+
     }
 
     function successLogin()
