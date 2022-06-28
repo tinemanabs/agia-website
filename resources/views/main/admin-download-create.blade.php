@@ -26,7 +26,7 @@
 
                     <div class="mb-3">
                         <label for="formFileSm" class="form-label">File Upload</label>
-                        <input class="form-control form-control" name="files[]" id="files" type="file" multiple>
+                        <input class="form-control form-control" name="files[]" id="files" type="file" onchange="multipleFileValidation()" multiple>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="btn btn-primary" type="submit" id="add-downloads-btn">Add to Downloads</button>

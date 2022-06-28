@@ -211,12 +211,51 @@ window.multipleImageValidation = function () {
   })
 }
 
+window.multipleFileValidation = function () {
+  var fileInput = document.getElementById('files');
+
+  // Allowing file type
+
+  const maxAllowedSize = 30 * 1024 * 1024;
+
+  // File Size validation
+  Array.from(fileInput.files).forEach(file => {
+      //var size = parseFloat(fileInput.files[0].size / (1024 * 1024)).toFixed(2);
+      if (file.size > maxAllowedSize) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Please select a file with less than 30 MB!',
+            confirmButtonColor: '#2a2f89'
+          });
+          fileInput.value = '';
+          return false;
+      }
+  })
+}
+
 $('#add-gallery-btn').on('click', function () {
   var title = $('#title').val();
   var caption = $('#caption').val();
   var date = $('#date').val();
 
   if (title == '' || caption == '' || date == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+$('#add-downloads-btn').on('click', function () {
+  var title = $('#title').val();
+  var category = $('#category').val();
+  var files = $('#files').val();
+
+  if (title == '' || category == '' || files == '') {
     Swal.fire({
       icon: 'error',
       title: 'Error!',
