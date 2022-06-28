@@ -34,20 +34,22 @@
 
             <div class="card downloads-category-card border-0 mt-5">
                 <div class="card-body downloads-category-card-body p-0">
-                    <h2>{{ $_GET["category"] }}</h2>
+                    <h2>{{ str_replace('-', ' ', $_GET["category"]) }}</h2>
                 </div>
             </div>
-
+            @forelse ($downloads as $download)
             <div class="card h-100 mt-3 mb-3 downloads-card">
+
                 <div class="card-body">
-                @forelse ($downloads as $download)
+                
                     <h5 class="card-title text-uppercase">{{ $download->title }}</h5>
+                    <h6 class="card-subtitle mb-3 text-muted">Attachment:</h6>
                     @foreach (array_reverse(File::glob('uploads/downloads/' . $download->category . '/' . $download->title . '/*')) as $path)
-                        <h6 class="card-subtitle mb-3 text-muted">Attachment:</h6>
+                        
 
                         <div class="d-flex align-items-center mb-3">
                             <?php $path_parts = pathinfo($path); ?>
-                            @if ($path_parts['extension'] == 'doc' || $path_parts['extension'] == 'docx')
+                            @if ($path_parts['extension'] == 'doc' || $path_parts['extension'] == 'docx' || $path_parts['extension'] == 'pdf')
                                 {{-- DOC FILE --}}
                                 <img src="{{ asset('img/file-ext/doc.png') }}" alt="" class="img-fluid" width="30">
                             @elseif ($path_parts['extension'] == 'png' || $path_parts['extension'] == 'jpg' || $path_parts['extension'] == 'jpeg')
@@ -56,7 +58,7 @@
                             @elseif ($path_parts['extension'] == 'pptx')
                                 {{-- PPT FILE --}}
                                 <img src="{{ asset('img/file-ext/ppt.png') }}" alt="" class="img-fluid" width="30">
-                            @elseif ($path_parts['extension'] == 'xlsx')
+                            @elseif ($path_parts['extension'] == 'xlsx' || $path_parts['extension'] == 'xls')
                                 {{-- EXCEL FILE --}}
                                 <img src="{{ asset('img/file-ext/xls.png') }}" alt="" class="img-fluid" width="30">
                             @endif
@@ -75,11 +77,11 @@
                             <span class="downloads-filename">2022 ANNUAL NATIONAL CONVENTION CUM SEMINAR</span>
                         </div>-->
                     @endforeach
-                @empty
-                <p>No files found</p>
-                @endforelse
                 </div>
             </div>
+            @empty
+                <p>No files found</p>
+            @endforelse
             @endif
 
         </div>

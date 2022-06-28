@@ -30,6 +30,7 @@ Route::get('/', function () {
         ->limit(4)
         ->get();
     $trainings = DB::table('trainings')
+        ->whereDate('start', '>=', date('Y-m-d'))
         ->orderBy('start', 'asc')
         ->limit(4)
         ->get();
@@ -85,6 +86,7 @@ Route::post('/send-contact', [MailController::class, 'sendContact'])->name('send
 Route::get('/member-login', [MemberController::class, 'index'])->name('member-login');
 Route::post('/checklogin', [MemberController::class, 'checkLogin']);
 Route::get('/successlogin', [MemberController::class, 'successLogin']);
+Route::post('/change-password', [MemberController::class, 'changePassword'])->name('change.password');
 Route::get('/logout', [MemberController::class, 'logout']);
 
 /* ADMIN-GALLERY NAVIGATION */

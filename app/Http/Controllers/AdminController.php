@@ -147,8 +147,9 @@ class AdminController extends Controller
 
     public function deleteNews(Request $req)
     {
-        $data = News::find($req->id);
-        $data->delete();
+        $ids = $req->ids;
+        DB::table('news')->whereIn('id', $ids)->delete();
+
         return redirect('admin-news');
     }
 

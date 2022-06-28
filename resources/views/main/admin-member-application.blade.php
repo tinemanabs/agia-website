@@ -23,7 +23,7 @@
                                 <th>{{ $user->id }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td><a href="uploads/resume/{{ $user->cv }}" target="_blank">Link</a></td>
+                                <td><a href="uploads/application/{{ $user->cv }}" target="_blank">Link</a></td>
                                 <td>
                                     <form action="{{ route('accept.application') }}" method="post" style="display: inline;">
                                     @csrf

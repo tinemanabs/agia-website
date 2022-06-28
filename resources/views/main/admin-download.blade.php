@@ -23,11 +23,11 @@
                             <tr>
                                 <th>{{ $download->id }}</th>
                                 <td>{{ $download->title }}</td>
-                                <td>{{ ucfirst($download->category) }}</td>
+                                <td>{{ str_replace('-', ' ', ucfirst($download->category)) }}</td>
                                 <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>
 
-                                    <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
+                                    <a class="btn btn-circle btn-sm btn-danger" role="button"><i
                                             class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>

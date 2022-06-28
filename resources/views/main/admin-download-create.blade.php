@@ -19,7 +19,7 @@
                             <option selected disabled value="">Select Category</option>
                             <option value="forms">Forms</option>
                             <option value="invitation">Invitation</option>
-                            <option value="lecture-materials">Forms</option>
+                            <option value="lecture-materials">Lecture Materials</option>
                             <option value="others">Others</option>
                         </select>
                     </div>

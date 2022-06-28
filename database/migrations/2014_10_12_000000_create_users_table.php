@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('user_role');
             $table->integer('active');
-            $table->text('cover')->nullable();
+         // $table->text('cover')->nullable();
             $table->string('cv')->nullable();
             $table->rememberToken();
             $table->timestamps();

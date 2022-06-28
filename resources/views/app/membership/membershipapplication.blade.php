@@ -4,6 +4,8 @@
 @section('breadcrumb', 'Membership Application')
 @section('page-content')
 
+    @if (!(isset(Auth::user()->username)))
+
     <h1 class="page-heading m-0 p-0">Membership Application</h1>
     <small class="text-muted m-0 p-0">To apply for membership, please complete the following details.</small>
 
@@ -36,11 +38,7 @@
                         <input type="password" class="form-control" name="password" id="password"></input>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"> <strong> Cover Letter</strong></label>
-                        <textarea class="form-control" rows="3" name="cover" id="cover"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"> <strong>Resume</strong></label>
+                        <label class="form-label"> <strong>Application Form</strong></label>
                         <input class="form-control" type="file" id="cv" name="cv" onchange="fileValidation();"></input>
                         <small class="text-muted">Only: doc / docx / pdf, less 10mb</small>
                     </div>
@@ -52,6 +50,9 @@
             </div>
         </div>
     </div>
+    @else
+        <script>window.location = "/";</script>
+    @endif
 
 
 

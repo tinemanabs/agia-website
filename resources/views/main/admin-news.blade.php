@@ -9,9 +9,12 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
+            <form action="{{ route('delete.news') }}" method="post">
+            @csrf
                 <table class="stripe" id="myTable">
                     <thead>
                         <tr>
+                            <th scope="col"><input type="checkbox" id="checkAll" /></th>
                             <th scope="col">#</th>
                             <th scope="col">Date Posted</th>
                             <th scope="col">Title</th>
@@ -21,18 +24,12 @@
                     <tbody>
                         @forelse ($news as $n)
                             <tr>
+                                <td><input type="checkbox" name="ids[]" class="checkBoxClass" value="{{ $n->id }}" /></td>
                                 <th>{{ $n->id }}</th>
                                 <td>{{ \Carbon\Carbon::parse($n->date)->format('F d, Y') }}</td>
                                 <td>{{ $n->title }}</td>
                                 <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>
-
-                                    <form action="{{ route('delete.news') }}" method="post" style="display: inline;">
-                                        @csrf
-                                        <input type="hidden" name="id" id="id" value="{{ $n->id }}">
-                                        <button class="btn btn-circle btn-sm btn-danger" role="button"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </form>
                                 </td>
                             </tr>
                         @empty
@@ -43,6 +40,8 @@
                             </tr>
                         @endforelse
                     </tbody>
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
                 </table>
             </div>
         </div>

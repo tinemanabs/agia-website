@@ -4,29 +4,39 @@
 @section('breadcrumb', 'Update Membership Profile')
 @section('page-content')
 
+    @if (isset(Auth::user()->username) && Auth::user()->user_role == "0")
+
     <h1 class="page-heading mb-4">Update Membership Profile</h1>
 
     <div class="container px-0 px-lg-5">
         <div class="card mt-4">
             <div class="card-body">
-
-                <form action="" method="post">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">	
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @elseif ($message = Session::get('error'))
+                    <div class="alert alert-danger alert-block">	
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+                <form action="{{ route('change.password') }}" method="post">
                     @csrf
-
+                    <input type="hidden" name="id" id="id" value="{{ Auth::user()->id }}">
                     <h5 class="mb-4">Profile Information</h5>
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label"> <strong> Name</strong></label>
-                            <input type="text" class="form-control" name="name" id="name">
+                            <input type="text" class="form-control" name="name" id="name" value="{{ Auth::user()->name }}" readonly>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label"> <strong>Username</strong> </label>
-                            <input type="text" class="form-control" name="uname" id="uname">
+                            <input type="text" class="form-control" name="uname" id="uname" value="{{ Auth::user()->username }}" readonly>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"> <strong> Email</strong></label>
-                        <input type="email" class="form-control" name="email" id="email" disabled>
+                        <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}" readonly>
                     </div>
 
                     <hr>
@@ -55,4 +65,7 @@
             </div>
         </div>
     </div>
+    @else
+        <script>window.location = "/member-login";</script>
+    @endif
 @endsection

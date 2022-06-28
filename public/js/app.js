@@ -176,11 +176,10 @@ $('#membership-btn').on('click', function () {
   var name = $('#name').val();
   var email = $('#email').val();
   var password = $('#password').val();
-  var cover = $('#cover').val();
   let resume = $('#cv').val();
   var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  if (name == '' || email == '' || password == '' || cover == '' || resume == '') {
+  if (name == '' || email == '' || password == '' || resume == '') {
     Swal.fire({
       icon: 'error',
       title: 'Error!',
@@ -196,6 +195,38 @@ $('#membership-btn').on('click', function () {
       confirmButtonColor: '#2a2f89'
     });
     return false;
+  }
+});
+
+$('#update-membership-btn').on('click', function () {
+  let currpwd = $('#password').val();
+  let npwd = $('#newPassword').val();
+  let cpwd = $('#confPassword').val();
+
+  if (currpwd == '' || npwd == '' || cpwd == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  } else if (currpwd == npwd) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Your new password cannot be the same with your current password!',
+        confirmButtonColor: '#2a2f89'
+      });
+      return false;
+  } else if (npwd != cpwd) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Passwords do not match!',
+        confirmButtonColor: '#2a2f89'
+      });
+      return false;
   }
 });
 

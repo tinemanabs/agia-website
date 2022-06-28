@@ -26,12 +26,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Member Test',
-            'username' => 'member1',
+            'name' => 'Unactivated Member',
+            'username' => 'UnactivatedMember',
             'email' => 'patrickjeromeauy@gmail.com',
             'password' => Hash::make('member'),
             'user_role' => "0",
             'active' => 0
+        ]);
+
+        User::create([
+            'name' => 'Activated Member',
+            'username' => 'ActivatedMember',
+            'email' => 'dummyemail@gmail.com',
+            'password' => Hash::make('member'),
+            'user_role' => "0",
+            'active' => 1
         ]);
     }
 }

@@ -34,9 +34,6 @@
                                     <td>{{ $training->title }}</td>
                                     <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                                 class="fa-solid fa-search"></i></a>
-
-                                        <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
-                                                class="fa-solid fa-trash"></i></a>
                                     </td>
                             </tr>
                         @empty

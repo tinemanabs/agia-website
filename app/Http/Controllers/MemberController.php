@@ -70,14 +70,13 @@ class MemberController extends Controller
             'email' => $req->email,
             'username' => $req->username,
             'password' => $req->password,
-            'cover' => $req->cover,
             'cv' => $req->cv
         ];
 
-        $path = public_path('uploads/resume'); //change to "/" when uploaded to web host
+        $path = public_path('uploads/application'); //change to "/" when uploaded to web host
         $attachment = $req->file('cv');
 
-        $name = Str::slug($data['name']) . '-resume-' . time() . '.' . $attachment->getClientOriginalExtension();
+        $name = Str::slug($data['name']) . '-application-' . time() . '.' . $attachment->getClientOriginalExtension();
 
         if (!File::exists($path)) {
             File::makeDirectory($path, $mode = 0777, true, true);
@@ -91,13 +90,24 @@ class MemberController extends Controller
         $users->email = $data['email'];
         $users->username = $data['username'];
         $users->password = Hash::make($data['password']);
-        $users->cover = $data['cover'];
         $users->cv = $name;
         $users->user_role = "0";
         $users->active = 0;
 
         $users->save();
         return back()->with('success','Your membership application has been submitted!');
+    }
+
+    public function changePassword(Request $req)
+    {
+        $data = User::find($req->id);
+        if (Hash::check($req->password, $data->password)) {
+            $data->password = Hash::make($req->newPassword);
+            $data->save();
+            return back()->with('success','Your password has been successfully changed!');
+        } else {
+            return back()->with('error','Your current password is incorrect!');
+        }
     }
 
 }
