@@ -56,7 +56,8 @@
                         <i class="fas fa-times"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="row ms-auto">
+
+                        <div class="row @if (isset(Auth::user()->username) && Auth::user()->user_role == '0') me-auto @else ms-auto @endif">
                             <div class="col-lg-8 col-md-12 mt-3 mt-lg-0 order-md-last">
                                 <form class="d-flex">
                                     <input class="form-control me-2" type="search" placeholder="Search"
@@ -88,8 +89,21 @@
 
                         <span class="navbar-text ms-3 member-login d-none d-lg-block">
                             @if (isset(Auth::user()->username) && Auth::user()->user_role == '0')
-                                Welcome, {{ Auth::user()->name }}!
-                                <a href="{{ url('/logout') }}">Logout</a>
+                                <div class="dropdown dropdown-member-login">
+                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Welcome, {{ Auth::user()->name }}!
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('membership.update-membership-profile') }}">Profile</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                                    </ul>
+                                </div>
                             @else
                                 <a href="{{ route('member-login') }}" data-bs-toggle="tooltip" data-bs-placement="top"
                                     title="Member Login">
@@ -98,8 +112,9 @@
                         </span>
                     </div>
                 </div>
-            </nav>
+            </nav><!-- END OF FIRST LAYER -->
 
+            <!-- SECOND LAYER -->
             <div class="container p-0">
                 <div class="collapse navbar-collapse d-lg-block" id="navbarSupportedContent">
                     <nav class="navbar-menu">
@@ -110,10 +125,11 @@
                             {{-- ABOUT US NAV --}}
                             <li class="nav-item sub-menu second-nav-tabs" id="sub-menu">
                                 <a class="nav-link sub-menu-parent" data-bs-toggle="collapse"
-                                    href="#submenu-about">About Us <span class="caret"><i
-                                            class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
+                                    href="#submenu-about">About Us
+                                    <span class="caret"><i class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-about">
-                                    <li class="list-group-item"><a href="{{ route('aboutus.what-is-agia') }}">What is
+                                    <li class="list-group-item"><a href="{{ route('aboutus.what-is-agia') }}">What
+                                            is
                                             AGIA </a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('aboutus.vision-mission') }}">Vision
@@ -165,7 +181,8 @@
                                     <li class="list-group-item"><a href="{{ route('training.calendar') }}">Training
                                             Calendar</a></li>
                                     <li class="list-group-item"><a
-                                            href="{{ route('training.training-events') }}">List of Training
+                                            href="{{ route('training.training-events') }}">List
+                                            of Training
                                             Events</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('training.training-cpd-units') }}">Training with CPD
@@ -206,7 +223,8 @@
                                             href="{{ route('laws.presidential-decree') }}">Presidential Decree</a>
                                     </li>
                                     <li class="list-group-item"><a
-                                            href="{{ route('laws.executive-order') }}">Executive Order</a></li>
+                                            href="{{ route('laws.executive-order') }}">Executive
+                                            Order</a></li>
                                     <li class="list-group-item"><a
                                             href="{{ route('laws.administrative-orders') }}">Administrative
                                             Orders</a></li>
@@ -243,10 +261,16 @@
                                 <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
                             </li>
 
-                            <li class="nav-item second-nav-tabs d-block d-lg-none">
-                                <a class="nav-link" href="{{ route('member-login') }}">Member Login</a>
-                            </li>
-
+                            {{-- MOBILE NAV FOR LOGIN/LOGOUT --}}
+                            @if (isset(Auth::user()->username) && Auth::user()->user_role == '0')
+                                <li class="nav-item second-nav-tabs d-block d-lg-none">
+                                    <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+                                </li>
+                            @else
+                                <li class="nav-item second-nav-tabs d-block d-lg-none">
+                                    <a class="nav-link" href="{{ route('member-login') }}">Member Login</a>
+                                </li>
+                            @endif
                         </ul>
                     </nav>
                 </div>

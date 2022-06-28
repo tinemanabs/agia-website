@@ -3,17 +3,26 @@
 @section('main-title', 'Resources')
 @section('breadcrumb', 'AGIA News')
 @section('page-content')
-    <div class="container px-5">
-        <div class="card border-0">
-            <div class="card-header bg-transparent p-0 mb-3">
-                <h3>{{ $news->title }}</h3>
-                <small class="card-subtitle  text-muted">Date Posted:
-                    {{ \Carbon\Carbon::parse($news->created_at)->format('M d Y h:i a') }}</small>
-            </div>
-            <img src="{{ asset('uploads/news/' . Carbon\Carbon::createFromFormat('Y-m-d', $news->date)->format('Y') . '/' . \Illuminate\Support\Str::slug($news->title, '-')  . '/' . $news->image) }}" class="card-img-top" alt="...">
-            <div class="card-body p-0 mt-3">
+    <div class="container">
+        <div class="card single-news-card border-0">
+            <div class="card-body single-news-card-body">
+                <h3 class="mb-4">{{ $news->title }}</h3>
 
-                <p class="card-text">{{ $news->message }}</p>
+                <div class="single-news-date mb-4">
+                    <h5>AGIA News</h5>
+                    <small class="text-muted">Posted at
+                        {{ \Carbon\Carbon::parse($news->created_at)->format('M d Y h:i A') }}
+                    </small>
+                </div>
+
+                <div class="single-news-img mb-4">
+                    <img src="{{ asset('uploads/news/' . Carbon\Carbon::createFromFormat('Y-m-d', $news->date)->format('Y') . '/' . \Illuminate\Support\Str::slug($news->title, '-') . '/' . $news->image) }}"
+                        class="img-fluid" alt="...">
+                </div>
+
+                <div class="single-news-details">
+                    <p class="card-text">{{ $news->message }}</p>
+                </div>
             </div>
         </div>
     </div>

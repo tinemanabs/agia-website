@@ -181,12 +181,12 @@
                                                     <i class="fa-regular fa-calendar me-1"></i>
                                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $n->created_at)->format('F d, Y') }}
 
-                                                    <i class="fa-solid fa-clock ms-3 me-1"></i>
+                                                    <i class="fa-regular fa-clock ms-3 me-1"></i>
                                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $n->created_at)->format('h:i A') }}
                                                 </span>
-                                                <p class="card-text">
+                                                {{-- <p class="card-text">
                                                     {{ \Illuminate\Support\Str::limit($n->message, 150, $end = '...') }}
-                                                </p>
+                                                </p> --}}
                                             </div>
                                         </div>
                                     </a>

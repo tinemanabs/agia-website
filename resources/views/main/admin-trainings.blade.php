@@ -9,46 +9,99 @@
                         class="fa-solid fa-plus"></i></a>
             </div>
             <div class="table-responsive">
-            <form action="{{ route('delete.trainings') }}" method="post">
-            @csrf
-                <table class="stripe" id="myTable">
-                    <thead>
-                        <tr>
-                            <th scope="col"><input type="checkbox" id="checkAll" /></th>
-                            <th scope="col">#</th>
-                            <th scope="col">Training Date</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($trainings as $training)
+                <form action="{{ route('delete.trainings') }}" method="post">
+                    @csrf
+                    <table class="stripe" id="myTable">
+                        <thead>
                             <tr>
-                                    <td><input type="checkbox" name="ids[]" class="checkBoxClass" value="{{ $training->id }}" /></td>
+                                <th scope="col"><input type="checkbox" id="checkAll" /></th>
+                                <th scope="col">#</th>
+                                <th scope="col">Training Date</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($trainings as $training)
+                                <tr>
+                                    <td><input type="checkbox" name="ids[]" class="checkBoxClass"
+                                            value="{{ $training->id }}" /></td>
                                     <th>{{ $training->id }}</th>
                                     @if ($training->end != null)
-                                    <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to
+                                            {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</td>
                                     @else
-                                    <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}</td>
                                     @endif
                                     <td>{{ $training->title }}</td>
                                     <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                                 class="fa-solid fa-search"></i></a>
                                     </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="8">
-                                    <div class="card-header border-0 text-center">No data available in table</div>
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                </table>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="8">
+                                        <div class="card-header border-0 text-center">No data available in table</div>
+                                    </td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </table>
+                </form>
             </div>
         </div>
     </div>
+
+    {{-- FOR VIEW BUTTON --}}
+
+    {{-- <button type="button" class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#view-btn">
+        <i class="fa-solid fa-search"></i>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="view-btn" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row mb-3">
+                            <div class="col-3"> <strong>ID</strong></div>
+                            <div class="col-9">1</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3"> <strong>Title</strong></div>
+                            <div class="col-9">2022 ANNUAL NATIONAL CONVENTION CUM SEMINAR</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3"> <strong>Date</strong></div>
+                            <div class="col-9"> June 30, 2022 to June 29, 2022</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3"> <strong>Venue</strong></div>
+                            <div class="col-9"> via Online ZOOM</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3"> <strong>Body</strong></div>
+                            <div class="col-9">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis veniam
+                                temporibus omnis corrupti neque accusamus nesciunt, id, nobis quia nam ipsam eius beatae
+                                incidunt illum debitis asperiores fuga delectus? Libero?</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3"> <strong>Image</strong></div>
+                            <div class="col-9"><img src="{{ asset('img/landing-page-img.jpg') }}" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
 @endsection

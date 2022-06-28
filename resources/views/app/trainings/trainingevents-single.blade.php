@@ -3,7 +3,8 @@
 @section('main-title', 'Training and Seminars')
 @section('breadcrumb', 'Training Events')
 @section('page-content')
-    <div class="card">
+
+    {{-- <div class="card">
         <div class="card-header">
             <h5>{{ $trainings->title }}</h5>
         </div>
@@ -19,6 +20,48 @@
         <div class="card-body">{{ $trainings->message }}
             <div class="training-event-img mt-3">
                 <img src="{{ asset('uploads/training/' . $trainings->image) }}" class="img-fluid" alt="...">
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="container">
+        <div class="card single-training-evt border-0">
+            <div class="card-body">
+                <h3 class="mb-4">{{ $trainings->title }}</h3>
+                <h5 class="mb-4">AGIA Training Events and Seminars</h5>
+
+                <div class="single-training-evt-details">
+                    @if ($trainings->end != null)
+                        <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y') }} to
+                        {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y') }}
+                    @else
+                        <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y') }}
+                    @endif
+                </div>
+
+                <hr>
+
+                <div class="single-training-evt-details">
+                    <strong>Venue:</strong> {{ $trainings->venue }}
+                </div>
+                <hr>
+
+
+                <div class="single-training-evt-details">
+                    <strong>Course Objective:</strong>
+                    <p>{{ $trainings->objective }}</p>
+                </div>
+                <hr>
+
+                <div class="single-training-evt-details">
+                    <p>{{ $trainings->message }}</p>
+                </div>
+
+                <div class="single-training-evt-img">
+                    <img src="{{ asset('uploads/training/' . $trainings->image) }}" class="img-fluid" alt="...">
+                </div>
+
+
             </div>
         </div>
     </div>
