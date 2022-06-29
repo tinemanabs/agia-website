@@ -270,11 +270,48 @@ $(document).ready( function () {
   $('#myTable').DataTable();
 })
 
-$(function() {
-  $("#checkAll").click(function() {
-    $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+$(document).ready( function () {
+  $('#myTable').TableCheckAll();
+  $('#multi-delete').on('click', function() {
+    var button = $(this);
+    var selected = [];
+    $('#myTable .check:checked').each(function() {
+      selected.push($(this).val());
+    });
+    Swal.fire({
+      icon: 'warning',
+        title: 'Are you sure you want to delete the selected record(s)?',
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        $.ajax({
+          type: 'post',
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: button.data('route'),
+          data: {
+            'selected': selected
+          },
+          success: function (response, textStatus, xhr) {
+            Swal.fire({
+              icon: 'success',
+                title: 'Records were successfully deleted!',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Yes'
+            }).then((result) => {
+              location.reload()
+            });
+          }
+        });
+      }
+    });
   });
-});
+})
 
 /***/ }),
 

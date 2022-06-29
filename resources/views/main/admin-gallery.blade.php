@@ -8,10 +8,12 @@
                 <a class="btn btn-primary" href="{{ route('admin.create-gallery') }}" role="button"><i
                         class="fa-solid fa-plus"></i></a>
             </div>
+            <button class="btn btn-danger" id="multi-delete" data-route="{{ route('multi-delete.gallery') }}">Delete All Selected</button>
             <div class="table-responsive">
                 <table class="stripe" id="myTable">
                     <thead>
                         <tr>
+                            <th scope="col"><input type="checkbox" class="check-all" /></th>
                             <th scope="col">#</th>
                             <th scope="col">Date Posted</th>
                             <th scope="col">Title</th>
@@ -21,6 +23,7 @@
                     <tbody>
                         @forelse ($galleries as $gallery)
                             <tr>
+                                <td><input type="checkbox" class="check" value="{{ $gallery->id }}"></td>
                                 <th>{{ $gallery->id }}</th>
                                 <td>{{ \Carbon\Carbon::parse($gallery->date)->format('F d, Y') }}</td>
                                 <td>{{ $gallery->title }}</td>
@@ -51,6 +54,14 @@
                                                 <div class="row mb-3">
                                                     <div class="col-3"> <strong>ID</strong></div>
                                                     <div class="col-9">{{ $gallery->id }}</div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-3"> <strong>Title</strong></div>
+                                                    <div class="col-9">{{ $gallery->title }}</div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-3"> <strong>Date</strong></div>
+                                                    <div class="col-9">{{ \Carbon\Carbon::parse($gallery->date)->format('F d, Y') }}</div>
                                                 </div>
                                                 <form action="{{ route('add.images') }}" method="post"
                                                     enctype="multipart/form-data">

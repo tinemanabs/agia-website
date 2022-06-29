@@ -6,6 +6,7 @@
     @if (count($galleries) > 0)
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($galleries as $gallery)
+                @if (File::exists(public_path('uploads/galleries/' . Carbon\Carbon::createFromFormat('Y-m-d', $gallery->date)->format('Y') . '/' . $gallery->id)))
                 <div class="col">
                     <div class="card h-100 gallery-card">
                         <img src="{{ asset('uploads/galleries/' . request()->segment(count(request()->segments())) . '/' . $gallery->image) }}"
@@ -23,6 +24,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             @endforeach
         </div>
     @else

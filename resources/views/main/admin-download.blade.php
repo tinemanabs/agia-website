@@ -8,10 +8,12 @@
                 <a class="btn btn-primary" href="{{ route('admin.create-downloads') }}" role="button"><i
                         class="fa-solid fa-plus"></i></a>
             </div>
+            <button class="btn btn-danger" id="multi-delete" data-route="{{ route('multi-delete.download') }}">Delete All Selected</button>
             <div class="table-responsive">
                 <table class="stripe" id="myTable">
                     <thead>
                         <tr>
+                            <th scope="col"><input type="checkbox" class="check-all" /></th>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
                             <th scope="col">Category</th>
@@ -21,14 +23,21 @@
                     <tbody>
                         @forelse ($downloads as $download)
                             <tr>
+                                <td><input type="checkbox" class="check" value="{{ $download->id }}"></td>
                                 <th>{{ $download->id }}</th>
                                 <td>{{ $download->title }}</td>
                                 <td>{{ str_replace('-', ' ', ucfirst($download->category)) }}</td>
-                                <td><a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
+                                <td>
+                                    <a class="btn btn-circle btn-sm btn-primary" href="#" role="button"><i
                                             class="fa-solid fa-search"></i></a>
 
-                                    <a class="btn btn-circle btn-sm btn-danger" role="button"><i
-                                            class="fa-solid fa-trash"></i></a>
+                                    <form style="display: inline;" action="{{ route('delete.download') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" id="id" value="{{ $download->id }}">
+                                        <button class="btn btn-circle btn-sm btn-danger" type="submit">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

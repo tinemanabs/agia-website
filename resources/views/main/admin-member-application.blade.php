@@ -6,10 +6,12 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h5>List of Membership Applications</h5>
             </div>
+            <button class="btn btn-danger" id="multi-delete" data-route="{{ route('multi-delete.application') }}">Delete All Selected</button>
             <div class="table-responsive">
                 <table class="stripe" id="myTable">
                     <thead>
                         <tr>
+                            <th scope="col"><input type="checkbox" class="check-all" /></th>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
@@ -20,6 +22,7 @@
                     <tbody>
                         @forelse ($users as $user)
                             <tr>
+                                <td><input type="checkbox" class="check" value="{{ $user->id }}"></td>
                                 <th>{{ $user->id }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
@@ -32,8 +35,13 @@
                                                     class="fa-solid fa-check"></i></button>
                                     </form>
 
-                                    <a class="btn btn-circle btn-sm btn-danger" href="#" role="button"><i
-                                            class="fa-solid fa-trash"></i></a>
+                                    <form style="display: inline;" action="{{ route('delete.application') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" id="id" value="{{ $user->id }}">
+                                        <button class="btn btn-circle btn-sm btn-danger" type="submit">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

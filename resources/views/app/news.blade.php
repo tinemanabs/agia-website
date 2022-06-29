@@ -16,6 +16,7 @@
                     <div class="sidebar-heading border-0">News Archive</div>
                     <div class="list-group list-group-flush">
                     @foreach (array_reverse(File::glob('uploads/news/*', GLOB_ONLYDIR)) as $path)
+                        @if (count(glob('uploads/news/' . basename($path) . '/*', GLOB_ONLYDIR)) != 0)
                         <a class="list-group-item p-3" href="{{ route('resources.news', basename($path)) }}">{{ basename($path) }}<span class="badge bg-secondary ms-2">{{ count(File::glob('uploads/news/' . basename($path) . '/*', GLOB_ONLYDIR)) }}</span></a>
                         <!-- <a class="list-group-item p-3" href="">2021 <span
                                 class="badge bg-secondary ms-2">4</span></a>
@@ -31,6 +32,7 @@
                                 class="badge bg-secondary ms-2">4</span></a>
                         <a class="list-group-item p-3" href="">2011 <span
                                 class="badge bg-secondary ms-2">4</span></a> -->
+                        @endif
                     @endforeach
                     </div>
                 </div>

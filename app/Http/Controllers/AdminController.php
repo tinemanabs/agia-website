@@ -145,17 +145,53 @@ class AdminController extends Controller
         return redirect('admin-news');
     }
 
-    public function deleteNews(Request $req)
+    public function multiDeleteNews(Request $req)
     {
-        $ids = $req->ids;
-        DB::table('news')->whereIn('id', $ids)->delete();
+        foreach ($req->get('selected') as $ids) {
+            $data = News::find($ids);
+            $yearFolder = Carbon::createFromFormat('Y-m-d', $data->date)->format('Y');
+            $path = public_path('uploads/news/' . $yearFolder);
+            File::deleteDirectory($path . '/' . Str::slug($data->title, '-'));
+        }
+
+        News::whereIn('id', $req->get('selected'))->delete();
 
         return redirect('admin-news');
+    }
+
+    public function deleteNews(Request $req)
+    {
+        $data = News::find($ids);
+        $yearFolder = Carbon::createFromFormat('Y-m-d', $data->date)->format('Y');
+        $path = public_path('uploads/news/' . $yearFolder);
+        File::deleteDirectory($path . '/' . Str::slug($data->title, '-'));
+        $data->delete();
+        return redirect('admin-news');
+    }
+
+    public function multiDeleteGallery(Request $req)
+    {
+        foreach ($req->get('selected') as $ids) {
+            $data = Gallery::find($ids);
+            $yearFolder = Carbon::createFromFormat('Y-m-d', $data->date)->format('Y');
+            $path = public_path('uploads/galleries/' . $yearFolder);
+            unlink($path . '/' . $data->image);
+            File::deleteDirectory($path . '/' . $data->id);
+        }
+        Gallery::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-gallery');
     }
 
     public function deleteGallery(Request $req)
     {
         $data = Gallery::find($req->id);
+        $yearFolder = Carbon::createFromFormat('Y-m-d', $data->date)->format('Y');
+        //echo $yearFolder;
+        $path = public_path('uploads/galleries/' . $yearFolder);
+        unlink($path . '/' . $data->image);
+        File::deleteDirectory($path . '/' . $data->id);
+
         $data->delete();
         return redirect('admin-gallery');
     }
@@ -297,11 +333,45 @@ class AdminController extends Controller
         return redirect('admin-downloads');
     }
 
-    public function deleteTrainingRecords(Request $req)
+    public function multiDeleteTraining(Request $req)
     {
-        $ids = $req->ids;
-        DB::table('trainings')->whereIn('id', $ids)->delete();
+        Training::whereIn('id', $req->get('selected'))->delete();
 
         return redirect('admin-trainings');
+    }
+
+    public function deleteTraining(Request $req)
+    {
+        $data = Training::find($req->id);
+        $data->delete();
+        return redirect('admin-trainings');
+    }
+
+    public function multiDeleteDownload(Request $req)
+    {
+        Download::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-downloads');
+    }
+
+    public function deleteDownload(Request $req)
+    {
+        $data = Download::find($req->id);
+        $data->delete();
+        return redirect('admin-downloads');
+    }
+
+    public function multiDeleteApplication(Request $req)
+    {
+        User::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-membership-applications');
+    }
+
+    public function deleteApplication(Request $req)
+    {
+        $data = User::find($req->id);
+        $data->delete();
+        return redirect('admin-membership-applications');
     }
 }
