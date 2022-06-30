@@ -308,6 +308,11 @@
                         <div class="col-lg-6 p-2">
                             <h1 class="text-center">Contact Us</h1>
                             <h2 class="text-center mb-3">Send us a Message</h2>
+                            @if (Session::get('success'))
+                                <div class="alert alert-success">
+                                    <strong>{{ Session::get('success') }}</strong>
+                                </div>
+                            @endif
                             <form action="{{ route('send.contact') }}" method="post">
                                 @csrf
                                 <div class="row mt-5">
