@@ -68,6 +68,10 @@
                                                     <div class="col-3"> <strong>Username</strong></div>
                                                     <div class="col-9">{{ '@' .  $user->username }}</div>
                                                 </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-9"> <strong>Membership Application</strong></div>
+                                                    <iframe src="{{ 'uploads/application/' . $user->cv }}"></iframe>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

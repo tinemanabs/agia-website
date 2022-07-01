@@ -10,11 +10,14 @@ use App\Models\User;
 use App\Models\Training;
 use App\Models\Download;
 
+use App\Mail\AcceptMail;
+
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -284,6 +287,7 @@ class AdminController extends Controller
     {
         $data = User::find($req->id);
         $data->active = 1;
+        Mail::to($data->email)->send(new AcceptMail($data));
         $data->update();
         return redirect('admin-membership-applications');
     }

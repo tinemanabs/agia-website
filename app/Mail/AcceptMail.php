@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ForgotPasswordMail extends Mailable
+class AcceptMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,9 +28,9 @@ class ForgotPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.forgotpasswordemail')
-            ->subject('Reset Password - AGIA')
-            ->from('emailtestercorp@gmail.com', 'System')
+        return $this->view('mails.acceptmembership')
+            ->subject('Membership Acceptance - AGIA')
+            ->from('agiatest@gmail.com', 'AGIA')
             ->with('data', $this->data);
     }
 }
