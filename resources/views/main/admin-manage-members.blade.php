@@ -47,7 +47,7 @@
                             </tr>
                             <!-- Modal -->
                             <div class="modal fade" id="id{{ $user->id }}" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
