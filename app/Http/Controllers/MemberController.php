@@ -6,6 +6,8 @@ use File;
 use Hash;
 use App\Models\User;
 
+use App\Http\Requests\ApplicationRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -63,7 +65,7 @@ class MemberController extends Controller
         return redirect('member-login');
     }
 
-    function sendApplication(Request $req)
+    function sendApplication(ApplicationRequest $req)
     {
         $data = [
             'name' => $req->name,

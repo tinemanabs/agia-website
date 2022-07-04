@@ -125,16 +125,25 @@ $('#add-news-btn').on('click', function () {
 $('#add-training-btn').on('click', function () {
   var title = $('#title').val();
   var start = $('#startDate').val();
+  var end = $('#endDate').val();
   var venue = $('#venue').val();
   var objective = $('#courseObj').val();
   var message = $('#body').val();
   var image = $('#image').val();
 
-  if (title == '' || start == '' || venue == '' || objective == '' || message == '' || image == '') {
+  if (title == '' || start == '' || end == '' || venue == '' || objective == '' || message == '' || image == '') {
     Swal.fire({
       icon: 'error',
       title: 'Error!',
       text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  } else if (Date.parse(start) - Date.parse(end) > 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Invalid date range!',
       confirmButtonColor: '#2a2f89'
     });
     return false;

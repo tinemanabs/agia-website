@@ -240,25 +240,20 @@
                                     <div class="row g-0">
                                         <div class="col-md-4 latest-events-card-img p-4"
                                             style=" background-image: linear-gradient(rgba(27, 47, 69, 0.70), rgba(27, 47, 69, 0.70)), url('uploads/training/{{ $training->image }}');">
-                                            <h1>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('d') }}
+                                            <h1>{{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->start)->format('d') }}
                                             </h1>
-                                            <p>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('M, Y') }}
+                                            <p>{{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->start)->format('M, Y') }}
                                             </p>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body latest-events-card-body h-100">
                                                 <h5 class="card-title mb-4">{{ $training->title }}</h5>
                                                 <p class="card-text">
-                                                    @if ($training->end != null)
                                                         <i
-                                                            class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
+                                                            class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->start)->format('H:i A') }}
 
                                                         -
-                                                        {{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->end)->format('F d, Y') }}
-                                                    @else
-                                                        <i
-                                                            class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $training->start)->format('F d, Y') }}
-                                                    @endif
+                                                        {{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->end)->format('H:i A') }}
 
                                                 </p>
                                                 <p class="card-text">

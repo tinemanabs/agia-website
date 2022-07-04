@@ -27,11 +27,17 @@
                         <div class="col-md-6">
                             <label class="form-label"> <strong>Email</strong> </label>
                             <input type="email" class="form-control" name="email" id="email">
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"> <strong> Username</strong></label>
                         <input type="text" class="form-control" name="username" id="username"></input>
+                        @error('username')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label"> <strong> Password</strong></label>

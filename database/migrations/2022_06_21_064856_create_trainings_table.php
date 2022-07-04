@@ -17,7 +17,7 @@ class CreateTrainingsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('start');
-            $table->text('end')->nullable();
+            $table->text('end');
             $table->string('venue');
             $table->text('objective');
             $table->text('message');

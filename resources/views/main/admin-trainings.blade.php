@@ -25,12 +25,9 @@
                             <tr>
                                 <td><input type="checkbox" class="check" value="{{ $training->id }}"></td>
                                 <th>{{ $training->id }}</th>
-                                @if ($training->end != null)
-                                    <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to
-                                        {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}</td>
-                                @else
-                                    <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}</td>
-                                @endif
+                                <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y h:i A') }} to
+                                    {{ \Carbon\Carbon::parse($training->end)->format('F d, Y h:i A') }}
+                                </td>
                                 <td>{{ $training->title }}</td>
                                 <td>
                                     <button type="button" class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#id{{ $training->id }}">

@@ -30,7 +30,7 @@ Route::get('/', function () {
         ->limit(4)
         ->get();
     $trainings = DB::table('trainings')
-        ->whereDate('start', '>=', date('Y-m-d'))
+        ->whereDate('start', '>=', date('c'))
         ->orderBy('start', 'asc')
         ->limit(4)
         ->get();

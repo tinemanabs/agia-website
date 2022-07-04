@@ -9,11 +9,7 @@
             <h5>{{ $trainings->title }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-            @if ($trainings->end != null)
-            <li class="list-group-item">Date: {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y')  }} to {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y') }}</li>
-            @else
-            <li class="list-group-item">Date: {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y')  }}</li>
-            @endif
+            <li class="list-group-item">Date: {{ \Carbon\Carbon::parse($trainings->start)->format('H:i A')  }} to {{ \Carbon\Carbon::parse($trainings->end)->format('H:i A') }}</li>
             <li class="list-group-item">Venue: {{ $trainings->venue }}</li>
             <li class="list-group-item">Course Objective: {{ $trainings->objective }}</li>
         </ul>
@@ -31,12 +27,8 @@
                 <h5 class="mb-4">AGIA Training Events and Seminars</h5>
 
                 <div class="single-training-evt-details">
-                    @if ($trainings->end != null)
-                        <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y') }} to
-                        {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y') }}
-                    @else
-                        <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y') }}
-                    @endif
+                    <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y H:i A') }} to
+                    {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y H:i A') }}
                 </div>
 
                 <hr>
