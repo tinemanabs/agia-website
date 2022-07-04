@@ -89,10 +89,15 @@ class PagesController extends Controller
     }
     public function singleTrainingEvent($id)
     {
-        $trainings = Training::find($id);
-        return view('app.trainings.trainingevents-single', [
-            'trainings' => $trainings,
-        ]);
+        if (Training::where('id', '=', $id)->exists()) {
+            $trainings = Training::find($id);
+            return view('app.trainings.trainingevents-single', [
+                'trainings' => $trainings,
+            ]);
+        } else {
+            return redirect('/');
+        }
+        
     }
 
     /*LAWS AND ISSUANCES NAVIGATION */
@@ -151,10 +156,14 @@ class PagesController extends Controller
 
     public function singleNewsPage($id)
     {
-        $news = News::find($id);
-        return view('app.resources.news-single', [
-            'news' => $news,
-        ]);
+        if (News::where('id', '=', $id)->exists()) {
+            $news = News::find($id);
+            return view('app.resources.news-single', [
+                'news' => $news,
+            ]);
+        } else {
+            return redirect('/');
+        }        
     }
 
     public function galleryPage($year)
@@ -170,10 +179,14 @@ class PagesController extends Controller
 
     public function singleGalleryPage($id)
     {
-        $galleries = Gallery::find($id);
-        return view('app.resources.gallery-single', [
-            'galleries' => $galleries,
-        ]);
+        if (Gallery::where('id', '=', $id)->exists()) {
+            $galleries = Gallery::find($id);
+            return view('app.resources.gallery-single', [
+                'galleries' => $galleries,
+            ]);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function presidentMessagepage()
