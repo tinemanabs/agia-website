@@ -378,4 +378,36 @@ class AdminController extends Controller
         $data->delete();
         return redirect('admin-membership-applications');
     }
+
+    public function editGallery($id)
+    {
+        $gallery = Gallery::find($id);
+        return view('main.admin-gallery-edit', [
+            'gallery' => $gallery
+        ]);
+    }
+
+    public function editNews($id)
+    {
+        $news = News::find($id);
+        return view('main.admin-news-edit', [
+            'news' => $news
+        ]);
+    }
+
+    public function editTraining($id)
+    {
+        $training = Training::find($id);
+        return view('main.admin-trainings-edit', [
+            'training' => $training
+        ]);
+    }
+
+    public function editDownloads($id)
+    {
+        $download = Download::find($id);
+        return view('main.admin-download-edit', [
+            'download' => $download
+        ]);
+    }
 }

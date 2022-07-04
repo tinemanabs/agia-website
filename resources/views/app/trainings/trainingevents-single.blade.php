@@ -27,8 +27,8 @@
                 <h5 class="mb-4">AGIA Training Events and Seminars</h5>
 
                 <div class="single-training-evt-details">
-                    <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y H:i A') }} to
-                    {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y H:i A') }}
+                    <strong>Date:</strong> {{ \Carbon\Carbon::parse($trainings->start)->format('l, F d, Y h:i A') }} to
+                    {{ \Carbon\Carbon::parse($trainings->end)->format('l, F d, Y h:i A') }}
                 </div>
 
                 <hr>

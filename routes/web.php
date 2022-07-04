@@ -93,6 +93,7 @@ Route::get('/logout', [MemberController::class, 'logout']);
 Route::get('/admin-gallery', [AdminController::class, 'viewAllGallery'])->name('admin.view-all-gallery');
 Route::get('/admin-create-gallery', [AdminController::class, 'createGallery'])->name('admin.create-gallery');
 Route::post('/add-gallery', [AdminController::class, 'addGallery'])->name('add.gallery');
+Route::get('/admin-edit-gallery/{id}', [AdminController::class, 'editGallery'])->name('admin.edit-gallery');
 Route::post('/add-images', [AdminController::class, 'addImages'])->name('add.images');
 Route::post('/multi-delete-gallery', [AdminController::class, 'multiDeleteGallery'])->name('multi-delete.gallery');
 Route::post('/delete-gallery', [AdminController::class, 'deleteGallery'])->name('delete.gallery');
@@ -101,6 +102,7 @@ Route::post('/delete-gallery', [AdminController::class, 'deleteGallery'])->name(
 Route::get('/admin-news', [AdminController::class, 'viewAllnews'])->name('admin.view-all-news');
 Route::get('/admin-create-news', [AdminController::class, 'createNews'])->name('admin.create-news');
 Route::post('/add-news', [AdminController::class, 'addNews'])->name('add.news');
+Route::get('/admin-edit-news/{id}', [AdminController::class, 'editNews'])->name('admin.edit-news');
 Route::post('/multi-delete-news', [AdminController::class, 'multiDeleteNews'])->name('multi-delete.news');
 Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delete.news');
 
@@ -108,6 +110,7 @@ Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delet
 Route::get('/admin-trainings', [AdminController::class, 'viewAlltraining'])->name('admin.view-all-training');
 Route::get('/admin-create-training', [AdminController::class, 'createTraining'])->name('admin-create-training');
 Route::post('/add-training', [AdminController::class, 'addTraining'])->name('add.training');
+Route::get('/admin-edit-training/{id}', [AdminController::class, 'editTraining'])->name('admin-edit-training');
 Route::post('/multi-delete-training', [AdminController::class, 'multiDeleteTraining'])->name('multi-delete.training');
 Route::post('/delete-training', [AdminController::class, 'deleteTraining'])->name('delete.training');
 
@@ -127,6 +130,7 @@ Route::post('/delete-member', [AdminController::class, 'deleteMember'])->name('d
 Route::get('/admin-downloads', [AdminController::class, 'viewAllDownloads'])->name('admin.view-all-downloads');
 Route::get('/admin-create-downloads', [AdminController::class, 'createDownloads'])->name('admin.create-downloads');
 Route::post('/add-downloads', [AdminController::class, 'addDownloads'])->name('add.downloads');
+Route::get('/admin-edit-downloads/{id}', [AdminController::class, 'editDownloads'])->name('admin.edit-downloads');
 Route::post('/multi-delete-download', [AdminController::class, 'multiDeleteDownload'])->name('multi-delete.download');
 Route::post('/delete-download', [AdminController::class, 'deleteDownload'])->name('delete.download');
 

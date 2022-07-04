@@ -8,15 +8,18 @@
                 <a class="btn btn-primary" href="{{ route('admin-create-training') }}" role="button"><i
                         class="fa-solid fa-plus"></i></a>
             </div>
-            <button class="btn btn-danger" id="multi-delete" data-route="{{ route('multi-delete.training') }}">Delete All Selected</button>
+            <button class="btn btn-danger" id="multi-delete" data-route="{{ route('multi-delete.training') }}">Delete All
+                Selected</button>
             <div class="table-responsive">
                 <table class="stripe" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col"><input type="checkbox" class="check-all" /></th>
                             <th scope="col">#</th>
-                            <th scope="col">Training Date</th>
-                            <th scope="col">Title</th>
+                            {{-- <th scope="col">Training Date</th> --}}
+                            <th scope="col" style="width: 45%">Title</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Date Modified</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -25,14 +28,22 @@
                             <tr>
                                 <td><input type="checkbox" class="check" value="{{ $training->id }}"></td>
                                 <th>{{ $training->id }}</th>
-                                <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y h:i A') }} to
+                                {{-- <td>{{ \Carbon\Carbon::parse($training->start)->format('F d, Y h:i A') }} to
                                     {{ \Carbon\Carbon::parse($training->end)->format('F d, Y h:i A') }}
-                                </td>
+                                </td> --}}
                                 <td>{{ $training->title }}</td>
+                                <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $training->created_at)->format('F d, Y h:i:s A') }}
+                                </td>
+                                <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $training->updated_at)->format('F d, Y h:i:s A') }}
+                                </td>
                                 <td>
-                                    <button type="button" class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#id{{ $training->id }}">
+                                    <button type="button" class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#id{{ $training->id }}">
                                         <i class="fa-solid fa-search"></i>
                                     </button>
+                                    <a class="btn btn-circle btn-sm btn-success"
+                                        href="{{ route('admin-edit-training', $training->id) }}" role="button"><i
+                                            class="fa-solid fa-pencil"></i></a>
                                     <form style="display: inline;" action="{{ route('delete.training') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" id="id" value="{{ $training->id }}">
@@ -47,7 +58,8 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="container">
@@ -63,7 +75,8 @@
                                                     <div class="col-3"> <strong>Date</strong></div>
                                                     @if ($training->end != null)
                                                         <div class="col-9">
-                                                            {{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }} to
+                                                            {{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}
+                                                            to
                                                             {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}
                                                         </div>
                                                     @else
@@ -82,13 +95,16 @@
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-3"> <strong>Image</strong></div>
-                                                    <div class="col-9"><img src="{{ asset('uploads/training/' . $training->image) }}" class="img-fluid">
+                                                    <div class="col-9"><img
+                                                            src="{{ asset('uploads/training/' . $training->image) }}"
+                                                            class="img-fluid">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -109,8 +125,8 @@
     {{-- FOR VIEW BUTTON --}}
 
     <!--<button type="button" class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#view-btn">
-        <i class="fa-solid fa-search"></i>
-    </button>-->
+                                                                                    <i class="fa-solid fa-search"></i>
+                                                                                </button>-->
 
     <!-- Modal -->
     <div class="modal fade" id="view-btn" tabindex="-1" aria-hidden="true">

@@ -249,11 +249,11 @@
                                             <div class="card-body latest-events-card-body h-100">
                                                 <h5 class="card-title mb-4">{{ $training->title }}</h5>
                                                 <p class="card-text">
-                                                        <i
-                                                            class="fa-regular fa-calendar me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->start)->format('H:i A') }}
+                                                    <i
+                                                        class="fa-regular fa-clock me-2"></i>{{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->start)->format('h:i A') }}
 
-                                                        -
-                                                        {{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->end)->format('H:i A') }}
+                                                    -
+                                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $training->end)->format('h:i A') }}
 
                                                 </p>
                                                 <p class="card-text">
