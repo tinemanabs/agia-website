@@ -28,9 +28,9 @@
                             <tr>
                                 <td><input type="checkbox" class="check" value="{{ $gallery->id }}"></td>
                                 <th>{{ $gallery->id }}</th>
-                                <td>{{ $gallery->title }}</td>
-                                <td>{{ \Carbon\Carbon::parse($gallery->date)->format('F d, Y') }}</td>
-                                <td>Updated at</td>
+                                <td>{{ \Illuminate\Support\Str::limit($gallery->title, 50, $end='...') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($gallery->created_at)->format('F d, Y H:i:s A') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($gallery->updated_at)->format('F d, Y  H:i:s A') }}</td>
                                 <td><button class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#id{{ $gallery->id }}" role="button"><i
                                             class="fa-solid fa-search"></i></button>

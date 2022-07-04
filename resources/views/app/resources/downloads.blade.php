@@ -18,10 +18,10 @@
                 <div class="row">
                     <div class="col-6 col-md-4">
                         <select class="form-select" aria-label="Default select example" name="category">
-                            <option value="forms">Forms</option>
-                            <option value="invitation">Invitation</option>
-                            <option value="lecture-materials">Lecture Materials</option>
-                            <option value="others">Others</option>
+                            <option value="forms"{{ $_GET['category'] == 'forms' ? 'selected' : '' }}>Forms</option>
+                            <option value="invitation" {{ $_GET['category'] == 'invitation' ? 'selected' : '' }}>Invitation</option>
+                            <option value="lecture-materials" {{ $_GET['category'] == 'lecture-materials' ? 'selected' : '' }}>Lecture Materials</option>
+                            <option value="others" {{ $_GET['category'] == 'others' ? 'selected' : '' }}>Others</option>
                         </select>
                     </div>
                     <div class="col-6 col-md-8">

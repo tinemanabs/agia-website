@@ -97,6 +97,7 @@ Route::get('/admin-edit-gallery/{id}', [AdminController::class, 'editGallery'])-
 Route::post('/add-images', [AdminController::class, 'addImages'])->name('add.images');
 Route::post('/multi-delete-gallery', [AdminController::class, 'multiDeleteGallery'])->name('multi-delete.gallery');
 Route::post('/delete-gallery', [AdminController::class, 'deleteGallery'])->name('delete.gallery');
+Route::post('/admin-update-gallery', [AdminController::class, 'updateGallery'])->name('admin.update-gallery');
 
 /* ADMIN-NEWS NAVIGATION */
 Route::get('/admin-news', [AdminController::class, 'viewAllnews'])->name('admin.view-all-news');
@@ -105,6 +106,7 @@ Route::post('/add-news', [AdminController::class, 'addNews'])->name('add.news');
 Route::get('/admin-edit-news/{id}', [AdminController::class, 'editNews'])->name('admin.edit-news');
 Route::post('/multi-delete-news', [AdminController::class, 'multiDeleteNews'])->name('multi-delete.news');
 Route::post('/delete-news', [AdminController::class, 'deleteNews'])->name('delete.news');
+Route::post('/admin-update-news', [AdminController::class, 'updateNews'])->name('admin.update-news');
 
 /* ADMIN-TRAININGS NAVIGATION */
 Route::get('/admin-trainings', [AdminController::class, 'viewAlltraining'])->name('admin.view-all-training');
@@ -113,6 +115,7 @@ Route::post('/add-training', [AdminController::class, 'addTraining'])->name('add
 Route::get('/admin-edit-training/{id}', [AdminController::class, 'editTraining'])->name('admin-edit-training');
 Route::post('/multi-delete-training', [AdminController::class, 'multiDeleteTraining'])->name('multi-delete.training');
 Route::post('/delete-training', [AdminController::class, 'deleteTraining'])->name('delete.training');
+Route::post('/admin-update-training', [AdminController::class, 'updateTraining'])->name('admin.update-training');
 
 /* ADMIN-MEMBERSHIP APPLICATIONS NAVIGATION */
 Route::get('/admin-membership-applications', [AdminController::class, 'viewAllmemberapplication'])->name('admin.view-all-applications');
@@ -133,6 +136,7 @@ Route::post('/add-downloads', [AdminController::class, 'addDownloads'])->name('a
 Route::get('/admin-edit-downloads/{id}', [AdminController::class, 'editDownloads'])->name('admin.edit-downloads');
 Route::post('/multi-delete-download', [AdminController::class, 'multiDeleteDownload'])->name('multi-delete.download');
 Route::post('/delete-download', [AdminController::class, 'deleteDownload'])->name('delete.download');
+Route::post('/admin-update-downloads', [AdminController::class, 'updateDownloads'])->name('admin.update-downloads');
 
 //Auth::routes();
 

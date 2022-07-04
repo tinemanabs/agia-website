@@ -387,12 +387,69 @@ class AdminController extends Controller
         ]);
     }
 
+    public function updateGallery(Request $req)
+    {
+        $gallery = Gallery::find($req->id);
+        $gallery->title = $req->title;
+        $gallery->caption = $req->caption;
+        $gallery->date = $req->date;
+
+        if ($req->image != null) {
+            $yearFolder = Carbon::createFromFormat('Y-m-d', $req->date)->format('Y');
+
+            $path = public_path('uploads/galleries/' . $yearFolder . '/');
+            $attachment = $req->file('image');
+
+            $fileName = Str::slug($req->title) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+            $gallery->image = $fileName;
+        }
+
+        $gallery->save();
+        return redirect('admin-gallery');
+
+    }
+
     public function editNews($id)
     {
         $news = News::find($id);
         return view('main.admin-news-edit', [
             'news' => $news
         ]);
+    }
+
+    public function updateNews(Request $req)
+    {
+        $news = News::find($req->id);
+        $news->title = $req->title;
+        $news->message = $req->body;
+        $news->date = $req->date;
+
+        if ($req->image != null) {
+            $yearFolder = Carbon::createFromFormat('Y-m-d', $req->date)->format('Y');
+            $titleFolder = Str::slug($req->title, '-');
+
+            $path = public_path('uploads/news/' . $yearFolder . '/' . $titleFolder);
+            $attachment = $req->file('image');
+
+            $fileName = Str::slug($req->title) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+
+            $news->image = $fileName;
+        }
+
+        $news->save();
+        return redirect('admin-news');
     }
 
     public function editTraining($id)
@@ -403,11 +460,65 @@ class AdminController extends Controller
         ]);
     }
 
+    public function updateTraining(Request $req)
+    {
+        $training = Training::find($req->id);
+        $training->title = $req->title;
+        $training->start = $req->startDate;
+        $training->end = $req->endDate;
+        $training->venue = $req->venue;
+        $training->objective = $req->courseObj;
+        $training->message = $req->body;
+
+        if ($req->image != null) {
+            $path = public_path('uploads/training'); //change to "/" when uploaded to web host
+            $attachment = $req->file('image');
+
+            $name = Str::slug($req->title) . time() . '.' . $attachment->getClientOriginalExtension();
+
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $name);
+
+            $training->image = $name;
+        }
+
+        $training->save();
+        return redirect('admin-trainings');
+    }
+
     public function editDownloads($id)
     {
         $download = Download::find($id);
         return view('main.admin-download-edit', [
             'download' => $download
         ]);
+    }
+
+    public function updateDownloads(Request $req)
+    {
+        $download = Download::find($req->id);
+        $download->title = $req->title;
+        $download->category = $req->category;
+
+        $attachments = $req->file('files');
+
+        if ($attachments != null) {
+            $path = public_path('uploads/downloads/' . $req->category . '/' . $req->title);
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+    
+            foreach ($attachments as $attachment) {
+                $name = $attachment->getClientOriginalName();
+                $attachment->move($path, $name);
+            }
+        }
+
+        $download->save();
+        return redirect('admin-downloads');
     }
 }

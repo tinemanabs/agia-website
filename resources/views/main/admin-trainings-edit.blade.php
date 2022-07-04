@@ -6,9 +6,9 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="mb-3">Edit a Training Event</h3>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.update-training') }}" method="post" enctype="multipart/form-data">
                     @csrf
-
+                    <input type="hidden" name="id" id="id" value="{{ $training->id }}">
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Title</label>
                         <input type="text" name="title" id="title" class="form-control"

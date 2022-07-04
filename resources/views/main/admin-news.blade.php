@@ -27,9 +27,9 @@
                             <tr>
                                 <td><input type="checkbox" class="check" value="{{ $n->id }}"></td>
                                 <th>{{ $n->id }}</th>
-                                <td>{{ $n->title }}</td>
-                                <td>{{ \Carbon\Carbon::parse($n->date)->format('F d, Y') }}</td>
-                                <td>updated at</td>
+                                <td>{{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($n->created_at)->format('F d, Y H:i:s A') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($n->updated_at)->format('F d, Y H:i:s A') }}</td>
                                 <td>
                                     <button type="button" class="btn btn-circle btn-sm btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#id{{ $n->id }}">

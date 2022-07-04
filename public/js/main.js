@@ -150,6 +150,21 @@ $('#add-training-btn').on('click', function () {
   }
 });
 
+$('#edit-training-btn').on('click', function () {
+  var start = $('#startDate').val();
+  var end = $('#endDate').val();
+
+  if (Date.parse(start) - Date.parse(end) > 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Invalid date range!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
 window.fileImageValidation = function () {
   var fileInput = document.getElementById('image');
 
