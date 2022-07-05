@@ -73,7 +73,7 @@
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-9"> <strong>Membership Application</strong></div>
-                                                    <iframe src="{{ 'uploads/application/' . $user->cv }}"></iframe>
+                                                    <iframe src="{{ 'uploads/application/' . $user->cv }}" height="960"></iframe>
                                                 </div>
                                             </div>
                                         </div>
