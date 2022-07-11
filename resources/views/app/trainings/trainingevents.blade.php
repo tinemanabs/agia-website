@@ -3,9 +3,9 @@
 @section('main-title', 'Training')
 @section('breadcrumb', 'Training Events')
 @section('page-content')
-    @if (count($trainings) > 0)
+    @if (count($trainingLists) > 0)
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            @forelse ($trainings as $training)
+            @forelse ($trainingLists as $training)
                 <div class="col">
                     <a href="{{ route('training.training-events-single', $training->id) }}" style="text-decoration: none">
                         <div class="card h-100 training-event-card border-0">

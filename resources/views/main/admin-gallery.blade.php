@@ -67,6 +67,10 @@
                                                     <div class="col-9">{{ $gallery->title }}</div>
                                                 </div>
                                                 <div class="row mb-3">
+                                                    <div class="col-3"> <strong>Caption</strong></div>
+                                                    <div class="col-9">{{ $gallery->caption }}</div>
+                                                </div>
+                                                <div class="row mb-3">
                                                     <div class="col-3"> <strong>Date</strong></div>
                                                     <div class="col-9">
                                                         {{ \Carbon\Carbon::parse($gallery->date)->format('F d, Y') }}

@@ -25,12 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->trainingList = DB::table('trainings')
-            ->latest()
-            ->get();
-
-        view()->composer('app.trainingevents', function($view) {
-            $view->with(['trainings' => $this->trainingList]);
-        });
+        //
     }
 }

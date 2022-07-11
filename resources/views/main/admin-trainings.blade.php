@@ -73,17 +73,11 @@
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-3"> <strong>Date</strong></div>
-                                                    @if ($training->end != null)
-                                                        <div class="col-9">
-                                                            {{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}
-                                                            to
-                                                            {{ \Carbon\Carbon::parse($training->end)->format('F d, Y') }}
-                                                        </div>
-                                                    @else
-                                                        <div class="col-9">
-                                                            {{ \Carbon\Carbon::parse($training->start)->format('F d, Y') }}
-                                                        </div>
-                                                    @endif
+                                                    <div class="col-9">
+                                                        {{ \Carbon\Carbon::parse($training->start)->format('F d, Y h:i A') }}
+                                                        to
+                                                        {{ \Carbon\Carbon::parse($training->end)->format('F d, Y h:i A') }}
+                                                    </div>
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-3"> <strong>Venue</strong></div>

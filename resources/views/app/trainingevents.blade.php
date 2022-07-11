@@ -15,7 +15,7 @@
                 <div class=" bg-white" id="sidebar-wrapper">
                     <div class="sidebar-heading border-0">Training Events</div>
                     <div class="list-group list-group-flush">
-                        @forelse ($trainings as $training)
+                        @forelse ($trainingLists as $training)
                             <a class="list-group-item p-3"
                                 href="{{ route('training.training-events-single', $training->id) }}">{{ $training->title }}
                                 <p class="m-0 p-0">

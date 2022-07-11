@@ -164,7 +164,7 @@ class AdminController extends Controller
 
     public function deleteNews(Request $req)
     {
-        $data = News::find($ids);
+        $data = News::find($req->id);
         $yearFolder = Carbon::createFromFormat('Y-m-d', $data->date)->format('Y');
         $path = public_path('uploads/news/' . $yearFolder);
         File::deleteDirectory($path . '/' . Str::slug($data->title, '-'));
@@ -376,6 +376,20 @@ class AdminController extends Controller
     {
         $data = User::find($req->id);
         $data->delete();
+        return redirect('admin-membership-applications');
+    }
+
+    public function deleteMember(Request $req)
+    {
+        $data = User::find($req->id);
+        $data->delete();
+        return redirect('admin-users-management');
+    }
+
+    public function multiDeleteMember(Request $req)
+    {
+        User::whereIn('id', $req->get('selected'))->delete();
+
         return redirect('admin-membership-applications');
     }
 

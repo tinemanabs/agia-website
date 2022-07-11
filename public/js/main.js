@@ -139,7 +139,7 @@ $('#add-training-btn').on('click', function () {
       confirmButtonColor: '#2a2f89'
     });
     return false;
-  } else if (Date.parse(start) - Date.parse(end) > 0) {
+  } else if (Date.parse(start) - Date.parse(end) >= 0) {
     Swal.fire({
       icon: 'error',
       title: 'Error!',

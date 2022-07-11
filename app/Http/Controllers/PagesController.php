@@ -84,15 +84,19 @@ class PagesController extends Controller
             ->get();
 
         return view('app.trainings.trainingevents', [
-            'trainings' => $trainings
+            'trainingLists' => $trainings
         ]);
     }
     public function singleTrainingEvent($id)
     {
+        $trainingList = DB::table('trainings')
+            ->latest()
+            ->get();
         if (Training::where('id', '=', $id)->exists()) {
             $trainings = Training::find($id);
             return view('app.trainings.trainingevents-single', [
                 'trainings' => $trainings,
+                'trainingLists' => $trainingList,
             ]);
         } else {
             return redirect('/');
