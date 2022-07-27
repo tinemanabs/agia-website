@@ -23,7 +23,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center mt-2">
-        @forelse ($council as $c)
+        @forelse ($council->reverse() as $c)
             @if ($c->detail != 'AGIA Founder & Chairman')
                 <div class="col">
                     <div class="card h-100 officers-card border-0">

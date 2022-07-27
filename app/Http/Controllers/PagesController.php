@@ -174,32 +174,86 @@ class PagesController extends Controller
     /*LAWS AND ISSUANCES NAVIGATION */
     public function republicActpage()
     {
-        return view('app.laws.republicact');
+        $republicAct = DB::table('laws')
+            ->where('category', 'Republic Act')
+            ->latest()
+            ->get();
+        return view(
+            'app.laws.republicact',
+            [
+                'republicAct' => $republicAct
+            ]
+        );
     }
 
     public function presidentialDecreepage()
     {
-        return view('app.laws.presidentialdecree');
+        $presidentialDecree = DB::table('laws')
+            ->where('category', 'Presidential Decree')
+            ->latest()
+            ->get();
+        return view(
+            'app.laws.presidentialdecree',
+            [
+                'presidentialDecree' => $presidentialDecree
+            ]
+        );
     }
 
     public function executiveOrderpage()
     {
-        return view('app.laws.executiveorder');
+        $executiveOrder = DB::table('laws')
+            ->where('category', 'Executive Order')
+            ->latest()
+            ->get();
+        return view(
+            'app.laws.executiveorder',
+            [
+                'executiveOrder' => $executiveOrder
+            ]
+        );
     }
 
     public function administrativeOrderpage()
     {
-        return view('app.laws.administrativeorders');
+        $administrativeOrder = DB::table('laws')
+            ->where('category', 'Administrative Orders')
+            ->latest()
+            ->get();
+        return view(
+            'app.laws.administrativeorders',
+            [
+                'administrativeOrder' => $administrativeOrder
+            ]
+        );
     }
 
     public function dbmCircularspage()
     {
-        return view('app.laws.dbmcirculars');
+        $dbmCircular = DB::table('laws')
+            ->where('category', 'DBM Circulars')
+            ->latest()
+            ->get();
+        return view(
+            'app.laws.dbmcirculars',
+            [
+                'dbmCircular' => $dbmCircular
+            ]
+        );
     }
 
     public function memorandumCircularspage()
     {
-        return view('app.laws.memorandumcirculars');
+        $memorandumCircular = DB::table('laws')
+            ->where('category', 'Memorandum Circulars')
+            ->latest()
+            ->get();
+        return view(
+            'app.laws.memorandumcirculars',
+            [
+                'memorandumCircular' => $memorandumCircular
+            ]
+        );
     }
 
     /* RESOURCES NAVIGATION */

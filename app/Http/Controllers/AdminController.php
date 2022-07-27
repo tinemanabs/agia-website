@@ -13,6 +13,7 @@ use App\Models\BoardOfDirector;
 use App\Models\AdvisoryCouncil;
 use App\Models\Secretariat;
 use App\Models\Event;
+use App\Models\LawIssuance;
 
 use App\Mail\AcceptMail;
 
@@ -898,5 +899,108 @@ class AdminController extends Controller
         Event::whereIn('id', $req->get('selected'))->delete();
 
         return redirect('admin-events');
+    }
+
+    public function viewAllLaws()
+    {
+        $laws = DB::table('laws')
+            ->latest()
+            ->get();
+
+        return view('main.admin-laws', [
+            'laws' => $laws
+        ]);
+    }
+
+    public function createLaws()
+    {
+        return view('main.admin-laws-create');
+    }
+
+    public function addLaws(Request $req)
+    {
+        $data = [
+            'number' => $req->number,
+            'category' => $req->category,
+            'subject' => $req->subject,
+            'date' => $req->date,
+            'file' => $req->files
+        ];
+
+        $law = new LawIssuance();
+
+        if ($req->hasFile('files')) {
+            
+            $path = public_path('uploads/lawsandissuances/');
+            $attachment = $req->file('files');
+
+            $fileName = Str::slug($req->number) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+
+            $law->file = $fileName;
+        }
+
+        $law->number = $data['number'];
+        $law->category = $data['category'];
+        $law->subject = $data['subject'];
+        $law->date = $data['date'];
+
+        $law->save();
+        return redirect('admin-lawsandissuances');
+    }
+    
+    public function editLaws($id)
+    {
+        $law = LawIssuance::find($id);
+        return view('main.admin-laws-edit', [
+            'law' => $law
+        ]);
+    }
+
+    public function updateLaws(Request $req)
+    {
+        $law = LawIssuance::find($req->id);
+        $law->number = $req->number;
+        $law->category = $req->category;
+        $law->date = $req->date;
+        $law->subject = $req->subject;
+
+        if ($req->hasFile('files')) {
+            
+            $path = public_path('uploads/lawsandissuances/');
+            $attachment = $req->file('files');
+
+            $fileName = Str::slug($req->number) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+
+            $law->file = $fileName;
+        }
+
+        $law->save();
+        return redirect('admin-lawsandissuances');
+    }
+
+    public function deleteLaws(Request $req)
+    {
+        $data = LawIssuance::find($req->id);
+        $data->delete();
+        return redirect('admin-lawsandissuances');
+    }
+
+    public function multiDeleteLaws(Request $req)
+    {
+        LawIssuance::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-lawsandissuances');
     }
 }

@@ -277,6 +277,23 @@ $('#add-events-btn').on('click', function () {
   }
 });
 
+$('#add-laws-btn').on('click', function () {
+  var number = $('#number').val();
+  var category = $('#category').val();
+  var subject = $('#subject').val();
+  var date = $('#date').val();
+
+  if (number == '' || category == '' || subject == '' || date == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
 window.fileImageValidation = function () {
   var fileInput = document.getElementById('image');
 
@@ -345,6 +362,40 @@ window.multipleImageValidation = function () {
           return false;
       }
   })
+}
+
+window.fileValidation = function () {
+  var fileInput = document.getElementById('files');
+
+  var filePath = fileInput.value;
+
+  // Allowing file type
+  var allowedExtensions = /(\.pdf|\.doc|\.docx)$/i;
+
+  if (typeof (fileInput.files) != "undefined") {
+    var size = parseFloat(fileInput.files[0].size / (1024 * 1024)).toFixed(2);
+    if (size > 30) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Please select a file with less than 30 MB!',
+          confirmButtonColor: '#2a2f89'
+        });
+        fileInput.value = '';
+        return false;
+    } else if (!allowedExtensions.exec(filePath)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Only upload .pdf/.doc/.docx files!',
+          confirmButtonColor: '#2a2f89'
+        });
+        fileInput.value = '';
+        return false;
+    }
+  } else {
+      alert("This browser does not support HTML5.");
+  }
 }
 
 window.multipleFileValidation = function () {

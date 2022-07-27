@@ -181,6 +181,15 @@ Route::post('/admin-update-events', [AdminController::class, 'updateEvents'])->n
 Route::post('/delete-events', [AdminController::class, 'deleteEvents'])->name('delete.events');
 Route::post('/multi-delete-events', [AdminController::class, 'multiDeleteEvents'])->name('multi-delete.events');
 
+/* ADMIN LAWS AND ISSUANCES NAVIGATION */
+Route::get('/admin-lawsandissuances', [AdminController::class, 'viewAllLaws'])->name('admin.view-all-laws');
+Route::get('/admin-create-lawsandissuances', [AdminController::class, 'createLaws'])->name('admin.create-laws');
+Route::post('/add-lawsandissuances', [AdminController::class, 'addLaws'])->name('add.laws');
+Route::get('/admin-edit-lawsandissuances/{id}', [AdminController::class, 'editLaws'])->name('admin.edit-laws');
+Route::post('/admin-update-lawsandissuances', [AdminController::class, 'updateLaws'])->name('admin.update-laws');
+Route::post('/delete-lawsandissuances', [AdminController::class, 'deleteLaws'])->name('delete.laws');
+Route::post('/multi-delete-lawsandissuances', [AdminController::class, 'multiDeleteLaws'])->name('multi-delete.laws');
+
 //Auth::routes();
 
 Route::get('admin-panel', [LoginController::class, 'showLoginForm'])->name('login');
