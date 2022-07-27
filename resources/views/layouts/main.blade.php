@@ -65,6 +65,8 @@
                         href="{{ route('admin.view-all-council') }}">Advisory Council</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3"
                         href="{{ route('admin.view-all-secretariat') }}">The Secretariat</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        href="{{ route('admin.view-all-events') }}">Events</a>
                 </div>
             </div>
             <!-- Page content wrapper-->

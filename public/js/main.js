@@ -260,6 +260,23 @@ $('#edit-council-btn').on('click', function () {
   }
 });
 
+$('#add-events-btn').on('click', function () {
+  var title = $('#title').val();
+  var category = $('#category').val();
+  var venue = $('#venue').val();
+  var date = $('#date').val();
+
+  if (title == '' || category == '' || venue == '' || date == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
 window.fileImageValidation = function () {
   var fileInput = document.getElementById('image');
 

@@ -165,6 +165,14 @@ Route::post('/admin-update-thesecretariat', [AdminController::class, 'updateSecr
 Route::post('/delete-thesecretariat', [AdminController::class, 'deleteSecretariat'])->name('delete.secretariat');
 Route::post('/multi-delete-thesecretariat', [AdminController::class, 'multiDeleteSecretariat'])->name('multi-delete.secretariat');
 
+/* ADMIN EVENTS NAVIGATION */
+Route::get('/admin-events', [AdminController::class, 'viewAllEvents'])->name('admin.view-all-events');
+Route::get('/admin-create-events', [AdminController::class, 'createEvents'])->name('admin.create-events');
+Route::post('/add-events', [AdminController::class, 'addEvents'])->name('add.events');
+Route::get('/admin-edit-events/{id}', [AdminController::class, 'editEvents'])->name('admin.edit-events');
+Route::post('/admin-update-events', [AdminController::class, 'updateEvents'])->name('admin.update-events');
+Route::post('/delete-events', [AdminController::class, 'deleteEvents'])->name('delete.events');
+Route::post('/multi-delete-events', [AdminController::class, 'multiDeleteEvents'])->name('multi-delete.events');
 
 //Auth::routes();
 

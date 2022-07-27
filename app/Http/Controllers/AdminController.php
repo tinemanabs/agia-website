@@ -12,6 +12,7 @@ use App\Models\Download;
 use App\Models\BoardOfDirector;
 use App\Models\AdvisoryCouncil;
 use App\Models\Secretariat;
+use App\Models\Event;
 
 use App\Mail\AcceptMail;
 
@@ -828,5 +829,74 @@ class AdminController extends Controller
         Secretariat::whereIn('id', $req->get('selected'))->delete();
 
         return redirect('admin-thesecretariat');
+    }
+
+    public function viewAllEvents()
+    {
+        $events = DB::table('events')
+            ->latest()
+            ->get();
+
+        return view('main.admin-events', [
+            'events' => $events
+        ]);
+    }
+
+    public function createEvents()
+    {
+        return view('main.admin-events-create');
+    }
+
+    public function addEvents(Request $req)
+    {
+        $data = [
+            'title' => $req->title,
+            'category' => $req->category,
+            'venue' => $req->venue,
+            'date' => $req->date,
+        ];
+
+        $events = new Event();
+        $events->title = $data['title'];
+        $events->category = $data['category'];
+        $events->venue = $data['venue'];
+        $events->date = $data['date'];
+
+        $events->save();
+        return redirect('admin-events');
+    }
+
+    public function editEvents($id)
+    {
+        $event = Event::find($id);
+        return view('main.admin-events-edit', [
+            'event' => $event
+        ]);
+    }
+
+    public function updateEvents(Request $req)
+    {
+        $event = Event::find($req->id);
+        $event->title = $req->title;
+        $event->category = $req->category;
+        $event->venue = $req->venue;
+        $event->date = $req->date;
+
+        $event->save();
+        return redirect('admin-events');
+    }
+
+    public function deleteEvents(Request $req)
+    {
+        $data = Event::find($req->id);
+        $data->delete();
+        return redirect('admin-events');
+    }
+
+    public function multiDeleteEvents(Request $req)
+    {
+        Event::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-events');
     }
 }
