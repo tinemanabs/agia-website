@@ -781,10 +781,17 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     font-size: 0.8rem;
 }
 
+.officers-card .card-img-top {
+    object-fit: contain;
+    width: 100%;
+    height: 20vh;
+    background-color: #fff;
+}
+
 .officers-card .card-body h5 {
     color: #2a2f89;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.75rem;
     margin: 0;
     padding: 0;
 }
@@ -792,7 +799,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 .officers-card .card-body .job-position {
     color: #0056AB;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .officers-card .card-body .personal-details {
