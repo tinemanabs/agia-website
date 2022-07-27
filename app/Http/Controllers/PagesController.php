@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Training;
@@ -119,7 +120,55 @@ class PagesController extends Controller
         } else {
             return redirect('/');
         }
-        
+    }
+
+    /* EVENTS NAVIGATION */
+
+    public function caeForumPage()
+    {
+        $caeEvents = DB::table('events')
+            ->where('category', 'CAE Forum')
+            ->latest()
+            ->get();
+        return view(
+            'app.events.caeforum',
+            [
+                'cae' => $caeEvents
+            ]
+        );
+    }
+
+    public function csrPage()
+    {
+        $csrEvents = DB::table('events')
+            ->where('category', 'CSR')
+            ->latest()
+            ->get();
+        return view('app.events.csr', [
+            'csr' => $csrEvents
+        ]);
+    }
+
+    public function conventionPage()
+    {
+        $conventionEvents = DB::table('events')
+            ->where('category', 'Convention')
+            ->latest()
+            ->get();
+        return view('app.events.convention', [
+            'convention' => $conventionEvents
+        ]);
+    }
+
+    public function strategicPlanningPage()
+    {
+        $stpEvents = DB::table('events')
+            ->where('category', 'Strategic Planning')
+            ->latest()
+            ->get();
+        return view('app.events.strategicplanning', [
+            'stp' => $stpEvents
+        ]);
     }
 
     /*LAWS AND ISSUANCES NAVIGATION */
@@ -185,7 +234,7 @@ class PagesController extends Controller
             ]);
         } else {
             return redirect('/');
-        }        
+        }
     }
 
     public function galleryPage($year)

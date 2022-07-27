@@ -61,6 +61,13 @@ Route::get('/trainings-seminars/training-cpd-units', [PagesController::class, 't
 Route::get('/trainings-seminars/in-house-trainings', [PagesController::class, 'inHousetraining'])->name('training.in-house-trainings');
 Route::get('/trainings-seminars/mobile-training', [PagesController::class, 'mobileTraining'])->name('training.mobile-training');
 
+/* EVENTS */
+
+Route::get('/events/caeforum', [PagesController::class, 'caeForumPage'])->name('events.caeforum');
+Route::get('/events/csr', [PagesController::class, 'csrPage'])->name('events.csr');
+Route::get('/events/convention', [PagesController::class, 'conventionPage'])->name('events.convention');
+Route::get('/events/strategicplanning', [PagesController::class, 'strategicPlanningPage'])->name('events.strategicplanning');
+
 /* LAWS & ISSUANCES */
 Route::get('/laws-issuances/republic-act', [PagesController::class, 'republicActpage'])->name('laws.republic-act');
 Route::get('/laws-issuances/presidential-decree', [PagesController::class, 'presidentialDecreepage'])->name('laws.presidential-decree');

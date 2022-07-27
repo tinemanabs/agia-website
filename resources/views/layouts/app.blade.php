@@ -16,6 +16,9 @@
     <!-- Full Calendar CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
 
+    <!-- Data Tables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -202,10 +205,13 @@
                                     href="#submenu-events">Events <span class="caret"><i
                                             class="fa-solid fa-angle-down ms-2 fa-sm"></i></span></a>
                                 <ul class="sub-menu-list list-group collapse" id="submenu-events">
-                                    <li class="list-group-item"><a href="">CAE Forum</a></li>
-                                    <li class="list-group-item"><a href="">CSR</a></li>
-                                    <li class="list-group-item"><a href="">Convention</a></li>
-                                    <li class="list-group-item"><a href="">Strategic Planning</a></li>
+                                    <li class="list-group-item"><a href="{{ route('events.caeforum') }}">CAE
+                                            Forum</a></li>
+                                    <li class="list-group-item"><a href="{{ route('events.csr') }}">CSR</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('events.convention') }}">Convention</a></li>
+                                    <li class="list-group-item"><a
+                                            href="{{ route('events.strategicplanning') }}">Strategic Planning</a></li>
 
                                 </ul>
                             </li>
@@ -347,11 +353,20 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+    <!-- Data Tables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
     <!-- Sweet Alert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"></script>
 
     <!-- Full Calendar JS -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#eventsTable').DataTable();
+        });
+    </script>
 </body>
 
 </html>
