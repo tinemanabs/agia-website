@@ -9,6 +9,9 @@ use App\Models\News;
 use App\Models\User;
 use App\Models\Training;
 use App\Models\Download;
+use App\Models\BoardOfDirector;
+use App\Models\AdvisoryCouncil;
+use App\Models\Secretariat;
 
 use App\Mail\AcceptMail;
 
@@ -534,5 +537,296 @@ class AdminController extends Controller
 
         $download->save();
         return redirect('admin-downloads');
+    }
+
+    public function viewAllDirectors()
+    {
+        $directors = DB::table('boardofdirectors')
+            ->latest()
+            ->get();
+
+        return view('main.admin-director', [
+            'directors' => $directors
+        ]);
+    }
+
+    public function createDirectors()
+    {
+        return view('main.admin-director-create');
+    }
+
+    public function addDirectors(Request $req)
+    {
+        $data = [
+            'name' => $req->name,
+            'category' => $req->category,
+            'position' => $req->position,
+            'detail1' => $req->details1,
+            'detail2' => $req->details2,
+            'detail3' => $req->details3,
+            'image' => $req->image
+        ];
+
+        $path = public_path('uploads/boardofdirectors/');
+        $attachment = $req->file('image');
+
+        $fileName = Str::slug($data['name']) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+        // create folder
+        if (!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        $attachment->move($path, $fileName);
+
+        $directors = new BoardOfDirector();
+        $directors->name = $data['name'];
+        $directors->category = $data['category'];
+        $directors->position = $data['position'];
+        $directors->detail1 = $data['detail1'];
+        $directors->detail2 = $data['detail2'];
+        $directors->detail3 = $data['detail3'];
+        $directors->image = $fileName;
+
+        $directors->save();
+        return redirect('admin-boardofdirectors');
+    }
+
+    public function editDirectors($id)
+    {
+        $director = BoardOfDirector::find($id);
+        return view('main.admin-director-edit', [
+            'director' => $director
+        ]);
+    }
+
+    public function updateDirectors(Request $req)
+    {
+        $directors = BoardofDirector::find($req->id);
+        $directors->name = $req->name;
+        $directors->category = $req->category;
+        $directors->position = $req->position;
+        $directors->detail1 = $req->details1;
+        $directors->detail2 = $req->details2;
+        $directors->detail3 = $req->details3;
+
+        if ($req->image != null) {
+            
+            $path = public_path('uploads/boardofdirectors/');
+            $attachment = $req->file('image');
+
+            $fileName = Str::slug($req->name) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+
+            $directors->image = $fileName;
+        }
+
+        $directors->save();
+        return redirect('admin-boardofdirectors');
+    }
+
+    public function deleteDirector(Request $req)
+    {
+        $data = BoardOfDirector::find($req->id);
+        $data->delete();
+        return redirect('admin-boardofdirectors');
+    }
+
+    public function multiDeleteDirectors(Request $req)
+    {
+        BoardOfDirector::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-boardofdirectors');
+    }
+
+    public function viewAllCouncil()
+    {
+        $council = DB::table('advisorycouncil')
+            ->latest()
+            ->get();
+
+        return view('main.admin-council', [
+            'council' => $council
+        ]);
+    }
+
+    public function createCouncil()
+    {
+        return view('main.admin-council-create');
+    }
+
+    public function addCouncil(Request $req)
+    {
+        $data = [
+            'name' => $req->name,
+            'detail' => $req->detail,
+            'year' => $req->year,
+            'image' => $req->image
+        ];
+
+        $path = public_path('uploads/advisorycouncil/');
+        $attachment = $req->file('image');
+
+        $fileName = Str::slug($data['name']) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+        // create folder
+        if (!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        $attachment->move($path, $fileName);
+
+        $council = new AdvisoryCouncil();
+        $council->name = $data['name'];
+        $council->detail = $data['detail'];
+        $council->year = $data['year'];
+        $council->image = $fileName;
+
+        $council->save();
+        return redirect('admin-advisorycouncil');
+    }
+
+    public function editCouncil($id)
+    {
+        $council = AdvisoryCouncil::find($id);
+        return view('main.admin-council-edit', [
+            'council' => $council
+        ]);
+    }
+
+    public function updateCouncil(Request $req)
+    {
+        $council = AdvisoryCouncil::find($req->id);
+        $council->name = $req->name;
+        $council->detail = $req->detail;
+        $council->year = $req->year;
+
+        if ($req->image != null) {
+            
+            $path = public_path('uploads/advisorycouncil/');
+            $attachment = $req->file('image');
+
+            $fileName = Str::slug($req->name) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+
+            $council->image = $fileName;
+        }
+
+        $council->save();
+        return redirect('admin-advisorycouncil');
+    }
+
+    public function deleteCouncil(Request $req)
+    {
+        $data = AdvisoryCouncil::find($req->id);
+        $data->delete();
+        return redirect('admin-advisorycouncil');
+    }
+
+    public function multiDeleteCouncil(Request $req)
+    {
+        AdvisoryCouncil::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-advisorycouncil');
+    }
+
+    public function viewAllSecretariat()
+    {
+        $secretariat = DB::table('secretariat')
+            ->latest()
+            ->get();
+
+        return view('main.admin-secretariat', [
+            'secretariat' => $secretariat
+        ]);
+    }
+
+    public function createSecretariat()
+    {
+        return view('main.admin-secretariat-create');
+    }
+
+    public function addSecretariat(Request $req)
+    {
+        $data = [
+            'name' => $req->name,
+            'position' => $req->position,
+            'image' => $req->image
+        ];
+
+        $path = public_path('uploads/thesecretariat/');
+        $attachment = $req->file('image');
+
+        $fileName = Str::slug($data['name']) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+        // create folder
+        if (!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        $attachment->move($path, $fileName);
+
+        $secretariat = new Secretariat();
+        $secretariat->name = $data['name'];
+        $secretariat->position = $data['position'];
+        $secretariat->image = $fileName;
+
+        $secretariat->save();
+        return redirect('admin-thesecretariat');
+    }
+
+    public function editSecretariat($id)
+    {
+        $secretariat = Secretariat::find($id);
+        return view('main.admin-secretariat-edit', [
+            'secretariat' => $secretariat
+        ]);
+    }
+
+    public function updateSecretariat(Request $req)
+    {
+        $secretariat = Secretariat::find($req->id);
+        $secretariat->name = $req->name;
+        $secretariat->position = $req->position;
+
+        if ($req->image != null) {
+            
+            $path = public_path('uploads/thesecretariat/');
+            $attachment = $req->file('image');
+
+            $fileName = Str::slug($req->name) . '-' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // create folder
+            if (!File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+            $attachment->move($path, $fileName);
+
+            $secretariat->image = $fileName;
+        }
+
+        $secretariat->save();
+        return redirect('admin-thesecretariat');
+    }
+
+    public function deleteSecretariat(Request $req)
+    {
+        $data = Secretariat::find($req->id);
+        $data->delete();
+        return redirect('admin-thesecretariat');
+    }
+
+    public function multiDeleteSecretariat(Request $req)
+    {
+        Secretariat::whereIn('id', $req->get('selected'))->delete();
+
+        return redirect('admin-thesecretariat');
     }
 }

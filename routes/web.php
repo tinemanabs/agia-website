@@ -138,6 +138,34 @@ Route::post('/multi-delete-download', [AdminController::class, 'multiDeleteDownl
 Route::post('/delete-download', [AdminController::class, 'deleteDownload'])->name('delete.download');
 Route::post('/admin-update-downloads', [AdminController::class, 'updateDownloads'])->name('admin.update-downloads');
 
+/* ADMIN BOARD OF DIRECTORS NAVIGATION */
+Route::get('/admin-boardofdirectors', [AdminController::class, 'viewAllDirectors'])->name('admin.view-all-directors');
+Route::get('/admin-create-boardofdirectors', [AdminController::class, 'createDirectors'])->name('admin.create-directors');
+Route::post('/add-boardofdirectors', [AdminController::class, 'addDirectors'])->name('add.directors');
+Route::get('/admin-edit-boardofdirectors/{id}', [AdminController::class, 'editDirectors'])->name('admin.edit-directors');
+Route::post('/admin-update-boardofdirectors', [AdminController::class, 'updateDirectors'])->name('admin.update-directors');
+Route::post('/delete-boardofdirector', [AdminController::class, 'deleteDirector'])->name('delete.director');
+Route::post('/multi-delete-boardofdirectors', [AdminController::class, 'multiDeleteDirectors'])->name('multi-delete.directors');
+
+/* ADMIN ADVISORY COUNCIL NAVIGATION */
+Route::get('/admin-advisorycouncil', [AdminController::class, 'viewAllCouncil'])->name('admin.view-all-council');
+Route::get('/admin-create-advisorycouncil', [AdminController::class, 'createCouncil'])->name('admin.create-council');
+Route::post('/add-advisorycouncil', [AdminController::class, 'addCouncil'])->name('add.council');
+Route::get('/admin-edit-advisorycouncil/{id}', [AdminController::class, 'editCouncil'])->name('admin.edit-council');
+Route::post('/admin-update-advisorycouncil', [AdminController::class, 'updateCouncil'])->name('admin.update-council');
+Route::post('/delete-advisorycouncil', [AdminController::class, 'deleteCouncil'])->name('delete.council');
+Route::post('/multi-delete-advisorycouncil', [AdminController::class, 'multiDeleteCouncil'])->name('multi-delete.council');
+
+/* ADMIN THE SECRETARIAT NAVIGATION */
+Route::get('/admin-thesecretariat', [AdminController::class, 'viewAllSecretariat'])->name('admin.view-all-secretariat');
+Route::get('/admin-create-thesecretariat', [AdminController::class, 'createSecretariat'])->name('admin.create-secretariat');
+Route::post('/add-thesecretariat', [AdminController::class, 'addSecretariat'])->name('add.secretariat');
+Route::get('/admin-edit-thesecretariat/{id}', [AdminController::class, 'editSecretariat'])->name('admin.edit-secretariat');
+Route::post('/admin-update-thesecretariat', [AdminController::class, 'updateSecretariat'])->name('admin.update-secretariat');
+Route::post('/delete-thesecretariat', [AdminController::class, 'deleteSecretariat'])->name('delete.secretariat');
+Route::post('/multi-delete-thesecretariat', [AdminController::class, 'multiDeleteSecretariat'])->name('multi-delete.secretariat');
+
+
 //Auth::routes();
 
 Route::get('admin-panel', [LoginController::class, 'showLoginForm'])->name('login');

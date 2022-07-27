@@ -165,6 +165,101 @@ $('#edit-training-btn').on('click', function () {
   }
 });
 
+$('#add-secretariat-btn').on('click', function () {
+  var name = $('#name').val();
+  var position = $('#position').val();
+  var image = $('#image').val();
+
+  if (name == '' || position == '' || image == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+$('#edit-secretariat-btn').on('click', function () {
+  var name = $('#name').val();
+  var position = $('#position').val();
+
+  if (name == '' || position == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+$('#add-directors-btn').on('click', function () {
+  var name = $('#name').val();
+  var category = $('#category').val();
+  var position = $('#position').val();
+  var image = $('#image').val();
+
+  if (name == '' || position == '' || category == '' || image == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+$('#edit-directors-btn').on('click', function () {
+  var name = $('#name').val();
+  var category = $('#category').val();
+  var position = $('#position').val();
+
+  if (name == '' || position == '' || category == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+$('#add-council-btn').on('click', function () {
+  var name = $('#name').val();
+  var detail = $('#detail').val();
+  var image = $('#image').val();
+
+  if (name == '' || detail == '' || image == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
+$('#edit-council-btn').on('click', function () {
+  var name = $('#name').val();
+  var detail = $('#detail').val();
+
+  if (name == '' || detail == '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: 'Please fill up the required fields!',
+      confirmButtonColor: '#2a2f89'
+    });
+    return false;
+  }
+});
+
 window.fileImageValidation = function () {
   var fileInput = document.getElementById('image');
 

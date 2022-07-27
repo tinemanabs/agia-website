@@ -26,15 +26,33 @@ class PagesController extends Controller
     }
     public function boardOfdirectorspage()
     {
-        return view('app.aboutus.boardofdirectors');
+        $directors = DB::table('boardofdirectors')
+            ->latest()
+            ->get();
+
+        return view('app.aboutus.boardofdirectors', [
+            'directors' => $directors
+        ]);
     }
     public function advisoryCouncilpage()
     {
-        return view('app.aboutus.advisorycouncil');
+        $council = DB::table('advisorycouncil')
+            ->latest()
+            ->get();
+
+        return view('app.aboutus.advisorycouncil', [
+            'council' => $council
+        ]);
     }
     public function secretariatpage()
     {
-        return view('app.aboutus.thesecretariat');
+        $secretariat = DB::table('secretariat')
+            ->latest()
+            ->get();
+
+        return view('app.aboutus.thesecretariat', [
+            'secretariat' => $secretariat
+        ]);
     }
 
     /* MEMBERSHIP NAVIGATION */
