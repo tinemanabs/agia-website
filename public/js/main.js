@@ -110,8 +110,9 @@ $('#add-news-btn').on('click', function () {
   var title = $('#title').val();
   var body = $('#body').val();
   var date = $('#date').val();
+  var image = $('#image').val();
 
-  if (title == '' || body == '' || date == '') {
+  if (title == '' || body == '' || date == '' || image == '') {
     Swal.fire({
       icon: 'error',
       title: 'Error!',
